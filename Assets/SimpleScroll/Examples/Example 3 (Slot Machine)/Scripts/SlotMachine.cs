@@ -9,15 +9,37 @@ namespace DanielLochner.Assets.SimpleScrollSnap
     {
         #region Fields
         [SerializeField] private SimpleScrollSnap[] slots;
+        private bool startSpine;
         #endregion
 
         #region Methods
         public void Spin()
         {
-            foreach (SimpleScrollSnap slot in slots)
+
+            startSpine = true;
+            Invoke("StopSpine", 2);
+           /* foreach (SimpleScrollSnap slot in slots)
             {
-                slot.Velocity += Random.Range(2500, 5000) * Vector2.up;
+                slot.Velocity += Random.Range(25000, 50000) * Vector2.left;
+            }*/
+        }
+
+        void StopSpine()
+        {
+            startSpine = false;
+        }
+
+
+        private void Update()
+        {
+            if (startSpine)
+            {
+                foreach (SimpleScrollSnap slot in slots)
+                {
+                    slot.Velocity += Random.Range(250, 500) * Vector2.left;
+                }
             }
+           
         }
         #endregion
     }

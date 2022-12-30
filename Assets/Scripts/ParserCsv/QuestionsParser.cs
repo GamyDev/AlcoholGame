@@ -9,9 +9,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
 public class QuestionsParser : MonoBehaviour
 {
     [SerializeField] private CSVQuestionData[] questionData;
+
 
     public CSVQuestionData[] QuestionData => questionData;
 

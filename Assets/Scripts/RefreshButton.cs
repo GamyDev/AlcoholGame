@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RefreshButton : MonoBehaviour
 {
     [SerializeField] private QuestionsParser parser;
-    
+    [SerializeField] private TextMeshProUGUI testText;
+
+
     public void UpdateQuestions()
     {
         GetComponent<Button>().interactable = false;
@@ -37,5 +40,8 @@ public class RefreshButton : MonoBehaviour
         Debug.Log($"{deck} downloaded succesfully! {QuestionsParser.ReadCsv(deck).Count} questions loaded!");
 
         GetComponent<Button>().interactable = true;
-    }
+
+        testText.text = QuestionsParser.ReadCsv("Deck-1").Count.ToString();
+
+}
 }

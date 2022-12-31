@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spinner;
     [SerializeField] private GameObject centerCard;
     [SerializeField] private OpenCard openCard;
+    [SerializeField] private VFX vfx;
 
     public static Player currentPlayer;
     public static Question currentQuestion;
@@ -35,7 +36,8 @@ public class GameManager : MonoBehaviour
     IEnumerator StartSpin()
     {
         buttonSpin.interactable = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
+        vfx.PlayVFX();
         buttonSpin.interactable = true;
 
         buttonSpin.gameObject.SetActive(false);

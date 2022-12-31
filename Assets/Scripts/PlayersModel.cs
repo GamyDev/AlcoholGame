@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayersModel : MonoBehaviour
 {
-    public List<Player> _playerDatas;
+    public List<Player> playerDatas;
+    public List<Sprite> avatars;
 
     public static Action<List<Player>> OnPlayersAdd;
     public static Action<List<Player>> OnPlayersRemove;
@@ -15,7 +16,7 @@ public class PlayersModel : MonoBehaviour
     private void Awake()
     {
         playersModel = this;
-        _playerDatas = new List<Player>();
+        playerDatas = new List<Player>();
     }
 
     public void AddNewPlayer(Player player)
@@ -23,23 +24,25 @@ public class PlayersModel : MonoBehaviour
         if (player == null)
             throw new System.ArgumentNullException();
 
-        _playerDatas.Add(player);
+        player.avatar = UnityEngine.Random.Range(0, avatars.Count);
+        playerDatas.Add(player);
 
-        OnPlayersAdd?.Invoke(_playerDatas); 
+        OnPlayersAdd?.Invoke(playerDatas); 
     }
 
     public Player GetLastUser()
     {
-        if(_playerDatas.Count > 0)
-            return _playerDatas[_playerDatas.Count - 1];
+        if(playerDatas.Count > 0)
+            return playerDatas[playerDatas.Count - 1];
 
         return null;
     }
 
     public void RemoveUser(int index)
     {
-        _playerDatas.RemoveAt(_playerDatas.Count - 1 - index);
-        OnPlayersRemove?.Invoke(_playerDatas);
+        //playerDatas.RemoveAt(index);
+        playerDatas.RemoveAt(playerDatas.Count - 1 - index);
+        OnPlayersRemove?.Invoke(playerDatas);
     }
 }
 
@@ -48,4 +51,5 @@ public class PlayersModel : MonoBehaviour
 public class Player
 {
     public string name;
+    public int avatar;
 }

@@ -33,6 +33,24 @@ public class QuestionsParserEditor : Editor
         }
 
         File.WriteAllText(Application.persistentDataPath + "/Data/" + deck + ".csv", data);
+        
+        DeckSettings deckSettings = Resources.Load<DeckSettings>("Decks/" + deck);
+        deckSettings.questions.Clear();
+        var questionsCsv = QuestionsParser.ReadCsv(deck);
+        foreach (var item in questionsCsv)
+        {
+            deckSettings.questions.Add(new Question()
+            {
+                name = item.title,
+                text = item.text
+            });
+        }
+
+        EditorUtility.SetDirty(deckSettings);
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
         Debug.Log($"{deck} downloaded succesfully! {QuestionsParser.ReadCsv(deck).Count} questions loaded!");
     }
 }

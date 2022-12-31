@@ -41,7 +41,7 @@ public class RefreshButton : MonoBehaviour
 
         GetComponent<Button>().interactable = true;
 
-        testText.text = QuestionsParser.ReadCsv("Deck-1").Count.ToString();
+        testText.text = $"Loaded {QuestionsParser.ReadCsv("Deck-1").Count.ToString()} questions!";
 
 }
 }

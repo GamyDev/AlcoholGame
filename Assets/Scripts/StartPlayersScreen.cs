@@ -37,6 +37,7 @@ public class StartPlayersScreen : MonoBehaviour
         player.transform.SetAsFirstSibling();
         player.transform.localScale = Vector3.one;
         player.transform.GetChild(0).GetComponent<TMP_Text>().text = PlayersModel.playersModel.GetLastUser().name;
+        player.GetComponent<Image>().sprite = PlayersModel.playersModel.avatars[PlayersModel.playersModel.GetLastUser().avatar];
     }
      
     private void OnDestroy()

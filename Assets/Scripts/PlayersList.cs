@@ -18,7 +18,7 @@ public class PlayersList : MonoBehaviour
     public void AddPlayers()
     {
         _countPlayers++;
-        ChangePosition();
+        //ChangePosition();
     }
 
     private void Start()

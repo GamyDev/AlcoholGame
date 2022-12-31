@@ -32,6 +32,11 @@ public class QuestionsParserEditor : Editor
             return;
         }
 
+        if(!Directory.Exists(Application.persistentDataPath + "/Data"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Data");
+        }
+
         File.WriteAllText(Application.persistentDataPath + "/Data/" + deck + ".csv", data);
         
         DeckSettings deckSettings = Resources.Load<DeckSettings>("Decks/" + deck);

@@ -46,21 +46,20 @@ public class QuestionsParser : MonoBehaviour
     {
         if(!File.Exists(Application.persistentDataPath + "/Data/" + deck + ".csv"))
         {
-            throw new FileNotFoundException();
+            return new List<CSVQuestion>();
         }
 
         List<CSVQuestion> questions = new List<CSVQuestion>();
 
         var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
-            HasHeaderRecord = false,
+            HasHeaderRecord = false
         };
 
         using (var reader = new StreamReader(Application.persistentDataPath + "/Data/" + deck + ".csv"))
         using (var csv = new CsvReader(reader, config))
         {
             csv.Read();
-
             while (csv.Read())
             {
                 var record = csv.GetRecord<CSVQuestion>();

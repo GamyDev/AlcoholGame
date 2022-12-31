@@ -10,7 +10,7 @@ public class VFX : MonoBehaviour
     {
         int rnd = Random.Range(0, 23);
         _vfx[rnd].gameObject.SetActive(true);
-        Invoke("DeletVFX", 1.5f);
+        Invoke("DeletVFX", 2f);
     }
 
 

@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
     {
         buttonSpin.interactable = false;
         yield return new WaitForSeconds(5f);
+       
         vfx.PlayVFX();
+        yield return new WaitForSeconds(2f);
         buttonSpin.interactable = true;
 
         buttonSpin.gameObject.SetActive(false);

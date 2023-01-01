@@ -5,21 +5,31 @@ using UnityEngine;
 public class VFX : MonoBehaviour
 {
    [SerializeField] private GameObject[] _vfx;
+   [SerializeField] private GameObject _backCard;
+
+
 
     public void PlayVFX()
     {
-        int rnd = Random.Range(0, 23);
-        _vfx[rnd].gameObject.SetActive(true);
+          int rnd = Random.Range(0, 23);
+         _vfx[rnd].gameObject.SetActive(true);
+      //  _vfx.SetActive(true);
+        _backCard.SetActive(false);
+
         Invoke("DeletVFX", 2f);
     }
 
 
     void DeletVFX()
     {
-        for (int i = 0; i < 23; i++)
-        {
-            _vfx[i].gameObject.SetActive(false);
-        }
+       // _vfx.SetActive(false);
+        _backCard.SetActive(true);
+         for (int i = 0; i < 23; i++)
+         {
+             _vfx[i].gameObject.SetActive(false);
+         }
+
+
     }
 }
  

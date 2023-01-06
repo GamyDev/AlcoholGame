@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class OpenCard : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class OpenCard : MonoBehaviour
 
     private void OnEnable()
     {
+        transform.DOShakeScale(1, 1).SetEase(Ease.OutBounce);
         currentSeconds = seconds;
         timer.text = currentSeconds.ToString();
         buttonTimer.SetActive(true);

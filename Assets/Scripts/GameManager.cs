@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject centerCard;
     [SerializeField] private OpenCard openCard;
     [SerializeField] private VFX vfx;
+    [SerializeField] private GameObject rightCard;
+
+    private Vector3 centerCardPos;
 
     public static Player currentPlayer;
     public static Question currentQuestion;
@@ -23,6 +27,14 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        centerCardPos = centerCard.transform.localPosition;
+
+        centerCard.transform.localPosition = rightCard.transform.localPosition;
+        centerCard.transform.localScale = Vector3.zero;
+
+        centerCard.transform.DOLocalMove(centerCardPos, 2).SetEase(Ease.OutBounce);
+        centerCard.transform.DOScale(Vector3.one, 3).SetEase(Ease.OutBounce);
+
         questions = new List<Question>();
         questions.Clear();
         questions = GetQustions();

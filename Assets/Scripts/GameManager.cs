@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using DanielLochner.Assets.SimpleScrollSnap;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private VFX vfx;
     [SerializeField] private GameObject rightCard;
 
+    private SimpleScrollSnap simpleScrollSnap;
+    private StartPlayersScreen playersScreen;
+    
     private Vector3 centerCardPos;
 
     public static Player currentPlayer;
@@ -25,19 +30,50 @@ public class GameManager : MonoBehaviour
 
     private List<Question> questions;
 
+      
     private void OnEnable()
     {
+
+        simpleScrollSnap = FindObjectOfType<SimpleScrollSnap>();
+        playersScreen = FindObjectOfType<StartPlayersScreen>();
+
+        var scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
+
         centerCardPos = centerCard.transform.localPosition;
 
         centerCard.transform.localPosition = rightCard.transform.localPosition;
         centerCard.transform.localScale = Vector3.zero;
 
-        centerCard.transform.DOLocalMove(centerCardPos, 2).SetEase(Ease.OutBounce);
-        centerCard.transform.DOScale(Vector3.one, 3).SetEase(Ease.OutBounce);
+        centerCard.transform.DOLocalMove(centerCardPos, 2).SetEase(Ease.InExpo);
+        centerCard.transform.DOScale(Vector3.one, 3).SetEase(Ease.OutExpo);
 
         questions = new List<Question>();
         questions.Clear();
         questions = GetQustions();
+
+
+        //Убирает spacing в конце
+        simpleScrollSnap.InfiniteScrollingSpacing = 0;
+         
+
+        for (int i = 0; i < playersModel.playerDatas.Count; i++)
+        {
+            simpleScrollSnap.AddToBack(playersScreen.PlayerPrefab);
+        }
+
+        for (int i = 0; i < playersModel.playerDatas.Count; i++)
+        {
+            scrollRect.content.GetChild(i).GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[i].avatar];
+            scrollRect.content.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[i].name;
+        }
+
+        simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+    }
+
+    private void SelectedPlayer(int index, int index2)
+    {
+        Debug.Log(index);
+        currentPlayer = playersModel.playerDatas[index];
     }
 
     public void DisableButton()

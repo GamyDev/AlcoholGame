@@ -12,6 +12,8 @@ public class StartPlayersScreen : MonoBehaviour
     [SerializeField] private GameObject _buttonGrid;
     [SerializeField] private GameObject _playerPrefab;
 
+    public GameObject PlayerPrefab { get => _playerPrefab; }
+
     private void Start()
     {
         PlayersModel.OnPlayersAdd += OnPlayersAdd;

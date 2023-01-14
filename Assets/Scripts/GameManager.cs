@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
     public static Question currentQuestion;
 
     private List<Question> questions;
-
+    private List<Player> tempPlayers;
       
     private void OnEnable()
     {
-
+        tempPlayers = new List<Player>();
         simpleScrollSnap = FindObjectOfType<SimpleScrollSnap>();
         playersScreen = FindObjectOfType<StartPlayersScreen>();
 
@@ -54,26 +54,36 @@ public class GameManager : MonoBehaviour
 
         //Убирает spacing в конце
         simpleScrollSnap.InfiniteScrollingSpacing = 0;
-         
 
-        for (int i = 0; i < playersModel.playerDatas.Count; i++)
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < playersModel.playerDatas.Count; j++)
+            {
+                tempPlayers.Add(playersModel.playerDatas[j]);
+            }
+        }
+        
+          
+        for (int i = 0; i < tempPlayers.Count; i++)
         {
             simpleScrollSnap.AddToBack(playersScreen.PlayerPrefab);
         }
 
-        for (int i = 0; i < playersModel.playerDatas.Count; i++)
+        for (int i = 0; i < tempPlayers.Count; i++)
         {
-            scrollRect.content.GetChild(i).GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[i].avatar];
-            scrollRect.content.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[i].name;
+            scrollRect.content.GetChild(i).GetComponent<Image>().sprite = playersModel.avatars[tempPlayers[i].avatar];
+            scrollRect.content.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
         }
 
         simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
     }
 
+     
+
     private void SelectedPlayer(int index, int index2)
     {
         Debug.Log(index);
-        currentPlayer = playersModel.playerDatas[index];
+        currentPlayer = tempPlayers[index];
     }
 
     public void DisableButton()

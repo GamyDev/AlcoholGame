@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private OpenCard openCard;
     [SerializeField] private VFX vfx;
     [SerializeField] private GameObject rightCard;
+    [SerializeField] private GameObject playerRoulette;
 
     private SimpleScrollSnap simpleScrollSnap;
     private StartPlayersScreen playersScreen;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         questions = GetQustions();
 
 
-        //Убирает spacing в конце
+        //??????? spacing ? ?????
         simpleScrollSnap.InfiniteScrollingSpacing = 0;
 
         for (int i = 0; i < 5; i++)
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
           
         for (int i = 0; i < tempPlayers.Count; i++)
         {
-            simpleScrollSnap.AddToBack(playersScreen.PlayerPrefab);
+            simpleScrollSnap.AddToBack(playerRoulette);
         }
 
         for (int i = 0; i < tempPlayers.Count; i++)

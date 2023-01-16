@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Mikado-Black SDF
   m_EditorClassIdentifier: 
-  hashCode: 32839684
+  hashCode: 1694030206
   material: {fileID: 8152056981527821285}
-  materialHashCode: -1832045532
+  materialHashCode: 1843606558
   m_Version: 1.1.0
   m_SourceFontFileGUID: e21bc1d513f494cd68a9daf77a36efe8
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e21bc1d513f494cd68a9daf77a36efe8, type: 3}
@@ -2589,7 +2589,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.2
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9

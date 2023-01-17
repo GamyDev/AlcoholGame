@@ -10,7 +10,8 @@ public class TextMeshOutline : MonoBehaviour
 
     void Start()
     {
-        textMeshPro.outlineWidth = 0.2f;
+        textMeshPro = GetComponent<TextMeshProUGUI>();
+        textMeshPro.outlineWidth = 0.6f;
         textMeshPro.outlineColor = color;
     }
 }

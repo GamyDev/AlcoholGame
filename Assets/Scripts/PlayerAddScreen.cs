@@ -8,11 +8,20 @@ public class PlayerAddScreen : MonoBehaviour
 {
     [SerializeField] private PlayersModel _playersModel;
     [SerializeField] private TMP_InputField _name;
+    [SerializeField] private GameObject checkOn;
+    [SerializeField] private GameObject checkOff;
     [SerializeField] private GameObject _inputObject;
     [SerializeField] private GameObject _welcomObject;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private WelcomeScreen _welcomeScreen;
+    [SerializeField] private PlayersList _playersList;
 
+
+    public void CheckInputField(string value)
+    {
+        checkOn.SetActive(!string.IsNullOrEmpty(value));
+        checkOff.SetActive(string.IsNullOrEmpty(value));
+    }
 
     public void AddUser()
     {
@@ -37,11 +46,14 @@ public class PlayerAddScreen : MonoBehaviour
     {
        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-             _inputObject.SetActive(false);
-            _welcomObject.SetActive(true);
-            AddUser();
-            _welcomeScreen.SetUser();
-            _audioSource.Play();
+            if(!string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text)) { 
+                 _inputObject.SetActive(false);
+                _welcomObject.SetActive(true);
+                AddUser();
+                _welcomeScreen.SetUser(); 
+                _audioSource.Play();
+                _inputObject.GetComponent<TMP_InputField>().text = null;
+            }
         }
     }
 }

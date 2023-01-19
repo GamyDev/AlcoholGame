@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using DanielLochner.Assets.SimpleScrollSnap;
 using TMPro;
+using Cysharp.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,8 +22,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject rightCard;
     [SerializeField] private GameObject playerRoulette;
 
-    private SimpleScrollSnap simpleScrollSnap;
-    private StartPlayersScreen playersScreen;
+    [SerializeField] private SimpleScrollSnap simpleScrollSnap;
+    [SerializeField] private SimpleScrollSnap simpleScrollSnap2;
+    [SerializeField] private StartPlayersScreen playersScreen;
     
     private Vector3 centerCardPos;
 
@@ -31,14 +33,44 @@ public class GameManager : MonoBehaviour
 
     private List<Question> questions;
     private List<Player> tempPlayers;
-      
+
+    private ScrollRect scrollRect;
+     
+    
+    public void SetSettingsOneUser()
+    {
+        simpleScrollSnap.InfiniteScrollingSpacing = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < playersModel.playerDatas.Count; j++)
+            {
+                tempPlayers.Add(playersModel.playerDatas[j]);
+            }
+        }
+
+
+        for (int i = 0; i < tempPlayers.Count; i++)
+        {
+            simpleScrollSnap.AddToBack(playerRoulette);
+        }
+
+        for (int i = 0; i < tempPlayers.Count; i++)
+        {
+            scrollRect.content.GetChild(i).GetComponent<Image>().sprite = playersModel.avatars[tempPlayers[i].avatar];
+            scrollRect.content.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
+            scrollRect.content.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
+        }
+
+        simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+    }
+
+
     private void OnEnable()
     {
-        tempPlayers = new List<Player>();
-        simpleScrollSnap = FindObjectOfType<SimpleScrollSnap>();
-        playersScreen = FindObjectOfType<StartPlayersScreen>();
+        tempPlayers = new List<Player>(); 
 
-        var scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
+        scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
 
         centerCardPos = centerCard.transform.localPosition;
 
@@ -52,31 +84,9 @@ public class GameManager : MonoBehaviour
         questions.Clear();
         questions = GetQustions();
 
+        GetRandomQuestion();
 
-        //??????? spacing ? ?????
-        simpleScrollSnap.InfiniteScrollingSpacing = 0;
-
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < playersModel.playerDatas.Count; j++)
-            {
-                tempPlayers.Add(playersModel.playerDatas[j]);
-            }
-        }
-        
-          
-        for (int i = 0; i < tempPlayers.Count; i++)
-        {
-            simpleScrollSnap.AddToBack(playerRoulette);
-        }
-
-        for (int i = 0; i < tempPlayers.Count; i++)
-        {
-            scrollRect.content.GetChild(i).GetComponent<Image>().sprite = playersModel.avatars[tempPlayers[i].avatar];
-            scrollRect.content.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
-        }
-
-        simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+        SetSettingsOneUser();
     }
 
      
@@ -136,8 +146,10 @@ public class GameManager : MonoBehaviour
             {
                 questions.Add(new Question()
                 {
-                    name = item.title,
-                    text = item.text
+                    name = "",
+                    text = item.text,
+                    players = item.count,
+                    timer = item.timer
                 });
             }
             typeDeck = "CsvFile";

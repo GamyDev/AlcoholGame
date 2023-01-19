@@ -14,422 +14,193 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   questions:
-  - name: Night confessions
-    text: Any player who ever slept in a public space, drink 4 sips.
-  - name: Night confessions
-    text: Any player who slept with someone whose name they don't remember - drink
-      4 sips
-  - name: Spotted
-    text: Anyone looking at your phone right now, drink 3 sips.
   - name: 
-    text: Anyone under 5'8 drinks 2 sips.
+    text: Anyone who googled their ex's new BF/GF more than once drink 2 sips
+    players: A
+    timer: 
   - name: 
-    text: Anyone vaping drink 4 sips. If you have more than one flavor, give out
-      a sip for each
-  - name: Jackpot!
-    text: Anyone wearing a tee shirt, down your drink!
+    text: Anyone who slept on street being drunk - drink 3 sips.
+    players: A
+    timer: 
   - name: 
-    text: Anyone wearing black underwear drinks 4 sips.
-  - name: Night confessions
-    text: Anyone who ever flirted just for drinks, take 3sips
-  - name: Night confessions
-    text: Anyone who ever had to call in sick to work because of a hangover, drink
-      2 sips
+    text: Anyone checking phone right now should drink 5 sips.
+    players: A
+    timer: 
   - name: 
-    text: Anyone who ever typed "Google" in Google, drink 4sips
-  - name: Jackpot
-    text: Anyone who had a rough/tough week, bottoms up, finish your drink
+    text: Vapers should sip 2 times and additional sip for every flavour you have.
+    players: A
+    timer: 
   - name: 
-    text: Anyone who has been to McDonald's in the last 24 hours drinks 2 sips.
-  - name: Night confessions
-    text: Anyone who has done some online dating this month , drink 2 sips.
-  - name: MY EYES!!!
-    text: Anyone who has ever accidentally watched a steamy movie scene with their
-      parents, drink 2 sips
-  - name: Night confessions
-    text: Anyone who has ever been to a strip club, take 4 sips
+    text: Anyone who have black or white underwear should make 3 sips.
+    players: A
+    timer: 
   - name: 
-    text: Anyone who has ever caught a sibling, or close friend if you don't have
-      siblings, making out, drink 4 sips
-  - name: Night confessions
-    text: Anyone who has ever had a crush ona friend's sibling, drink 4 sips.
-  - name: Night confessions
-    text: Anyone who has ever slept with your ex post break-up , drink 4 sips.
-  - name: Night confessions
-    text: Anyone who met their current partner through online dating, drink 4 sips
+    text: Everyone who call searching in facebook as "googling" - sips 2 times.
+    players: A
+    timer: 
   - name: 
-    text: Anyone whose name starts with a consonant, take 4 sips.
+    text: Anyone who was seen extremely drunk by parents - sips 3 times.
+    players: A
+    timer: 
   - name: 
-    text: Anyone whose name starts with a vowel, take 3 sips.
-  - name: Themes
-    text: "Best drunk food. player\u2019 starts! The first player who runs out of
-      ideas gets to drink 3 sips."
-  - name: Choose your side
-    text: "Beyonc\xE9 or Rihanna? The minority drinks 4 sips"
-  - name: Choose your side
-    text: Blonde or brunette? Decide together, the minority takes 2 sips.
+    text: Anyone who ever watched an erotic movie scene with parents by accident,
+      sips 3 times.
+    players: A
+    timer: 
   - name: 
-    text: Blue eyes, drink 3 sips! Yep, for no reason
-  - name: Choose your side
-    text: Burger or hot dog? The minority drinks 4 sips.
-  - name: Choose your side
-    text: Chocolate or vanilla? The minority drinks 3 sips
-  - name: Choose your side
-    text: Eminem or Machine Gun Kelly? Minority drinks 4 sips
-  - name: Buffalo
-    text: Everyone can ONLY drink with their off hand until further notice. If you
-      see someone drinking with their dominant hand, shout "buffalo", and they have
-      to take 4 sips.
-  - name: It all adds up
-    text: Everyone drink 1 sip for every time you've been caught zoning out or dozing
-      off ina class/meeting in 2021. 2 for every class/meeting you've skipped.
+    text: Anyone who ever felt in love with friend's sibling sips 5 times.
+    players: A
+    timer: 
   - name: 
-    text: Everyone has to take 3 sips!
+    text: Anyone who ever took a number but was too shy to call - finish your drink.
+    players: A
+    timer: 
   - name: 
-    text: Everyone older than player3 drinks 4 sips.
+    text: Anyone who had successful one night stand last 30 days - sip 3 times.
+    players: A
+    timer: 
   - name: 
-    text: Everyone raises an arm. The first person to lower it drinks 4 sips
-  - name: Slav squat challenge
-    text: Everyone stand up, and squat down, as low as possible. The person to hold
-      the squat the least, take a shot. Whoever holds it the longest can give out
+    text: Anyone who ever caught a sibling or roommate jerking off drink 5 sips to
+      reset your memory.
+    players: A
+    timer: 
+  - name: 
+    text: Anyone who slept with someone you don't remember name - sip 5 times.
+    players: A
+    timer: 
+  - name: 
+    text: Name best drunk food, [player] starts! 2 full circles - who have weird
+      variants have to drink 3 sips.
+    players: A
+    timer: 
+  - name: 
+    text: 2 seconds to name an animal with horns. 2 full circles, who failed to name
+      in time sips 2 times.
+    players: A
+    timer: 
+  - name: 
+    text: How much time it took to getting ready for tonight? The quickest and slowest
+      ones sip 4 times.
+    players: A
+    timer: 
+  - name: 
+    text: Have you ever fall from a bicycle or skate being drunk or high? If yes,
+      sip 3 times.
+    players: A
+    timer: 
+  - name: 
+    text: Everyone name the age when you lost your virginity, the owner of biggest
+      number sips 5 times.
+    players: A
+    timer: 
+  - name: 
+    text: Laughing ban for 3 rounds. Anyone who laughs takes 3 sips.
+    players: A
+    timer: 
+  - name: 
+    text: Anyone who has raided parents liquor cabinet being younger than 16, drink
       3 sips
-  - name: Cinema Sips
-    text: Everyone takes it in turns to say the last movie they saw recently. Anyone
-      else who's also seenit, drinks 2 sips
-  - name: Showing your age
-    text: Everyone tell us what their first email address was. The one voted lamest
-      drinks 2 sips.
-  - name: Catch up!
-    text: Everyone who feels they simply aren't drunk enough yet, drink 2 sips
-  - name: Night confessions
-    text: Everyone who has ever cheated ona boyfriend or girlfriend, drink 4 sips
+    players: A
+    timer: 
   - name: 
-    text: Everyone who is drunk, delegate 3 sips to the player on your right.
-  - name: Mixology
-    text: 'For the next two rounds, player3 can only drink when player4 tells them
-      to... player4, don''t be too harsh '
-  - name: Jackpot
-    text: 'Girl time: all the girls must finish their drinks.'
-  - name: Jackpot
-    text: 'Guy time: all the guys must finish their drink.'
-  - name: Jackpot
-    text: Have you ever crashed a scooter or skateboard while under the influence?
-      If so, down your drink!
-  - name: Choose your side
-    text: Mountain or sea? The minority drinks 3 sips.
-  - name: Categories
-    text: Name animals that start with "S". The winner drinks 2 sips.
-  - name: Themes
-    text: "Name the countries with the most attractive people. player\u2019 and player4,
-      if you can't agree, everyone votes and the loser drinks 3 sips."
-  - name: Most likely to questions
-    text: 'Name the player who is most likely to learn a new language or an instrument
-      within one month? Good for you... Still: drink 2 sips'
-  - name: Themes
-    text: Netflix shows you've watched. player3, you start. Whoever repeats or draws
-      a blank first drinks 3 sips. Anyone who doesn't have an account, chug!
-  - name: Let's play!
-    text: Ok, let's play the "Yes/No" game. Those words are off limits. Try and get
-      other players to slip up and the first loser drinks 2 sips.
+    text: '[player], sip 3 times if you have ever sent nudes.'
+    players: 1
+    timer: 
   - name: 
-    text: On 3, everyone say the firstname of someone in the room. Whoever says the
-      same name as someone else has to drink 3 sips
-  - name: Most likely to questions
-    text: Pick the biggest eater in the room - put down the chips and drink 3 sips
-  - name: Most likely to questions
-    text: Pick the one who spent the longest time getting ready for tonight. This
-      person drinks 4sips.
-  - name: Gotta catch "em all!
-    text: player 4 vs player 2! The last person to think of at least 5 cartoons from
-      our childhood drinks 2 sips
+    text: '[player], sip 2 times if you have ever received nudes (and 2 more times
+      if sender in this room)'
+    players: 1
+    timer: 
   - name: 
-    text: player has the right to make a new rule Make it a good one!
-  - name: Around the world
-    text: player vs player3! Name as many desserts as you can beginning with "D"
-      in 25 seconds. Whoever's answering when the timer's done, drink 3 sips.
-  - name: The worst of the worst
-    text: player vs player4! Tell the group the worst gift you've ever given. Whoever's
-      gift the group deems most shameful drinks 2 sips.
-  - name: Night confessions
-    text: player, drink 2 sips if you pee in the shower
-  - name: Night confessions
-    text: player, drink 2 sips if you've ever gotten drunk on your own
+    text: '[player], if you''ve ever cried during a movie, sip 2 times, additional
+      sip if you did it in cinema.'
+    players: 1
+    timer: 
   - name: 
-    text: player, hold your breath for 30 seconds or drink 3 sips.
+    text: '[player], everyone older than you sips 3 times.'
+    players: 1
+    timer: 
   - name: 
-    text: player, say 2 lies and 1 truth. If player4 can't guess which is which,
-      he or she drinks 3 sips.
-  - name: Dad jokes
-    text: player1 bring out your best dad humor and crack some jokes for 60 seconds.
-      The first player to laugh finishes their cup.
-  - name: Let's play!
-    text: player1, do your best celebrity impression and drink 4 sips
-  - name: Jackpot
-    text: player1, down your drink if you've ever driven high
-  - name: Night confessions
-    text: player1, drink 3 sips if you've ever sexted. Finish your drink if you did
-      this week
-  - name: Choose your side
-    text: player1, give the players a "Would you rather...?" to decide on. The minority
-      drinks 2 sips.
-  - name: Let's play!
-    text: player1, swap drinks with player4 and see who can chug the glass first
-      - hope you like each other's choices! You have 15 seconds
-  - name: Come clean...
-    text: player1, would you rather be stuck in the house for a year with your mom
-      or be alone? Explain why, and then drink 2 sips.
-  - name: Film fans
-    text: player2 vs player1! Take turns listing off films beginning with "N". Loser
-      drinks 2 sips.
-  - name: Back2Back
-    text: 'player2 vs player4, stand or sit back to back and answer the following
-      question: What is the main color of the other player''s outfit? If you''re
-      wrong, drink 4 sips'
-  - name: RO SHAM BO
-    text: player2 vs player4! Rock-paper-scissors time. Loser drinks 2 sips.
-  - name: Groupies
-    text: player2 vs player4! Take turns listing off singers beginning with "EF".
-      Loser drinks 4 sips.
+    text: '[player], sip 3 times if you just can''t be silent during a movie.'
+    players: 1
+    timer: 
   - name: 
-    text: 'player2, at what age did you get wasted for the first time? All those
-      who did it earlier, drink 2 sips '
-  - name: Night confessions
-    text: player2, at what age did you have your first kiss? Drink that amount of
-      sips.
-  - name: Let's play!
-    text: player2, dance the Macarena. If you get it wrong, drink 2 sips.
+    text: '[player], you are booze cop for now. You can give up to 20 sips to anyone,
+      don''t waste it in a time.'
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 2 sips from the glass of the player on your right.
+    text: '[player] if you''re embarrassed about the age you lost your virginity,
+      drink 4 sips.'
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 2 sips if you can't play any musical instruments.
+    text: '[player] first take 5 sips, then do 15 squats.'
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 2 sips if you're the kind of person to ask the DJ for song
-      requests at the club
+    text: '[player] like 3 photos of person you secretly like, 5 sips if refuse.'
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 3 sips if you're the person who asks questions throughout
-      a movie
-  - name: Night confessions
-    text: player2, drink 3 sips if you've ever been carried out of a bar or club
-      by friends
+    text: '[player] post your most embarassing photo right now, 5 sips if refuse.'
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 3 sips if you've ever left a restaurant without tipping
+    text: '[player], for the next 10 moves, use a dirty word in every sentence and
+      sip 3 times for every fail.'
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 3 sips if you've had a hangover in the past month
+    text: Bomb defuse! [player] call your mom right now, don't let her know you are
+      drunk, 5 sips if refuse.
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink 4 sips if you live with a sibling
+    text: High stakes! [player], pick an opponent to play heads or tails. The loser
+      should sip 10 times!
+    players: 1
+    timer: 
   - name: 
-    text: player2, drink a sip for each person who's taller than you.
+    text: '[player], sing your favorite drinking song for 30 seconds or drink 3 sips'
+    players: 1
+    timer: 30
   - name: 
-    text: player2, drink as many sips as the year difference you have with the youngest/oldest
-      player.
-  - name: Jackpot
-    text: player2, drink what's left in player4's glass.
+    text: '[player], you have 25 seconds to name 7 Olympic sports.'
+    players: 1
+    timer: 25
   - name: 
-    text: player2, if you're embarrassed about the age you lost your virginity, drink
-      4 sips.
+    text: '[player], you have 20 seconds to name 5 video game consoles.'
+    players: 1
+    timer: 20
   - name: 
-    text: player2, impersonate an actor If no one can guess who itis, drink 2 sips.
+    text: '[player], you have 10 seconds to name 4 things you shouldn''t take to
+      a plane.'
+    players: 1
+    timer: 10
   - name: 
-    text: 'player2, pineapple on pizza: yay or nay? Those who disagree with you get
-      to drink 2 sips!'
+    text: '[player] vs [player2]! Name the worst thing to say in bed? All voting,
+      loser should finish his drink.'
+    players: 2
+    timer: 
   - name: 
-    text: 'player2, we like you a lot, but take 2 sips anyway '
+    text: '[player] vs [player2]! In what age you had your first kiss? Who was younger
+      sips 3 times.'
+    players: 2
+    timer: 
   - name: 
-    text: player2, you have 20 seconds to sing the national anthem. If you make mistakes,
-      drink 4 sips.
-  - name: At your service
-    text: player2, you have to refill player1's drink for the next four rounds
-  - name: Role
-    text: player2, you're the bartender - refill everyone's drinks for the next 3
-      minutes. If you forget, take 4 sips
-  - name: Duel
-    text: player3 vs player1 - who looks younger? Everyone vote and the baby drinks
-      2 sips.
-  - name: Back2Back
-    text: 'player3 vs player1, stand or sit back to back and answer the following
-      question: Does the other player have anything in their pockets? If you''re
-      wrong, drink 3 sips.'
-  - name: STAND UP!
-    text: player3 vs player1! 3, 2, 1.... Get out of your chair now! Whoever was
-      the last one sitting drinks 3 sips.
-  - name: Rhyme battle
-    text: player3 vs player1! Choose a word then list off words that rhyme with it.
-      player3 starts and the first to falter or repeat drinks 4 sips.
-  - name: Bottle challenge
-    text: player3 vs player2! Show off your balance skills. Stand on one leg with
-      a bottle (could be full or empty) balanced on your palm. Whoever's bottle falls
-      first drinks 3 sips
+    text: '[player] vs [player2]! Say "cheers" on different languages. Loser should
+      sip 3 times, liar sips 5 times.'
+    players: 2
+    timer: 
   - name: 
-    text: 'player3 vs player4, Close your eyes and answer the following question:
-      Is the other player wearing a necklace? If you''re wrong, drink 3 sips'
-  - name: FIGHT!
-    text: player3 vs player4! 1, 2, 3, 4,| declare a thumb war. Loser drinks 3 sips.
+    text: '[player] vs [player2]! Speed drinking of 200ml beer, loser should finish
+      his drink.'
+    players: 2
+    timer: 
   - name: 
-    text: player3, drink 1 sip for each person who's shorter than you.
-  - name: 
-    text: player3, drink 2 sips if you haven't read 1 book this year.
-  - name: Night confessions
-    text: player3, drink 2 sips if you've ever stolen money from your parents
-  - name: 
-    text: player3, drink 2 sips.
-  - name: Night confessions
-    text: player3, drink 3 sips if you've ever sexted or sent nudes
-  - name: 
-    text: player3, drink 4 sips if you don't know who won the SuperBowl in 2019.
-  - name: Mixology
-    text: player3, fill player2's drink for the next round
-  - name: Let's play!
-    text: 'player3, finish this sentence: "I''ve never...". If the other players
-      did it, they drink 4 sips.'
-  - name: 
-    text: player3, flip a coin - heads, you drink; tails, your neighbor to your right
-      drinks.
-  - name: 
-    text: player3, have you ever fantasized about a teacher or boss? If so, drink
-      3 sips
-  - name: Night confessions
-    text: player3, if you've ever cried during a movie, drink 3 sips
-  - name: 
-    text: player3, what is the one food/dish you could never give up? If the others
-      agree you are saved, but if they disagree drink 2 sips!
-  - name: 'ABCs of drinking '
-    text: player4 starts by saying an alcoholic drink with the letter A, the person
-      to their right B, and so on. Whoever fails, takes 3 sips.
-  - name: Face off!
-    text: player4 vs player3! Boxers, briefs, or thongs - guess the style of the
-      other player's underwear. If you're wrong, drink 3 sips.
-  - name: Boozehound's got Talent
-    text: player4 vs player3! Show the others your most incredible talent. If you
-      get buzzed off stage, you drink 2 sips.
-  - name: Night confessions
-    text: player4, do you have a terrible habit that you can't get rid of? Share
-      it with the group, or drink 2 sips.
-  - name: Jackpot
-    text: player4, down the rest of your drink!
-  - name: Jackpot
-    text: player4, down your drink if you've ever tidden home but don't remember
-      the next day
-  - name: Night confessions
-    text: player4, drink 2 sips if you've ever thrown up getting out of a car. Finish
-      your drink if you didn't even make it out...
-  - name: 
-    text: player4, drink 3 sips if you live with your significant other
-  - name: 
-    text: player4, drink 4 sips if you're the kind of person who overthinks your
-      texts/messages
-  - name: Jackpot
-    text: player4, drink 4 sips of playert's drink.
-  - name: Let's play!
-    text: player4, finish this sentence "Never have | ever...". If the other players
-      did it, they drink 3 sips.
-  - name: Night confessions
-    text: player4, if you've ever had sex in public, drink 3sips
-  - name: 
-    text: player4, name player2's parents. If you get it wrong, drink 2 sips.
-  - name: 
-    text: player4, say your 2 times table as fast as you can in 15 seconds. If you
-      make a mistake or don't finish, drink 3 sips.
-  - name: 
-    text: player4, switch drinks with player2 for two rounds.
-  - name: Let's play!
-    text: player4, tell the best yo mamma joke you know. If no one laughs, drink
-      3 sips
-  - name: 
-    text: player4, what alcohol were you drinking when you got wasted for the very
-      first time? Those who drank the same as you, get 3 sips.
-  - name: 
-    text: player4, what's your superpower? Come  on, you must be good at something?
-      If you really don't have any hidden talents, drink 3 sips.
-  - name: Most likely to questions
-    text: Point to the person most likely to have injured themselves the first time
-      they were drunk. This person has to drink 3 sips
-  - name: Most likely to questions
-    text: Point to the person who is most likely to become famous &8 The winner drinks
-      3 sips.
-  - name: Most likely to questions
-    text: Point to the person who is most likely to watch gay porn. The winner drinks
-      2 sips.
-  - name: Most likely to questions
-    text: Point to the person who is the hungriest for sex. The winner drinks 3 sips
-  - name: Most likely to questions
-    text: Point to the person who is the most annoying to live with .... The winner
-      drinks 2 sips.
-  - name: Most likely to questions
-    text: Point to the person who'd be the easiest to kidnap. They have to drink
-      3 sips
-  - name: Themes
-    text: Porn categories. player4, you start. The first player who runs out of ideas
-      gets to drink 3 sips
-  - name: 
-    text: Single people take 2 sips
-  - name: 
-    text: Single players, drink 3 sips if you are, or have been crushing on someone
-      in the room
-  - name: 
-    text: Smokers, drink 2 sips to the health of your lungs!
-  - name: Choose your side
-    text: Sweet or salty popcorn? Minority drinks 3 sips.
-  - name: 
-    text: The hairiest person delegates 3 sips to whoever he/she wants.
-  - name: Let's play!
-    text: The last one to twerk drinks 3 sips.
-  - name: Jackpot
-    text: The last person to get up and turn in a circle, bottoms up!
-  - name: Last person to...
-    text: The last person to touch their phone drinks 3 sips
-  - name: 
-    text: The last person who ate at McDonald's does 15 squats or takes 3 sips.
-  - name: 
-    text: The last player to get up drinks 2 sips.
-  - name: 
-    text: The person who has exercised the most recently delegates 3 sips to whoever
-      he/she wants.
-  - name: 
-    text: The person with the longest nose drinks 2 sips. Be proud!
-  - name: 
-    text: The players who have bad driving records, take 3 sips.
-  - name: 
-    text: The tannest person delegates 4 sips to whoever he/she wants.
-  - name: 
-    text: Those who cut their sandwich diagonally, drink 1 sip, those doing it vertically,
-      2 sips. If you don't cut it at all, skip the turn!
-  - name: Choose your side
-    text: Waffles or pancakes? Minority drinks 2 sips
-  - name: Choose your side
-    text: 'What goes better with fries: ketchup or mayo? Minority drinks 4 sips.'
-  - name: Choose your side
-    text: 'What''s the proper utensil for mac''n''cheese: fork or spoon? Minority
-      drinks 4 sips!'
-  - name: Most likely to questions
-    text: Who is most likely to appear on a reality show? The winner drinks 4 sips
-  - name: Most likely to questions
-    text: Who is most likely to be the first one to die in a zombie apocalypse? 
-      The winner drinks 3 sips.
-  - name: Most likely to questions
-    text: Who is most likely to become TikTok famous? The future star drinks 3 sips
-  - name: Most likely to questions
-    text: Who is most likely to get arrested for walking around naked? The winner
-      drinks 3 sips.
-  - name: Most likely to questions
-    text: Who is most likely to get married first? The winner drinks 2 sips
-  - name: Most likely to questions
-    text: Who is most likely to win an Olympic medal? The winner drinks 4 sips.
-  - name: Choose your side
-    text: Who would win in a fight? Your elementary school teacher or your mom? The
-      minority drinks 4 sips.
-  - name: 
-    text: Whoever arrived last drinks 3 sips to make up for their tardiness.
-  - name: Themes
-    text: Words for male genitals. player1 starts! The first player who runs out
-      of ideas gets to drink 2 sips.
-  - name: Choose your side
-    text: 'Would you rather date/hookup with: A pretty face but an average body or
-      vice versa? The majority drinks 4 sips.'
-  - name: Choose your side
-    text: Would you rather time travel 10 years into the past or future? The minority
-      drinks 2 sips.
-  - name: Rule
-    text: You have to call girls by the guy version of their names and vice versa.
-      If you've no opposite version, other the players will give you a name. Drink
-      3 sips for each mistake you make
+    text: Teamwork! [player] and [player2] name 10 whisky brands in 20 seconds or
+      sip 5 times each
+    players: 2
+    timer: 20
   isOpen: 1

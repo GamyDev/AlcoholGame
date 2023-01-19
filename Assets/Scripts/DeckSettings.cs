@@ -16,4 +16,6 @@ public class Question
     public string name;
     [TextArea(3, 5)]
     public string text;
+    public string players;
+    public string timer;
 }

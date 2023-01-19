@@ -15,20 +15,31 @@ public class OpenCard : MonoBehaviour
     [SerializeField] private GameObject buttonTimer;
     [SerializeField] private GameObject buttonDone;
 
-    private int seconds = 30;
     private int currentSeconds;
 
     private void OnEnable()
     {
         transform.DOShakeScale(1, 1).SetEase(Ease.OutBounce);
-        currentSeconds = seconds;
-        timer.text = currentSeconds.ToString();
-        buttonTimer.SetActive(true);
-        buttonDone.SetActive(false);
+        
+
+        if(!string.IsNullOrEmpty(GameManager.currentQuestion.timer)) {
+            currentSeconds = int.Parse(GameManager.currentQuestion.timer);
+            buttonTimer.SetActive(true);
+            buttonDone.SetActive(false);
+            timer.text = currentSeconds.ToString();
+            timer.transform.GetChild(0).GetComponent<TMP_Text>().text = currentSeconds.ToString();
+        } else
+        {
+            buttonDone.SetActive(true);
+            buttonTimer.SetActive(false);
+        }
 
         title.text = GameManager.currentQuestion.name;
         text.text = GameManager.currentQuestion.text;
+
         player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer.name;
+        player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer.name;
+
         player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer.avatar];
     }
 
@@ -45,6 +56,7 @@ public class OpenCard : MonoBehaviour
             yield return new WaitForSeconds(1f);
             currentSeconds--;
             timer.text = currentSeconds.ToString();
+            timer.transform.GetChild(0).GetComponent<TMP_Text>().text = currentSeconds.ToString();
         }
 
         buttonTimer.GetComponent<Button>().interactable = true;

@@ -82,10 +82,12 @@ public class CSVQuestionData
 [System.Serializable]
 public class CSVQuestion
 { 
+    [Index(0)]
+    public string text { get; set; }
     [Index(1)]
-    public string title { get; set; }
+    public string count { get; set; }
     [Index(2)]
-    public string text { get; set; } 
+    public string timer { get; set; }
 }
 
  

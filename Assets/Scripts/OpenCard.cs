@@ -11,6 +11,8 @@ public class OpenCard : MonoBehaviour
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text text;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerTwo;
+    [SerializeField] private GameObject playerAll;
     [SerializeField] private TMP_Text timer;
     [SerializeField] private GameObject buttonTimer;
     [SerializeField] private GameObject buttonDone;
@@ -34,13 +36,58 @@ public class OpenCard : MonoBehaviour
             buttonTimer.SetActive(false);
         }
 
+        
         title.text = GameManager.currentQuestion.name;
-        text.text = GameManager.currentQuestion.text;
+        string question = GameManager.currentQuestion.text;
 
-        player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer.name;
-        player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer.name;
+        if (GameManager.currentQuestion.players == "1")
+        {
+            question = question.Replace("[player]", GameManager.currentPlayer[0].name);
+        }
 
-        player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer.avatar];
+        if(GameManager.currentQuestion.players == "2")
+        {
+            question = question.Replace("[player]", GameManager.currentPlayer[0].name);
+            question = question.Replace("[player2]", GameManager.currentPlayer[1].name);
+        }
+
+        text.text = question;
+
+        if(GameManager.currentQuestion.players == "A")
+        {
+            playerAll.SetActive(true);
+            player.SetActive(false);
+            playerTwo.SetActive(false);
+        } 
+        
+        if(GameManager.currentQuestion.players == "1")
+        {
+            playerAll.SetActive(false);
+            player.SetActive(true);
+            playerTwo.SetActive(false);
+
+            player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+            player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+
+            player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
+        }
+
+        if (GameManager.currentQuestion.players == "2")
+        {
+            playerAll.SetActive(false);
+            player.SetActive(true);
+            playerTwo.SetActive(true);
+
+            player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+            player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+
+            player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
+
+            playerTwo.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
+            playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
+
+            playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
+        }
     }
 
     public void StartTimer()

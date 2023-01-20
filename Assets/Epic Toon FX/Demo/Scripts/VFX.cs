@@ -23,7 +23,7 @@ public class VFX : MonoBehaviour
     void DeletVFX()
     {
        // _vfx.SetActive(false);
-        _backCard.SetActive(true);
+        _backCard.SetActive(false);
          for (int i = 0; i < 23; i++)
          {
              _vfx[i].gameObject.SetActive(false);

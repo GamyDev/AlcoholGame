@@ -21,24 +21,118 @@ public class GameManager : MonoBehaviour
     [SerializeField] private VFX vfx;
     [SerializeField] private GameObject rightCard;
     [SerializeField] private GameObject playerRoulette;
+    [SerializeField] private GameObject playerTwoRoulette;
 
     [SerializeField] private SimpleScrollSnap simpleScrollSnap;
     [SerializeField] private SimpleScrollSnap simpleScrollSnap2;
     [SerializeField] private StartPlayersScreen playersScreen;
+
+    public static bool reloadGame;
     
     private Vector3 centerCardPos;
 
-    public static Player currentPlayer;
+    public static List<Player> currentPlayer;
     public static Question currentQuestion;
 
     private List<Question> questions;
     private List<Player> tempPlayers;
 
     private ScrollRect scrollRect;
+    private ScrollRect scrollRect2;
+
+    public void EnableSpinner()
+    {
+        if(currentQuestion.players == "1")
+        {
+            centerCard.SetActive(true);
+            simpleScrollSnap.gameObject.SetActive(true);
+            simpleScrollSnap2.gameObject.SetActive(false);
+            buttonSpin.gameObject.SetActive(true);
+        }
+
+        if (currentQuestion.players == "2")
+        {
+            centerCard.SetActive(true);
+            simpleScrollSnap2.gameObject.SetActive(true);
+            simpleScrollSnap.gameObject.SetActive(false);
+            buttonSpin.gameObject.SetActive(true);
+        }
+
+        if (currentQuestion.players == "A")
+        {
+            centerCard.SetActive(false);
+            simpleScrollSnap.gameObject.SetActive(false);
+            simpleScrollSnap2.gameObject.SetActive(false);
+            buttonSpin.gameObject.SetActive(false);
+            openCard.gameObject.SetActive(true);
+        }
+    }
+
+    public void BackToDecks()
+    {
+        reloadGame = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
      
-    
+    public void ResetSpinners()
+    {
+
+        scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
+        scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
+        for (int i = 0; i < scrollRect2.content.transform.childCount; i++)
+        {
+            simpleScrollSnap2.Remove(i);
+        }
+
+
+        for (int i = 0; i < scrollRect.content.transform.childCount; i++)
+        {
+            simpleScrollSnap.Remove(i);
+        }
+    }
+
+    public void SetSettingsTwoUsers()
+    {
+        simpleScrollSnap2.InfiniteScrollingSpacing = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < playersModel.playerDatas.Count; j++)
+            {
+                tempPlayers.Add(playersModel.playerDatas[j]);
+            }
+        }
+
+
+        for (int i = 0; i < Mathf.CeilToInt(tempPlayers.Count / 2); i++)
+        {
+            simpleScrollSnap2.AddToBack(playerTwoRoulette);
+        }
+
+        for (int i = 0; i < tempPlayers.Count; i++)
+        {
+            if(i % 2 == 0)
+            {
+                scrollRect2.content.GetChild(i / 2).GetChild(0).GetComponent<Image>().sprite = playersModel.avatars[tempPlayers[i].avatar];
+                scrollRect2.content.GetChild(i / 2).GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
+                scrollRect2.content.GetChild(i / 2).GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
+
+                if (i + 1 < tempPlayers.Count)
+                {
+                    scrollRect2.content.GetChild(i / 2).GetChild(1).GetComponent<Image>().sprite = playersModel.avatars[tempPlayers[i + 1].avatar];
+                    scrollRect2.content.GetChild(i / 2).GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i + 1].name;
+                    scrollRect2.content.GetChild(i / 2).GetChild(1).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i + 1].name;
+                }
+            }  
+            
+        }
+
+        simpleScrollSnap2.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+    }
+
     public void SetSettingsOneUser()
     {
+
         simpleScrollSnap.InfiniteScrollingSpacing = 0;
 
         for (int i = 0; i < 5; i++)
@@ -65,12 +159,15 @@ public class GameManager : MonoBehaviour
         simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
     }
 
+     
 
-    private void OnEnable()
+    private void Start()
     {
+        currentPlayer = new List<Player>();
         tempPlayers = new List<Player>(); 
 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
+        scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
 
         centerCardPos = centerCard.transform.localPosition;
 
@@ -85,16 +182,40 @@ public class GameManager : MonoBehaviour
         questions = GetQustions();
 
         GetRandomQuestion();
+        EnableSpinner();
 
-        SetSettingsOneUser();
+        
+        SetSettingsOneUser(); 
+        
+        SetSettingsTwoUsers();
+        
+
+        if(currentQuestion.players == "A")
+        {
+            openCard.gameObject.SetActive(true);
+        }
     }
-
-     
 
     private void SelectedPlayer(int index, int index2)
     {
-        Debug.Log(index);
-        currentPlayer = tempPlayers[index];
+        currentPlayer.Clear();
+        Debug.Log($"Players count {currentQuestion.players}. Selected {index}");
+
+        if(currentQuestion.players == "1") {  
+            currentPlayer.Add(tempPlayers[index]);
+        }
+
+        if(currentQuestion.players == "2")
+        {
+            currentPlayer.Add(tempPlayers[index * 2]);
+            if(index * 2 + 1 >= tempPlayers.Count)
+            {
+                currentPlayer.Add(tempPlayers[0]);
+            } else
+            {
+                currentPlayer.Add(tempPlayers[index * 2 + 1]);
+            }
+        }
     }
 
     public void DisableButton()
@@ -113,15 +234,11 @@ public class GameManager : MonoBehaviour
 
         buttonSpin.gameObject.SetActive(false);
         spinner.gameObject.SetActive(false);
+        simpleScrollSnap2.gameObject.SetActive(false);
         centerCard.gameObject.SetActive(false);
 
         openCard.gameObject.SetActive(false);
         openCard.gameObject.SetActive(true);
-    }
-
-    public void GetRandomUser()
-    {
-        currentPlayer = playersModel.playerDatas[Random.Range(0, playersModel.playerDatas.Count)];
     }
 
     public void GetRandomQuestion()

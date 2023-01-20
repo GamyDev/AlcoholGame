@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
     {
         List<Question> questions = new List<Question>();
 
-        if (File.Exists(Application.persistentDataPath + "/Data/" + decks.deckSettings[0].name + ".csv"))
+        /*if (File.Exists(Application.persistentDataPath + "/Data/" + decks.deckSettings[0].name + ".csv"))
         {
             var cards = QuestionsParser.ReadCsv(decks.deckSettings[0].name);
             foreach (var item in cards)
@@ -271,7 +271,7 @@ public class GameManager : MonoBehaviour
             }
             typeDeck = "CsvFile";
             return questions;
-        }
+        }*/
 
         typeDeck = "ScriptableObject";
 

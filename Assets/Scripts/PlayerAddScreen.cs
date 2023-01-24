@@ -51,8 +51,7 @@ public class PlayerAddScreen : MonoBehaviour
                 _welcomObject.SetActive(true);
                 AddUser();
                 _welcomeScreen.SetUser(); 
-                _audioSource.Play();
-                _inputObject.GetComponent<TMP_InputField>().text = null;
+                _audioSource.Play(); 
             }
         }
     }

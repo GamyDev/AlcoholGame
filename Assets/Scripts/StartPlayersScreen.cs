@@ -44,6 +44,7 @@ public class StartPlayersScreen : MonoBehaviour
         //player.transform.localScale = Vector3.one;
          
         GetLastVisibleObject().transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.GetLastUser().name;
+        GetLastVisibleObject().transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = playersModel.GetLastUser().name;
         GetLastVisibleObject().GetComponent<Image>().sprite = playersModel.avatars[PlayersModel.playersModel.GetLastUser().avatar];
     }
 

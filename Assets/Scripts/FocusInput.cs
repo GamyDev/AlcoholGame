@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class FocusInput : MonoBehaviour
 {
+    [SerializeField] private TMP_InputField inputField;
+
     private void OnEnable()
-    { 
-        GetComponent<TMP_InputField>().Select();
-        GetComponent<TMP_InputField>().ActivateInputField();
+    {
+        Invoke("Fokus", 0.2f);
+    }
+
+
+    void Fokus()
+    {
+        inputField.Select();
+        inputField.ActivateInputField();
     }
 }

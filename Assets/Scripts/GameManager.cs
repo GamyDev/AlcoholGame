@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
         deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
     }
 
-    private void Start()
+    private void OnEnable()
     {
         currentPlayer = new List<Player>();
         tempPlayers = new List<Player>(); 
@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour
 
         typeDeck = "ScriptableObject";
 
-        foreach (var item in decks.deckSettings[0].questions)
+        foreach (var item in decks.deckSettings[SelectedDeck.selectedDeck].questions)
         {
             questions.Add(item);
         }

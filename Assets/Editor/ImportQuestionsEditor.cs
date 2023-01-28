@@ -36,7 +36,7 @@ public class QuestionsParserEditor : Editor
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/Data");
         }
-
+        Debug.Log(deck);
         File.WriteAllText(Application.persistentDataPath + "/Data/" + deck + ".csv", data);
         
         DeckSettings deckSettings = Resources.Load<DeckSettings>("Decks/" + deck);

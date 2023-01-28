@@ -4,12 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class OpenCard : MonoBehaviour
 {
     [SerializeField] private PlayersModel playersModel;
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private GameObject imageCard;
+    [SerializeField] private GameObject playerChoice; 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject playerTwo;
     [SerializeField] private GameObject playerAll;
@@ -19,11 +22,20 @@ public class OpenCard : MonoBehaviour
 
     private int currentSeconds;
 
+    public void AnimateOpenCard()
+    {
+        imageCard.transform.eulerAngles = new Vector3(0, 180, 0);
+        title.gameObject.SetActive(false);
+        text.gameObject.SetActive(false);
+        playerChoice.SetActive(false);
+
+        imageCard.transform.DORotate(new Vector3(0, 0, 0), 3).SetEase(Ease.OutElastic).OnUpdate(FlipAnimCallback);
+    }
+
     private void OnEnable()
     {
-        transform.DOShakeScale(1, 1).SetEase(Ease.OutBounce);
+        AnimateOpenCard();
         
-
         if(!string.IsNullOrEmpty(GameManager.currentQuestion.timer)) {
             currentSeconds = int.Parse(GameManager.currentQuestion.timer);
             buttonTimer.SetActive(true);
@@ -87,6 +99,20 @@ public class OpenCard : MonoBehaviour
             playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
 
             playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
+        }
+    }
+
+    private void FlipAnimCallback()
+    {
+        if (imageCard.transform.localEulerAngles.y >= 90 && imageCard.transform.localEulerAngles.y <= 270) {
+            title.gameObject.SetActive(false);
+            text.gameObject.SetActive(false);
+            playerChoice.SetActive(false);
+        } else
+        {
+            title.gameObject.SetActive(true);
+            text.gameObject.SetActive(true);
+            playerChoice.SetActive(true);
         }
     }
 

@@ -2103,6 +2103,8 @@ MonoBehaviour:
   playersModel: {fileID: 0}
   title: {fileID: 1993858712}
   text: {fileID: 1761970441}
+  imageCard: {fileID: 0}
+  playerChoice: {fileID: 0}
   player: {fileID: 1479250097}
   playerTwo: {fileID: 0}
   playerAll: {fileID: 0}
@@ -3566,7 +3568,7 @@ RectTransform:
   - {fileID: 2294534654205958562}
   - {fileID: 4042543351257702842}
   m_Father: {fileID: 3871873694950125684}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4646,7 +4648,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3871873694950125684}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5056,8 +5058,8 @@ RectTransform:
   - {fileID: 3871873695825823009}
   - {fileID: 8871505928849444579}
   - {fileID: 2294534653713064598}
-  - {fileID: 2294534652586548329}
   - {fileID: 2294534654142932552}
+  - {fileID: 2294534652586548329}
   - {fileID: 1801249796}
   - {fileID: 1990021566902362049}
   - {fileID: 955552568}

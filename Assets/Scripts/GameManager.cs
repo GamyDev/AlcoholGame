@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private ScrollRect scrollRect;
     private ScrollRect scrollRect2;
-
+    private Sequence deckSequence;
     public void EnableSpinner()
     {
         if(currentQuestion.players == "1")
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
             simpleScrollSnap2.gameObject.SetActive(false);
             buttonSpin.gameObject.SetActive(false);
             openCard.gameObject.SetActive(true);
+            openCard.GetComponent<OpenCard>().AnimateOpenCard();
         }
     }
 
@@ -159,7 +160,19 @@ public class GameManager : MonoBehaviour
         simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
     }
 
-     
+   public void AnimDeck()
+   {  
+        deckSequence?.Kill();
+
+        deckSequence = DOTween.Sequence();
+
+        centerCardPos = centerCard.transform.localPosition;
+
+        centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
+        centerCard.transform.localScale = Vector3.zero;
+
+        deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
+    }
 
     private void Start()
     {
@@ -169,13 +182,7 @@ public class GameManager : MonoBehaviour
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
         scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
 
-        centerCardPos = centerCard.transform.localPosition;
-
-        centerCard.transform.localPosition = rightCard.transform.localPosition;
-        centerCard.transform.localScale = Vector3.zero;
-
-        centerCard.transform.DOLocalMove(centerCardPos, 2).SetEase(Ease.InExpo);
-        centerCard.transform.DOScale(Vector3.one, 3).SetEase(Ease.OutExpo);
+        AnimDeck();
 
         questions = new List<Question>();
         questions.Clear();
@@ -194,6 +201,12 @@ public class GameManager : MonoBehaviour
         {
             openCard.gameObject.SetActive(true);
         }
+    }
+
+    private void ScaleComplete()
+    {
+        deckSequence.Append(centerCard.transform.DOLocalMove(centerCardPos, 1));
+        deckSequence.Append(centerCard.transform.DOScale(Vector3.one, 1));
     }
 
     private void SelectedPlayer(int index, int index2)

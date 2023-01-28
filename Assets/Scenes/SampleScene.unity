@@ -684,6 +684,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5680896323605837627, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
   m_PrefabInstance: {fileID: 3683322642268926774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &609206445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4092688847136928777, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &609416445 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2274146067312389762, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
@@ -1108,6 +1113,11 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 990637670, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
   m_PrefabInstance: {fileID: 3683322642268926774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1028729494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 772680108, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1034887569 stripped
 RectTransform:
@@ -3517,6 +3527,10 @@ PrefabInstance:
       value: -143.5
       objectReference: {fileID: 0}
     - target: {fileID: 1109258394, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: imageCard
+      value: 
+      objectReference: {fileID: 609206445}
+    - target: {fileID: 1109258394, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playerAll
       value: 
       objectReference: {fileID: 755453891}
@@ -3524,6 +3538,10 @@ PrefabInstance:
       propertyPath: playerTwo
       value: 
       objectReference: {fileID: 1105481742}
+    - target: {fileID: 1109258394, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: playerChoice
+      value: 
+      objectReference: {fileID: 1028729494}
     - target: {fileID: 1109258394, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playersModel
       value: 
@@ -3590,6 +3608,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1801249795, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801249797, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1802133996, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
@@ -3842,7 +3864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531303778704250366, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5531303778704250366, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -3902,7 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531303778704250366, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: EnableSpinner
+      value: AnimDeck
       objectReference: {fileID: 0}
     - target: {fileID: 5531303778704250366, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName

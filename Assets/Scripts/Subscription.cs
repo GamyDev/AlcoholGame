@@ -9,9 +9,28 @@ public class Subscription : MonoBehaviour
 
     private bool _subscriptionActive;
 
+    private void OnEnable()
+    {
+        CheckSubscription();
+    }
 
     public void SubscriptionActive()
     {
         _subscriptionActive = true;
+        CheckSubscription();
+    }
+
+    void CheckSubscription()
+    {
+        if (_subscriptionActive)
+        {
+            _unLock.SetActive(true);
+            _lock.SetActive(false);
+        }
+        else
+        {
+            _unLock.SetActive(false);
+            _lock.SetActive(true);
+        }
     }
 }

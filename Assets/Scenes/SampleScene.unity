@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: 1193513008}
   - component: {fileID: 1193513007}
   - component: {fileID: 1193513009}
+  - component: {fileID: 1193513010}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1616,6 +1617,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4fd18c1390346e495e23361da5c21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lock: {fileID: 1145438787}
+  _unLock: {fileID: 8382396306248080543}
+--- !u!114 &1193513010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193513002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac296b49de343a381b4057393e2e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscriptionProductId: com.drinkboozegame.cardgames.subscription
+  isSubscribedText: {fileID: 1737548421}
   _lock: {fileID: 1145438787}
   _unLock: {fileID: 8382396306248080543}
 --- !u!1 &1274572436
@@ -2739,7 +2756,7 @@ PrefabInstance:
     - target: {fileID: 2310203234915344508, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1193513009}
+      objectReference: {fileID: 1193513010}
     - target: {fileID: 2310203234915344508, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -2754,7 +2771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2310203234915344508, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SubscriptionActive
+      value: BuySubscription
       objectReference: {fileID: 0}
     - target: {fileID: 2310203234915344508, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -2766,7 +2783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2310203234915344508, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Subscription, Assembly-CSharp
+      value: Samples.Purchasing.Core.BuyingSubscription.BuyingSubscription, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2310203234915344508, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -2884,6 +2901,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8294379257882028216, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
   m_PrefabInstance: {fileID: 1737548416}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1737548421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8294379258484791738, guid: f855c33cc50474ef0b529df0409b157d, type: 3}
+  m_PrefabInstance: {fileID: 1737548416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745393898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2079143169821217345, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
@@ -4882,15 +4910,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.33710808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896324045195267, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_SizeDelta.y

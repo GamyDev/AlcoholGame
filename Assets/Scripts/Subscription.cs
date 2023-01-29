@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Purchasing;
 
 public class Subscription : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Subscription : MonoBehaviour
     [SerializeField] private GameObject _unLock;
 
     private bool _subscriptionActive;
+
 
     private void OnEnable()
     {
@@ -33,4 +35,6 @@ public class Subscription : MonoBehaviour
             _lock.SetActive(true);
         }
     }
+
+
 }

@@ -986,8 +986,8 @@ MonoBehaviour:
   _avatar: {fileID: 379927804}
   _name: {fileID: 1933674964}
   _subName: {fileID: 175325658}
-  _titleName: {fileID: 0}
-  _subTitleName: {fileID: 0}
+  _titleName: {fileID: 5486107703759083120}
+  _subTitleName: {fileID: 5486107703759083119}
   _playersList: {fileID: 1193513003}
   _startPlayersScreen: {fileID: 1193513005}
 --- !u!114 &1193513009
@@ -3123,6 +3123,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1193513003}
+    - target: {fileID: 951255985828796866, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -72.299805
+      objectReference: {fileID: 0}
     - target: {fileID: 1161187395882811748, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3173,15 +3177,15 @@ PrefabInstance:
       objectReference: {fileID: 424244809}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.33710808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896324289484640, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_Pivot.x
@@ -3285,7 +3289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8859697402535812397, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132.30005
+      value: 132.2998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
@@ -3301,10 +3305,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1736520533}
     m_Modifications:
+    - target: {fileID: 2645243332484974863, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2965857109550876745, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
       propertyPath: textMeshPro
       value: 
       objectReference: {fileID: 1942192605}
+    - target: {fileID: 5486107702661949817, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3419,6 +3431,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+--- !u!114 &5486107703759083119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2645243332484974863, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+  m_PrefabInstance: {fileID: 5486107703759083118}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5486107703759083120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5486107702661949815, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+  m_PrefabInstance: {fileID: 5486107703759083118}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5908626419522813561
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -101,6 +101,7 @@ public class OpenCard : MonoBehaviour
                 player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
 
                 player.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[0].avatar];
+                Debug.LogError("Bug!!!!!");
             }
         }
 

@@ -250,9 +250,8 @@ public class GameManager : MonoBehaviour
     private void SelectedPlayer(int index, int index2)
     {
         scrollRect.StopMovement();
-        scrollRect2.StopMovement();
-
-        currentPlayer.Clear();
+        scrollRect2.StopMovement(); 
+        
         Debug.Log($"Players count {currentQuestion.players}. Selected {index}");
 
         if(currentQuestion.players == "1") {  
@@ -291,11 +290,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartSpin()
     {
+        currentPlayer.Clear();
         buttonSpin.interactable = false;
         buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
-        yield return new WaitForSeconds(5f);
-        //yield return null;
-       yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f); 
        buttonSpin.interactable = true;
        buttonSpin.transform.DOScale(Vector3.one, 0.2f);
 
@@ -317,7 +315,9 @@ public class GameManager : MonoBehaviour
 
         int randomQuestion = UnityEngine.Random.Range(0, questions.Count);
         currentQuestion = questions[randomQuestion];
+        Debug.Log($"{questions[randomQuestion].text} - {questions[randomQuestion].players}");
         questions.RemoveAt(randomQuestion);
+        Debug.Log($"{currentQuestion.text} - {currentQuestion.players}");
     }
 
     public List<Question> GetQustions()

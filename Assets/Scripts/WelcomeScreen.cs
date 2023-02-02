@@ -20,8 +20,8 @@ public class WelcomeScreen : MonoBehaviour
     {
         _name.text = _playersModel.GetLastUser().name;
         _subName.GetComponent<TMP_Text>().text = _playersModel.GetLastUser().name;
-        _titleName.text = $"Welcome, {_playersModel.GetLastUser().name}";
-        _subTitleName.GetComponent<TMP_Text>().text = $"Welcome, {_playersModel.GetLastUser().name}";
+        _titleName.text = $"Welcome,  <color=yellow>{_playersModel.GetLastUser().name}</color>";
+        _subTitleName.GetComponent<TMP_Text>().text = $"Welcome,  <color=yellow>{_playersModel.GetLastUser().name}</color>";
         _avatar.sprite = _playersModel.avatars[_playersModel.GetLastUser().avatar];
 
         _playersList.AddPlayers();

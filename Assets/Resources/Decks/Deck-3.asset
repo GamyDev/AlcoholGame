@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720195d612531fe4c818f9aa95ed4840, type: 3}
   m_Name: Deck-3
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  deckTitle: Most Likely
+  deckDescription: Selected player choose who is most likely to... And then they
+    both sips twice without hard feelings.
+  icon: {fileID: 21300000, guid: d23eec8c16cc649a68b3cf9b0cab27c6, type: 3}
   questions:
   - name: 
     text: '[player], who would most likely become a CEO at a big successful company?'

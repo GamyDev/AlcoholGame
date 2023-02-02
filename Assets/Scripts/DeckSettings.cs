@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Deck", menuName = "Decks")]
 public class DeckSettings : ScriptableObject
 {
+    public string deckTitle;
+    [TextArea(3, 5)]
+    public string deckDescription;
     public Sprite icon;
     public List<Question> questions;
     public bool isOpen;

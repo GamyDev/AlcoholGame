@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720195d612531fe4c818f9aa95ed4840, type: 3}
   m_Name: Deck-4
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  deckTitle: Drink or Dare
+  deckDescription: Time for action! Do the dare to make everyone else sip 1 time,
+    or sip 6 times to skip it.
+  icon: {fileID: 21300000, guid: 8f282547e6b6643a9a350d5b13ae677c, type: 3}
   questions:
   - name: 
     text: '[player], let another person post a status on your behalf.'

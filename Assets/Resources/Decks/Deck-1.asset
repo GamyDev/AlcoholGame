@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720195d612531fe4c818f9aa95ed4840, type: 3}
   m_Name: Deck-1
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  deckTitle: Classic
+  deckDescription: Perfect pick for warming up. Are you ready to rumble?
+  icon: {fileID: 21300000, guid: 3abc6e4a0c5384699be4ae7abbeb673a, type: 3}
   questions:
   - name: 
     text: Anyone who googled their ex's new BF/GF more than once drink 2 sips

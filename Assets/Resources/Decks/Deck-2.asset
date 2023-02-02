@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720195d612531fe4c818f9aa95ed4840, type: 3}
   m_Name: Deck-2
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  deckTitle: Sexy Dirty Truth or Drink
+  deckDescription: 'Simple rules: tell the truth to make everyone a sip, or sip 4
+    times to keep silence!'
+  icon: {fileID: 21300000, guid: e73eb4390a8d24edabce327a57c2a93d, type: 3}
   questions:
   - name: 
     text: "[player], what\u2019s the soonest after meeting someone you\u2019ve slept

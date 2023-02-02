@@ -29,7 +29,7 @@ public class OpenCard : MonoBehaviour
         text.gameObject.SetActive(false);
         playerChoice.SetActive(false);
 
-        imageCard.transform.DORotate(new Vector3(0, 0, 0), 3).SetEase(Ease.OutElastic).OnUpdate(FlipAnimCallback);
+        imageCard.transform.DORotate(new Vector3(0, 0, 0), 2).SetEase(Ease.OutElastic).OnUpdate(FlipAnimCallback);
     }
 
     private void OnEnable()
@@ -54,13 +54,18 @@ public class OpenCard : MonoBehaviour
 
         if (GameManager.currentQuestion.players == "1")
         {
-            question = question.Replace("[player]", GameManager.currentPlayer[0].name);
+            if(GameManager.currentPlayer.Count > 0) { 
+                question = question.Replace("[player]", GameManager.currentPlayer[0].name);
+            }
         }
 
         if(GameManager.currentQuestion.players == "2")
         {
-            question = question.Replace("[player]", GameManager.currentPlayer[0].name);
-            question = question.Replace("[player2]", GameManager.currentPlayer[1].name);
+            if (GameManager.currentPlayer.Count > 0)
+            {
+                question = question.Replace("[player]", GameManager.currentPlayer[0].name);
+                question = question.Replace("[player2]", GameManager.currentPlayer[1].name);
+            }
         }
 
         text.text = question;

@@ -306,6 +306,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 424244811}
+--- !u!114 &502937680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294534654205958561, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +453,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4092688847136928777, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
   m_PrefabInstance: {fileID: 2294534653685081147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &613332575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8040091691095931998, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619078494
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +614,18 @@ MonoBehaviour:
     codeLink: 1xRZcUASQ7jDdVg5omEtIPbCThCctiR5q4y4_Tm7H4XE
   - nameDeck: Deck-4
     codeLink: 1cghN0aTzI-k_7GdOJNFcV1pAxEBodNFSktyxSL_kwXs
+  - nameDeck: Deck-5
+    codeLink: 1GjL1ShMK6SvN0p3sjATS4IwNBAdg054ukjMgYKyjPWo
+  - nameDeck: Deck-6
+    codeLink: 1ed9NkQFqWmP74-mPs-CF9VaiEbj4btt9ROVKK41Q3UE
+  - nameDeck: Deck-7
+    codeLink: 100JCXyiDInuqqxfll7UISaqysu_SpgCgcNDmQeGfKXA
+  - nameDeck: Deck-8
+    codeLink: 1fWZn9LvtJufUbLYdMOwPy89q8dzml2XMcHsBA6ApkPw
+  - nameDeck: Deck-9
+    codeLink: 1iEsWn2feroTiEe1ozEXR6I0Q2flxVivbjXq1vOVIa3E
+  - nameDeck: Deck-10
+    codeLink: 17UBtHCMf444iaz07gHMltxnw6SYqtbc9r7iTRtQgnMc
 --- !u!114 &771669992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +643,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd7d04017939077409007567d4d42251, type: 2}
   - {fileID: 11400000, guid: 88dab95fa34fba84da4446e9868a8839, type: 2}
   - {fileID: 11400000, guid: a97955f96234b644c8c593b4c2921c54, type: 2}
+  - {fileID: 11400000, guid: 93ca6aac09417294ca0b86aaa8d5291b, type: 2}
+  - {fileID: 11400000, guid: 4eb30f2d1b98b6247be0b36054304aea, type: 2}
+  - {fileID: 11400000, guid: 263fe76a9c57c754cab2421fc71d3c92, type: 2}
+  - {fileID: 11400000, guid: 221a580d94683ec4e904040a2e8d1786, type: 2}
+  - {fileID: 11400000, guid: a1a9941a4d6942741b0d792e2d18798e, type: 2}
+  - {fileID: 11400000, guid: 18e9c2647a7323b428bbfa4da4237bb0, type: 2}
 --- !u!1 &841816922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6301242781412808159, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
@@ -700,6 +740,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2545473387857378297, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
   m_PrefabInstance: {fileID: 3683322642268926774}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &893982535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1915397680, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &950593607 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2763483409299683545, guid: 468702b63f1fc43acbd717a03f94869a, type: 3}
@@ -970,6 +1021,8 @@ MonoBehaviour:
   _audioSource: {fileID: 1629498780}
   _welcomeScreen: {fileID: 1193513008}
   _playersList: {fileID: 1193513003}
+  _backInput: {fileID: 1115650619}
+  _backWelcome: {fileID: 3683322642268926775}
 --- !u!114 &1193513008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +1050,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193513002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4fd18c1390346e495e23361da5c21a, type: 3}
   m_Name: 
@@ -1011,7 +1064,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193513002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fac296b49de343a381b4057393e2e24, type: 3}
   m_Name: 
@@ -1027,7 +1080,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193513002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c255769320ae4417ea6e6112b8642521, type: 3}
   m_Name: 
@@ -1137,11 +1190,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1314063058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 660922347, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1367678858 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3683322642161556242, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
   m_PrefabInstance: {fileID: 3683322642268926774}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1435572467 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294534654142932559, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1476983717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 238422030757126416, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
@@ -1922,6 +1997,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916283837}
   m_CullTransparentMesh: 1
+--- !u!114 &1922920287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294534653507041925, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1933674964 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5486107703910809964, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
@@ -2157,6 +2243,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 660922347, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_text
+      value: Never have I ever
+      objectReference: {fileID: 0}
+    - target: {fileID: 660922347, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_fontSize
+      value: 64.55
+      objectReference: {fileID: 0}
     - target: {fileID: 772680110, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_Spacing
       value: -150
@@ -2262,6 +2356,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 133709946}
     - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802133997, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -2282,6 +2408,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2294534653246200218, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294534654142932553, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2314,21 +2444,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 771669992}
     - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: deckImage
+      value: 
+      objectReference: {fileID: 613332575}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: titleDeck
+      value: 
+      objectReference: {fileID: 1922920287}
     - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playersModel
       value: 
       objectReference: {fileID: 1193513006}
     - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: deckMiniImage
+      value: 
+      objectReference: {fileID: 1435572467}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playersScreen
       value: 
       objectReference: {fileID: 1193513005}
     - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: descriptionDeck
+      value: 
+      objectReference: {fileID: 502937680}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: simpleScrollSnap
       value: 
       objectReference: {fileID: 1065055623}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: titleDeckOutline
+      value: 
+      objectReference: {fileID: 893982535}
     - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playerTwoRoulette
       value: 
@@ -2337,6 +2487,10 @@ PrefabInstance:
       propertyPath: simpleScrollSnap2
       value: 
       objectReference: {fileID: 133709946}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: descriptionDeckOutline
+      value: 
+      objectReference: {fileID: 1314063058}
     - target: {fileID: 3056954040103949399, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: _backCard
       value: 
@@ -3547,16 +3701,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 231505830607562804, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 231505830607562804, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -740.5
       objectReference: {fileID: 0}
+    - target: {fileID: 236609969236759870, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Never have I ever
+      objectReference: {fileID: 0}
     - target: {fileID: 248598616369403541, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2055618273bab4143afb886073ae6312, type: 3}
+    - target: {fileID: 252815547246961007, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Its getting hotter. Everyone will need a sip to forget the answers you
+        heard. No answer - 5 sips.
+      objectReference: {fileID: 0}
     - target: {fileID: 317066769166478326, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3579,7 +3742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525705915994617937, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 525705915994617937, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3595,7 +3758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 849053651054997228, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 849053651054997228, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3605,6 +3768,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1737548418}
+    - target: {fileID: 1039318532598782962, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Queens Convention
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117296757204617520, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Girls Night Out! Do dare or answer truth to make everybody else sip
+        once, or sip 4 times to skip.
+      objectReference: {fileID: 0}
     - target: {fileID: 1338027267109031869, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3619,7 +3791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1472938163874213124, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.62866056
+      value: 0.60999525
       objectReference: {fileID: 0}
     - target: {fileID: 1576131672290626595, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3631,7 +3803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1576131672290626595, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.62866056
+      value: 0.60999525
       objectReference: {fileID: 0}
     - target: {fileID: 1594295166709671014, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3643,7 +3815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1594295166709671014, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 1594295166709671014, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3659,7 +3831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1693589449205362989, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 1693589449205362989, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3677,6 +3849,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2055618273bab4143afb886073ae6312, type: 3}
+    - target: {fileID: 2000725740862139737, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Never have I ever
+      objectReference: {fileID: 0}
     - target: {fileID: 2070549397921181320, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3695,7 +3871,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7cf1839fdeb1e471b8128cb619b4c8c9, type: 3}
     - target: {fileID: 2532927257078359006, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2574187369748800569, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3707,11 +3883,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2574187369748800569, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 2574187369748800569, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -4716.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705241879878321206, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Drinking Wizards
       objectReference: {fileID: 0}
     - target: {fileID: 2847279863700412682, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3727,11 +3907,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2887843540662141869, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 2887843540662141869, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3722.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935482243266781518, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Cursed questions
       objectReference: {fileID: 0}
     - target: {fileID: 3150889631837044997, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_Sprite
@@ -3747,7 +3931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553491763791603568, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 3553491763791603568, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3771,7 +3955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273249326453038073, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 4273249326453038073, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3785,10 +3969,38 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1737548418}
+    - target: {fileID: 4564926003755197571, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Playing all together! Make a sip for 'yes', skip for 'no', easy peasy
+        lemon squeezy!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575256850923304937, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: No fears, no regrets! Do dare or answer truth to make everybody else
+        sip once, or sip 4 times to skip.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909160006947905458, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Night of Knights!
+      objectReference: {fileID: 0}
     - target: {fileID: 4913346123155193877, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1737548418}
+    - target: {fileID: 5004790012134758739, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Cursed questions
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137645346028542328, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Dares for persistent ones! Don't wake up in police station! 5 sips to
+        skip or do to make everybody sip once.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166415326195889246, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Girls Night Out! Do dare or answer truth to make everybody else sip
+        once, or sip 4 times to skip.
+      objectReference: {fileID: 0}
     - target: {fileID: 5216500785248278639, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3799,7 +4011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216500785248278639, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 5216500785248278639, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3815,7 +4027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395036523169152351, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 5395036523169152351, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3839,16 +4051,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5623610427478300852, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 5623610427478300852, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1237.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5835875912344410462, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Queens Convention
+      objectReference: {fileID: 0}
     - target: {fileID: 6064617994065319291, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1737548418}
+    - target: {fileID: 6187591721813650485, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Drinking Wizards
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196845853127514808, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Woof or meow? Crazy questions about pets, spin and drink!
+      objectReference: {fileID: 0}
     - target: {fileID: 6301242781310862732, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3959,7 +4183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6301242781461611318, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6301242781461611318, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3975,7 +4199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6301242781878289448, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6301242781878289448, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3991,7 +4215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6301242782210996751, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6301242782210996751, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4015,7 +4239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6301242782252615440, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6301242782252615440, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4051,11 +4275,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6309680311428355818, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6309680311428355818, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -2231.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364966955599142000, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Night of Knights!
       objectReference: {fileID: 0}
     - target: {fileID: 6572523006341109822, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4067,7 +4295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572523006341109822, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6572523006341109822, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4087,11 +4315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6628151503015424738, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 6628151503015424738, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3225.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958274801450572748, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Met a pet
       objectReference: {fileID: 0}
     - target: {fileID: 7043351330209948493, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4101,10 +4333,19 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 8564980}
+    - target: {fileID: 7080488366720644610, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Dares for persistent ones! Don't wake up in police station! 5 sips to
+        skip or do to make everybody sip once.
+      objectReference: {fileID: 0}
     - target: {fileID: 7123526206327541355, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7cf1839fdeb1e471b8128cb619b4c8c9, type: 3}
+    - target: {fileID: 7353407988355344652, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Met a pet
+      objectReference: {fileID: 0}
     - target: {fileID: 7592209786900153122, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4115,15 +4356,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7592209786900153122, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 489.49573
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 7592209786900153122, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -4219.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7939354762977264286, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: No fears, no regrets! Do dare or answer truth to make everybody else
+        sip once, or sip 4 times to skip.
+      objectReference: {fileID: 0}
     - target: {fileID: 7966276884940818696, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269558819269594242, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Its getting hotter. Everyone will need a sip to forget the answers you
+        heard. No answer - 5 sips.
       objectReference: {fileID: 0}
     - target: {fileID: 8348657077866639725, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4135,12 +4386,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8348657077866639725, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 8348657077866639725, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3225.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8510101085263222524, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_text
+      value: Woof or meow? Crazy questions about pets, spin and drink!
+      objectReference: {fileID: 0}
     - target: {fileID: 8540579696501046586, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4151,7 +4406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540579696501046586, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 467.65372
       objectReference: {fileID: 0}
     - target: {fileID: 8540579696501046586, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_AnchoredPosition.y

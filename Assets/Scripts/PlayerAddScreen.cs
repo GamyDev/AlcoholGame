@@ -15,6 +15,8 @@ public class PlayerAddScreen : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private WelcomeScreen _welcomeScreen;
     [SerializeField] private PlayersList _playersList;
+    [SerializeField] private GameObject _backInput;
+    [SerializeField] private GameObject _backWelcome;
 
 
     public void CheckInputField(string value)
@@ -51,7 +53,9 @@ public class PlayerAddScreen : MonoBehaviour
                 _welcomObject.SetActive(true);
                 AddUser();
                 _welcomeScreen.SetUser(); 
-                _audioSource.Play(); 
+                _audioSource.Play();
+                _backInput.SetActive(false);
+                _backWelcome.SetActive(true);
             }
         }
     }

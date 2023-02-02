@@ -8,6 +8,7 @@ using DG.Tweening;
 using DanielLochner.Assets.SimpleScrollSnap;
 using TMPro;
 using Cysharp.Threading.Tasks;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,9 +24,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerRoulette;
     [SerializeField] private GameObject playerTwoRoulette;
 
+    [SerializeField] private TMP_Text titleDeck;
+    [SerializeField] private TMP_Text titleDeckOutline;
+
+    [SerializeField] private TMP_Text descriptionDeck;
+    [SerializeField] private TMP_Text descriptionDeckOutline;
+
+    [SerializeField] private Image deckImage;
+    [SerializeField] private Image deckMiniImage;
+
     [SerializeField] private SimpleScrollSnap simpleScrollSnap;
     [SerializeField] private SimpleScrollSnap simpleScrollSnap2;
     [SerializeField] private StartPlayersScreen playersScreen;
+
+    private static Action OnComplete;
 
     public static bool reloadGame;
     
@@ -42,7 +54,14 @@ public class GameManager : MonoBehaviour
     private Sequence deckSequence;
     public void EnableSpinner()
     {
-        if(currentQuestion.players == "1")
+
+        simpleScrollSnap.gameObject.SetActive(false);
+        simpleScrollSnap.gameObject.SetActive(true);
+
+        simpleScrollSnap2.gameObject.SetActive(false);
+        simpleScrollSnap2.gameObject.SetActive(true);
+
+        if (currentQuestion.players == "1")
         {
             centerCard.SetActive(true);
             simpleScrollSnap.gameObject.SetActive(true);
@@ -60,12 +79,10 @@ public class GameManager : MonoBehaviour
 
         if (currentQuestion.players == "A")
         {
-            centerCard.SetActive(false);
+            centerCard.SetActive(true);
             simpleScrollSnap.gameObject.SetActive(false);
             simpleScrollSnap2.gameObject.SetActive(false);
             buttonSpin.gameObject.SetActive(false);
-            openCard.gameObject.SetActive(true);
-            openCard.GetComponent<OpenCard>().AnimateOpenCard();
         }
     }
 
@@ -161,12 +178,9 @@ public class GameManager : MonoBehaviour
     }
 
    public void AnimDeck()
-   {  
-        deckSequence?.Kill();
+   {   
 
-        deckSequence = DOTween.Sequence();
-
-        centerCardPos = centerCard.transform.localPosition;
+        deckSequence = DOTween.Sequence(); 
 
         centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
         centerCard.transform.localScale = Vector3.zero;
@@ -174,41 +188,54 @@ public class GameManager : MonoBehaviour
         deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
     }
 
+    
+
     private void OnEnable()
     {
+        Debug.Log("!!");
         currentPlayer = new List<Player>();
         tempPlayers = new List<Player>(); 
 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
         scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
 
-        AnimDeck();
+        centerCardPos = centerCard.transform.localPosition;
 
         questions = new List<Question>();
         questions.Clear();
         questions = GetQustions();
 
         GetRandomQuestion();
-        EnableSpinner();
-
         
+        AnimDeck();
+
         SetSettingsOneUser(); 
         
         SetSettingsTwoUsers();
-        
 
-        if(currentQuestion.players == "A")
-        {
-            openCard.gameObject.SetActive(true);
-        }
+        EnableSpinner();
     }
 
     private void ScaleComplete()
     {
         deckSequence.Append(centerCard.transform.DOLocalMove(centerCardPos, 1));
         deckSequence.Append(centerCard.transform.DOScale(Vector3.one, 1));
+        Invoke("EnableAllAnimation", 1.5f);
     }
 
+    public void EnableAllAnimation()
+    {
+        if (currentQuestion.players == "A")
+        {
+            centerCard.SetActive(false);
+            simpleScrollSnap.gameObject.SetActive(false);
+            simpleScrollSnap2.gameObject.SetActive(false);
+            buttonSpin.gameObject.SetActive(false);
+            openCard.gameObject.SetActive(true);
+            openCard.GetComponent<OpenCard>().AnimateOpenCard();
+        }
+    }
+     
     private void SelectedPlayer(int index, int index2)
     {
         currentPlayer.Clear();
@@ -221,6 +248,7 @@ public class GameManager : MonoBehaviour
         if(currentQuestion.players == "2")
         {
             currentPlayer.Add(tempPlayers[index * 2]);
+            //TODO: ??
             if(index * 2 + 1 >= tempPlayers.Count)
             {
                 currentPlayer.Add(tempPlayers[0]);
@@ -239,16 +267,18 @@ public class GameManager : MonoBehaviour
     IEnumerator StartSpin()
     {
         buttonSpin.interactable = false;
+        buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
         yield return new WaitForSeconds(5f);
        
         vfx.PlayVFX();
         yield return new WaitForSeconds(1f);
         buttonSpin.interactable = true;
+        buttonSpin.transform.DOScale(Vector3.one, 0.2f);
 
         buttonSpin.gameObject.SetActive(false);
         spinner.gameObject.SetActive(false);
         simpleScrollSnap2.gameObject.SetActive(false);
-        centerCard.gameObject.SetActive(false);
+       centerCard.gameObject.SetActive(false);
 
         openCard.gameObject.SetActive(false);
         openCard.gameObject.SetActive(true);
@@ -261,32 +291,25 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        currentQuestion = questions[Random.Range(0, questions.Count)];
-        questions.RemoveAt(Random.Range(0, questions.Count));
+        int randomQuestion = UnityEngine.Random.Range(0, questions.Count);
+        currentQuestion = questions[randomQuestion];
+        questions.RemoveAt(randomQuestion);
     }
 
     public List<Question> GetQustions()
     {
         List<Question> questions = new List<Question>();
 
-        /*if (File.Exists(Application.persistentDataPath + "/Data/" + decks.deckSettings[0].name + ".csv"))
-        {
-            var cards = QuestionsParser.ReadCsv(decks.deckSettings[0].name);
-            foreach (var item in cards)
-            {
-                questions.Add(new Question()
-                {
-                    name = "",
-                    text = item.text,
-                    players = item.count,
-                    timer = item.timer
-                });
-            }
-            typeDeck = "CsvFile";
-            return questions;
-        }*/
-
         typeDeck = "ScriptableObject";
+
+        deckImage.sprite = decks.deckSettings[SelectedDeck.selectedDeck].icon;
+        deckMiniImage.sprite = decks.deckSettings[SelectedDeck.selectedDeck].icon;
+        
+        titleDeck.text = decks.deckSettings[SelectedDeck.selectedDeck].deckTitle;
+        titleDeckOutline.text = decks.deckSettings[SelectedDeck.selectedDeck].deckTitle;
+
+        descriptionDeck.text = decks.deckSettings[SelectedDeck.selectedDeck].deckDescription;
+        descriptionDeckOutline.text = decks.deckSettings[SelectedDeck.selectedDeck].deckDescription;
 
         foreach (var item in decks.deckSettings[SelectedDeck.selectedDeck].questions)
         {

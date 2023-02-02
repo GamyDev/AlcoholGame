@@ -55,7 +55,7 @@ public class OpenCard : MonoBehaviour
         if (GameManager.currentQuestion.players == "1")
         {
             if(GameManager.currentPlayer.Count > 0) { 
-                question = question.Replace("[player]", GameManager.currentPlayer[0].name);
+                question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
             }
         }
 
@@ -63,8 +63,8 @@ public class OpenCard : MonoBehaviour
         {
             if (GameManager.currentPlayer.Count > 0)
             {
-                question = question.Replace("[player]", GameManager.currentPlayer[0].name);
-                question = question.Replace("[player2]", GameManager.currentPlayer[1].name);
+                question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+                question = question.Replace("[player2]", $"<color=#DA2678>{GameManager.currentPlayer[1].name}</color>");
             }
         }
 

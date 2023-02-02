@@ -10,7 +10,6 @@ public class DeckSettings : ScriptableObject
     public string deckDescription;
     public Sprite icon;
     public List<Question> questions;
-    public bool isOpen;
 }
 
 [System.Serializable]

@@ -8,6 +8,7 @@ using System;
 
 public class OpenCard : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private PlayersModel playersModel;
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text text;
@@ -32,6 +33,27 @@ public class OpenCard : MonoBehaviour
         imageCard.transform.DORotate(new Vector3(0, 0, 0), 2).SetEase(Ease.OutElastic).OnUpdate(FlipAnimCallback);
     }
 
+    public void SetCurrentPlayer(int index)
+    {
+        if (GameManager.currentQuestion.players == "1")
+        {
+            GameManager.currentPlayer.Add(gameManager.tempPlayers[index]);
+        }
+
+        if (GameManager.currentQuestion.players == "2")
+        {
+            GameManager.currentPlayer.Add(gameManager.tempPlayers[index * 2]);
+            if (index * 2 + 1 >= gameManager.tempPlayers.Count)
+            {
+                GameManager.currentPlayer.Add(gameManager.tempPlayers[0]);
+            }
+            else
+            {
+                GameManager.currentPlayer.Add(gameManager.tempPlayers[index * 2 + 1]);
+            }
+        }
+    }
+
     private void OnEnable()
     {
         AnimateOpenCard();
@@ -52,26 +74,29 @@ public class OpenCard : MonoBehaviour
         title.text = GameManager.currentQuestion.name;
         string question = GameManager.currentQuestion.text;
 
-        if (GameManager.currentQuestion.players == "1")
-        {
-            if(GameManager.currentPlayer.Count > 0) { 
+        if (GameManager.currentQuestion.players == "1") 
+        {  
+            if (GameManager.currentPlayerIndex != GameManager.previousPlayerIndex)
+            { 
                 question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
             } else
             {
-                question = question.Replace("[player]", $"<color=#DA2678>{playersModel.playerDatas[0].name}</color>");
+                SetCurrentPlayer(GameManager.currentPlayerIndex);
+                question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
             }
         }
 
         if(GameManager.currentQuestion.players == "2")
         {
-            if (GameManager.currentPlayer.Count > 0)
+            if (GameManager.currentPlayer2Index != GameManager.previousPlayer2Index)
             {
                 question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
                 question = question.Replace("[player2]", $"<color=#DA2678>{GameManager.currentPlayer[1].name}</color>");
             } else
             {
-                question = question.Replace("[player]", $"<color=#DA2678>{playersModel.playerDatas[0].name}</color>");
-                question = question.Replace("[player2]", $"<color=#DA2678>{playersModel.playerDatas[1].name}</color>");
+                SetCurrentPlayer(GameManager.currentPlayer2Index);
+                question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+                question = question.Replace("[player2]", $"<color=#DA2678>{GameManager.currentPlayer[1].name}</color>");
             }
         }
 
@@ -89,7 +114,7 @@ public class OpenCard : MonoBehaviour
             playerAll.SetActive(false);
             player.SetActive(true);
             playerTwo.SetActive(false);
-            if (GameManager.currentPlayer.Count > 0)
+            if (GameManager.currentPlayerIndex != GameManager.previousPlayerIndex)
             {
                 player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
                 player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
@@ -97,11 +122,12 @@ public class OpenCard : MonoBehaviour
                 player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
             } else
             {
-                player.transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
-                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
-
-                player.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[0].avatar];
                 Debug.LogError("Bug!!!!!");
+                SetCurrentPlayer(GameManager.currentPlayerIndex);
+                player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+
+                player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
             }
         }
 
@@ -111,7 +137,7 @@ public class OpenCard : MonoBehaviour
             player.SetActive(true);
             playerTwo.SetActive(true);
 
-            if (GameManager.currentPlayer.Count > 0)
+            if (GameManager.currentPlayer2Index != GameManager.previousPlayer2Index)
             {
                 player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
                 player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
@@ -125,15 +151,16 @@ public class OpenCard : MonoBehaviour
             } else
             {
                 Debug.LogError("Bug!!!!!");
-                player.transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
-                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
+                SetCurrentPlayer(GameManager.currentPlayer2Index);
+                player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
 
-                player.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[0].avatar];
+                player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
 
-                playerTwo.transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[1].name;
-                playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[1].name;
+                playerTwo.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
+                playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
 
-                playerTwo.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[1].avatar];
+                playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
             }
         }
     }

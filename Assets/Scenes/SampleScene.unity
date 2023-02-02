@@ -8945,6 +8945,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1736520533}
     m_Modifications:
     - target: {fileID: 1109258394, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 3056954040103949392}
+    - target: {fileID: 1109258394, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playersModel
       value: 
       objectReference: {fileID: 1193513006}
@@ -9461,6 +9465,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3871873694950125684, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
   m_PrefabInstance: {fileID: 2294534653685081147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3056954040103949392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+  m_PrefabInstance: {fileID: 2294534653685081147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aca9d050a51ae4e98cb8dc38a92fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3683322642268926774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10157,6 +10172,10 @@ PrefabInstance:
       value: No fears, no regrets! Do dare or answer truth to make everybody else
         sip once, or sip 4 times to skip.
       objectReference: {fileID: 0}
+    - target: {fileID: 4869783969944399004, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 4909160006947905458, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_text
       value: Night of Knights!
@@ -10548,6 +10567,10 @@ PrefabInstance:
     - target: {fileID: 7966276884940818696, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043237170268060283, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 8269558819269594242, guid: 22199d947088b4a71819aec3f2b081b6, type: 3}
       propertyPath: m_text

@@ -39,18 +39,25 @@ public class GameManager : MonoBehaviour
     private static Action OnComplete;
 
     public static bool reloadGame;
-    
+
     private Vector3 centerCardPos;
 
     public static List<Player> currentPlayer;
     public static Question currentQuestion;
 
     private List<Question> questions;
-    private List<Player> tempPlayers;
+    public List<Player> tempPlayers;
 
     private ScrollRect scrollRect;
     private ScrollRect scrollRect2;
     private Sequence deckSequence;
+
+    public static int previousPlayerIndex;
+    public static int currentPlayerIndex;
+
+    public static int previousPlayer2Index;
+    public static int currentPlayer2Index;
+
     public void EnableSpinner()
     {
 
@@ -90,7 +97,7 @@ public class GameManager : MonoBehaviour
         reloadGame = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-     
+
     public void ResetSpinners()
     {
 
@@ -128,7 +135,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < tempPlayers.Count; i++)
         {
-            if(i % 2 == 0)
+            if (i % 2 == 0)
             {
                 scrollRect2.content.GetChild(i / 2).GetChild(0).GetComponent<Image>().sprite = playersModel.avatars[tempPlayers[i].avatar];
                 scrollRect2.content.GetChild(i / 2).GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
@@ -140,11 +147,10 @@ public class GameManager : MonoBehaviour
                     scrollRect2.content.GetChild(i / 2).GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i + 1].name;
                     scrollRect2.content.GetChild(i / 2).GetChild(1).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i + 1].name;
                 }
-            }  
-            
+            }
+
         }
 
-        //simpleScrollSnap2.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
         simpleScrollSnap2.OnPanelCentered += SelectedPlayer;
     }
 
@@ -176,9 +182,7 @@ public class GameManager : MonoBehaviour
             scrollRect.content.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
         }
 
-        //simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); }); 
         simpleScrollSnap.OnPanelCentered += SelectedPlayer;
-        //simpleScrollSnap.OnPanelSelected.AddListener((int index) => { SelectedPlayer(index); });
     }
 
     private void OnDisable()
@@ -188,8 +192,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void AnimDeck()
-   {    
-        deckSequence = DOTween.Sequence(); 
+    {
+        deckSequence = DOTween.Sequence();
 
         centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
         centerCard.transform.localScale = Vector3.zero;
@@ -197,13 +201,12 @@ public class GameManager : MonoBehaviour
         deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
     }
 
-    
+
 
     private void OnEnable()
     {
-        Debug.Log("!!");
         currentPlayer = new List<Player>();
-        tempPlayers = new List<Player>(); 
+        tempPlayers = new List<Player>();
 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
         scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
@@ -215,11 +218,11 @@ public class GameManager : MonoBehaviour
         questions = GetQustions();
 
         GetRandomQuestion();
-        
+
         AnimDeck();
 
-        SetSettingsOneUser(); 
-        
+        SetSettingsOneUser();
+
         SetSettingsTwoUsers();
 
         EnableSpinner();
@@ -245,42 +248,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
-     
 
     private void SelectedPlayer(int index, int index2)
     {
         scrollRect.StopMovement();
-        scrollRect2.StopMovement(); 
-        
+        scrollRect2.StopMovement();
+
         Debug.Log($"Players count {currentQuestion.players}. Selected {index}");
 
-        if(currentQuestion.players == "1") {  
+        if (currentQuestion.players == "1")
+        {
             currentPlayer.Add(tempPlayers[index]);
+
+            currentPlayerIndex = index;
         }
 
-        if(currentQuestion.players == "2")
+        if (currentQuestion.players == "2")
         {
+            currentPlayer2Index = index;
+
             currentPlayer.Add(tempPlayers[index * 2]);
-            //TODO: ??
-            if(index * 2 + 1 >= tempPlayers.Count)
+            if (index * 2 + 1 >= tempPlayers.Count)
             {
                 currentPlayer.Add(tempPlayers[0]);
-            } else
+            }
+            else
             {
                 currentPlayer.Add(tempPlayers[index * 2 + 1]);
             }
         }
-
-        //buttonSpin.interactable = true;
-        //buttonSpin.transform.DOScale(Vector3.one, 0.2f);
-
-        //buttonSpin.gameObject.SetActive(false);
-        //spinner.gameObject.SetActive(false);
-        //simpleScrollSnap2.gameObject.SetActive(false);
-        //centerCard.gameObject.SetActive(false);
-
-        //openCard.gameObject.SetActive(false);
-        //openCard.gameObject.SetActive(true);
     }
 
     public void DisableButton()
@@ -291,19 +287,30 @@ public class GameManager : MonoBehaviour
     IEnumerator StartSpin()
     {
         currentPlayer.Clear();
+        if (currentQuestion.players == "1")
+        {
+            currentPlayerIndex = previousPlayerIndex;
+        }
+
+        if (currentQuestion.players == "2")
+        {
+            currentPlayer2Index = previousPlayer2Index;
+        }
+
+
         buttonSpin.interactable = false;
         buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
-        yield return new WaitForSeconds(5f); 
-       buttonSpin.interactable = true;
-       buttonSpin.transform.DOScale(Vector3.one, 0.2f);
+        yield return new WaitForSeconds(5f);
+        buttonSpin.interactable = true;
+        buttonSpin.transform.DOScale(Vector3.one, 0.2f);
 
-       buttonSpin.gameObject.SetActive(false);
-       spinner.gameObject.SetActive(false);
-       simpleScrollSnap2.gameObject.SetActive(false);
-       centerCard.gameObject.SetActive(false);
+        buttonSpin.gameObject.SetActive(false);
+        spinner.gameObject.SetActive(false);
+        simpleScrollSnap2.gameObject.SetActive(false);
+        centerCard.gameObject.SetActive(false);
 
-       openCard.gameObject.SetActive(false);
-       openCard.gameObject.SetActive(true);
+        openCard.gameObject.SetActive(false);
+        openCard.gameObject.SetActive(true);
     }
 
     public void GetRandomQuestion()
@@ -328,7 +335,7 @@ public class GameManager : MonoBehaviour
 
         deckImage.sprite = decks.deckSettings[SelectedDeck.selectedDeck].icon;
         deckMiniImage.sprite = decks.deckSettings[SelectedDeck.selectedDeck].icon;
-        
+
         titleDeck.text = decks.deckSettings[SelectedDeck.selectedDeck].deckTitle;
         titleDeckOutline.text = decks.deckSettings[SelectedDeck.selectedDeck].deckTitle;
 

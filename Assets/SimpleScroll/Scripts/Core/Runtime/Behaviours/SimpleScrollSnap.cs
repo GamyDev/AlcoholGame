@@ -601,13 +601,13 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             {
                 if (GetDisplacementFromCenter(CenteredPanel).magnitude < (Viewport.rect.width / 10f))
                 {
-                    onPanelCentered.Invoke(CenteredPanel, SelectedPanel);
+                    onPanelCentered?.Invoke(CenteredPanel, SelectedPanel);
                     SelectedPanel = CenteredPanel;
                 }
             }
             else
             {
-                onPanelCentering.Invoke(CenteredPanel, SelectedPanel);
+                onPanelCentering?.Invoke(CenteredPanel, SelectedPanel);
             }
         }
 

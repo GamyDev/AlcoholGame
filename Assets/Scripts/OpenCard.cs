@@ -56,6 +56,9 @@ public class OpenCard : MonoBehaviour
         {
             if(GameManager.currentPlayer.Count > 0) { 
                 question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+            } else
+            {
+                question = question.Replace("[player]", $"<color=#DA2678>{playersModel.playerDatas[0].name}</color>");
             }
         }
 
@@ -65,6 +68,10 @@ public class OpenCard : MonoBehaviour
             {
                 question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
                 question = question.Replace("[player2]", $"<color=#DA2678>{GameManager.currentPlayer[1].name}</color>");
+            } else
+            {
+                question = question.Replace("[player]", $"<color=#DA2678>{playersModel.playerDatas[0].name}</color>");
+                question = question.Replace("[player2]", $"<color=#DA2678>{playersModel.playerDatas[1].name}</color>");
             }
         }
 
@@ -82,11 +89,19 @@ public class OpenCard : MonoBehaviour
             playerAll.SetActive(false);
             player.SetActive(true);
             playerTwo.SetActive(false);
+            if (GameManager.currentPlayer.Count > 0)
+            {
+                player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
 
-            player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
-            player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+                player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
+            } else
+            {
+                player.transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
+                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
 
-            player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
+                player.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[0].avatar];
+            }
         }
 
         if (GameManager.currentQuestion.players == "2")
@@ -95,15 +110,30 @@ public class OpenCard : MonoBehaviour
             player.SetActive(true);
             playerTwo.SetActive(true);
 
-            player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
-            player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+            if (GameManager.currentPlayer.Count > 0)
+            {
+                player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
+                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
 
-            player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
+                player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
 
-            playerTwo.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
-            playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
+                playerTwo.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
+                playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[1].name;
 
-            playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
+                playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
+            } else
+            {
+                Debug.LogError("Bug!!!!!");
+                player.transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
+                player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[0].name;
+
+                player.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[0].avatar];
+
+                playerTwo.transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[1].name;
+                playerTwo.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.playerDatas[1].name;
+
+                playerTwo.GetComponent<Image>().sprite = playersModel.avatars[playersModel.playerDatas[1].avatar];
+            }
         }
     }
 

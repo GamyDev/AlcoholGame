@@ -9068,6 +9068,46 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1629498780}
+    - target: {fileID: 5643861463438614778, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: snapSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643861463438614778, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: snapTarget
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643861463438614778, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: movementType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643861463438614778, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: useHardSnapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643861463438614778, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: thresholdSpeedToSnap
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871505928849444578, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: snapSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871505928849444578, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: snapTarget
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871505928849444578, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: useHardSnapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871505928849444578, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: thresholdSpeedToSnap
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871505928849444578, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: infiniteScrollingSpacing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
 --- !u!1001 &2608195647198025323
@@ -9490,15 +9530,15 @@ PrefabInstance:
       objectReference: {fileID: 424244809}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896323980984028, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.33710808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5680896324289484640, guid: d1368b1c13d0e405fa049df5b797dada, type: 3}
       propertyPath: m_Pivot.x

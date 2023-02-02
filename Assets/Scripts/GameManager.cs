@@ -144,7 +144,8 @@ public class GameManager : MonoBehaviour
             
         }
 
-        simpleScrollSnap2.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+        //simpleScrollSnap2.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+        simpleScrollSnap2.OnPanelCentered += SelectedPlayer;
     }
 
     public void SetSettingsOneUser()
@@ -173,12 +174,18 @@ public class GameManager : MonoBehaviour
             scrollRect.content.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = tempPlayers[i].name;
         }
 
-        simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); });
+        //simpleScrollSnap.OnPanelCentered.AddListener((index, index2) => { SelectedPlayer(index, index2); }); 
+        simpleScrollSnap.OnPanelCentered += SelectedPlayer;
     }
 
-   public void AnimDeck()
-   {   
+    private void OnDisable()
+    {
+        simpleScrollSnap.OnPanelCentered -= SelectedPlayer;
+        simpleScrollSnap2.OnPanelCentered -= SelectedPlayer;
+    }
 
+    public void AnimDeck()
+   {    
         deckSequence = DOTween.Sequence(); 
 
         centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
@@ -256,6 +263,17 @@ public class GameManager : MonoBehaviour
                 currentPlayer.Add(tempPlayers[index * 2 + 1]);
             }
         }
+
+        buttonSpin.interactable = true;
+        buttonSpin.transform.DOScale(Vector3.one, 0.2f);
+
+        buttonSpin.gameObject.SetActive(false);
+        spinner.gameObject.SetActive(false);
+        simpleScrollSnap2.gameObject.SetActive(false);
+        centerCard.gameObject.SetActive(false);
+
+        openCard.gameObject.SetActive(false);
+        openCard.gameObject.SetActive(true);
     }
 
     public void DisableButton()
@@ -267,19 +285,19 @@ public class GameManager : MonoBehaviour
     {
         buttonSpin.interactable = false;
         buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
-        yield return new WaitForSeconds(5f);
-       
-        yield return new WaitForSeconds(1f);
-        buttonSpin.interactable = true;
-        buttonSpin.transform.DOScale(Vector3.one, 0.2f);
+        //yield return new WaitForSeconds(5f);
+        yield return null;
+        //yield return new WaitForSeconds(1f);
+       // buttonSpin.interactable = true;
+       // buttonSpin.transform.DOScale(Vector3.one, 0.2f);
 
-        buttonSpin.gameObject.SetActive(false);
-        spinner.gameObject.SetActive(false);
-        simpleScrollSnap2.gameObject.SetActive(false);
-       centerCard.gameObject.SetActive(false);
+       // buttonSpin.gameObject.SetActive(false);
+       // spinner.gameObject.SetActive(false);
+       // simpleScrollSnap2.gameObject.SetActive(false);
+       //centerCard.gameObject.SetActive(false);
 
-        openCard.gameObject.SetActive(false);
-        openCard.gameObject.SetActive(true);
+       // openCard.gameObject.SetActive(false);
+       // openCard.gameObject.SetActive(true);
     }
 
     public void GetRandomQuestion()

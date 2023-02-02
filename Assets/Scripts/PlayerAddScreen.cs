@@ -54,8 +54,7 @@ public class PlayerAddScreen : MonoBehaviour
                 AddUser();
                 _welcomeScreen.SetUser(); 
                 _audioSource.Play();
-                _backInput.SetActive(false);
-                _backWelcome.SetActive(true);
+                _backInput.SetActive(false); 
             }
         }
     }

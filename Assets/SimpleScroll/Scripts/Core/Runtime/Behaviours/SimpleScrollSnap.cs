@@ -47,7 +47,8 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         [SerializeField] private UnityEvent<int> onPanelSelecting = new UnityEvent<int>();
         [SerializeField] private UnityEvent<int> onPanelSelected = new UnityEvent<int>();
         [SerializeField] private UnityEvent<int, int> onPanelCentering = new UnityEvent<int, int>();
-        [SerializeField] private UnityEvent<int, int> onPanelCentered = new UnityEvent<int, int>();
+        //[SerializeField] private UnityEvent<int, int> onPanelCentered = new UnityEvent<int, int>();
+        [SerializeField] private Action<int, int> onPanelCentered;
 
         private ScrollRect scrollRect;
         private Vector2 contentSize, prevAnchoredPosition, velocity;
@@ -183,9 +184,13 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         {
             get => onPanelCentering;
         }
-        public UnityEvent<int, int> OnPanelCentered
+        public Action<int, int> OnPanelCentered
         {
             get => onPanelCentered;
+            set
+            {
+                onPanelCentered = value;
+            }
         }
 
         public RectTransform Content

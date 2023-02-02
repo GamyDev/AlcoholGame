@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spinner;
     [SerializeField] private GameObject centerCard;
     [SerializeField] private OpenCard openCard;
-    [SerializeField] private VFX vfx;
     [SerializeField] private GameObject rightCard;
     [SerializeField] private GameObject playerRoulette;
     [SerializeField] private GameObject playerTwoRoulette;
@@ -270,7 +269,6 @@ public class GameManager : MonoBehaviour
         buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
         yield return new WaitForSeconds(5f);
        
-        vfx.PlayVFX();
         yield return new WaitForSeconds(1f);
         buttonSpin.interactable = true;
         buttonSpin.transform.DOScale(Vector3.one, 0.2f);

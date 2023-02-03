@@ -10,6 +10,7 @@ public class FocusInput : MonoBehaviour
     private void OnEnable()
     {
         Invoke("Fokus", 0.2f);
+        inputField.shouldHideMobileInput = true;
     }
 
 

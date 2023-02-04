@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,29 @@ public class WelcomeScreen : MonoBehaviour
     [SerializeField] private PlayersList _playersList;
     [SerializeField] private StartPlayersScreen _startPlayersScreen;
 
+    private void OnEnable()
+    {
+        LocalizationManager.OnLanguageChange += ChangeLanguage;
+    }
+
+    private void ChangeLanguage()
+    {
+        if(LocalizationManager.SelectedLanguage == 0)
+        {
+            _titleName.text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+            _subTitleName.GetComponent<TMP_Text>().text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+        }
+        if(LocalizationManager.SelectedLanguage == 1)
+        {
+            _titleName.text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+            _subTitleName.GetComponent<TMP_Text>().text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+        }
+    }
+
+    private void OnDisable()
+    {
+        LocalizationManager.OnLanguageChange -= ChangeLanguage;
+    }
 
     public void SetUser()
     {

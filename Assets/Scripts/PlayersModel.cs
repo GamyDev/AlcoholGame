@@ -21,13 +21,34 @@ public class PlayersModel : MonoBehaviour
 
     public void AddNewPlayer(Player player)
     {
-        if (player == null)
-            throw new System.ArgumentNullException();
-
-        player.avatar = UnityEngine.Random.Range(0, avatars.Count);
+        player.avatar = GetRandomAvatar();
         playerDatas.Add(player);
 
         OnPlayersAdd?.Invoke(playerDatas); 
+    }
+
+    public int GetRandomAvatar()
+    {
+        int avatar = UnityEngine.Random.Range(0, avatars.Count);
+
+        while(isAvatarExists(avatar)) {
+            avatar = UnityEngine.Random.Range(0, avatars.Count);
+        }
+
+        return avatar;
+    }
+
+    public bool isAvatarExists(int avatar)
+    {
+        foreach (var item in playerDatas)
+        {
+            if(item.avatar == avatar)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public Player GetLastUser()

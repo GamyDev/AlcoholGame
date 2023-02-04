@@ -29,20 +29,14 @@ public class StartPlayersScreen : MonoBehaviour
     }
 
     private void OnPlayersAdd(List<Player> players)
-    {
-        //_playersList.AddPlayers();
+    { 
         _nextButton.gameObject.SetActive(players.Count > 1);
         _disabledNextButton.gameObject.SetActive(players.Count < 2);
 
     }
 
     public void RefreshUsers()
-    {
-        //GameObject player = Instantiate(_playerPrefab);
-        //player.transform.SetParent(_buttonGrid.transform);
-        //player.transform.SetAsFirstSibling();
-        //player.transform.localScale = Vector3.one;
-         
+    {    
         GetLastVisibleObject().transform.GetChild(0).GetComponent<TMP_Text>().text = playersModel.GetLastUser().name;
         GetLastVisibleObject().transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = playersModel.GetLastUser().name;
         GetLastVisibleObject().GetComponent<Image>().sprite = playersModel.avatars[PlayersModel.playersModel.GetLastUser().avatar];

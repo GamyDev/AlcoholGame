@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayersList : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _playersList;
+    [SerializeField] private List<GameObject> _playersList;
      private int _countPlayers = 0;
     [SerializeField] private GameObject _addPlayersObject;
     [SerializeField] private Scrollbar _scrollbar;

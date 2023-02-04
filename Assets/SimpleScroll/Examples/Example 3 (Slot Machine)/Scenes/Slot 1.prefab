@@ -618,7 +618,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328291435507512451}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 0
-  movementAxis: 1
+  movementAxis: 0
   useAutomaticLayout: 1
   automaticLayoutSpacing: 0.025
   sizeControl: 0
@@ -746,9 +746,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   onPanelCentering:
-    m_PersistentCalls:
-      m_Calls: []
-  onPanelCentered:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7328403730593462063

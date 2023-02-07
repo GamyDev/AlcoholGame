@@ -24975,6 +24975,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 137
       objectReference: {fileID: 0}
+    - target: {fileID: 5486107703530116132, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1946d9738184556b69a54fb714dc94, type: 3}
     - target: {fileID: 5486107703530116135, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
       propertyPath: m_SizeDelta.x
       value: 480
@@ -25168,7 +25172,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5486107703759083121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f22862cf08d3244c78b0727e6a3bbfcd, type: 2}
   m_CullingMode: 0

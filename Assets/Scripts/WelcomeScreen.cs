@@ -46,10 +46,20 @@ public class WelcomeScreen : MonoBehaviour
         _subName.GetComponent<TMP_Text>().text = _playersModel.GetLastUser().name;
         _titleName.text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         _subTitleName.GetComponent<TMP_Text>().text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
-        _avatar.sprite = _playersModel.avatars[_playersModel.GetLastUser().avatar];
+        Invoke("SetAvatar", 1f);
 
         _playersList.AddPlayers();
         _playersList.ChangePosition();
         _startPlayersScreen.RefreshUsers();
+    }
+
+    private void SetAvatar()
+    {
+        _avatar.GetComponent<Animator>().enabled = false;
+        _avatar.sprite = _playersModel.avatars[_playersModel.GetLastUser().avatar]; 
+    }
+    public void EnableAvatar()
+    {
+        _avatar.GetComponent<Animator>().enabled = true;
     }
 }

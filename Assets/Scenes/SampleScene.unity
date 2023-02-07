@@ -17337,6 +17337,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 771669992}
     - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
+      propertyPath: gameAnimator
+      value: 
+      objectReference: {fileID: 3056954040103949393}
+    - target: {fileID: 3056954040103949395, guid: 2c573d8e37cd642d99a14ab99c7dd9bf, type: 3}
       propertyPath: playersModel
       value: 
       objectReference: {fileID: 1193513006}

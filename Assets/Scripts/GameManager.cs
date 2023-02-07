@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SimpleScrollSnap simpleScrollSnap;
     [SerializeField] private SimpleScrollSnap simpleScrollSnap2;
     [SerializeField] private StartPlayersScreen playersScreen;
+    [SerializeField] private Animator gameAnimator;
 
     private static Action OnComplete;
 
@@ -193,15 +194,15 @@ public class GameManager : MonoBehaviour
 
     public void AnimDeck()
     {
-        deckSequence = DOTween.Sequence();
+        //deckSequence = DOTween.Sequence();
 
-        centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
-        centerCard.transform.localScale = Vector3.zero;
+        //centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
+        //centerCard.transform.localScale = Vector3.zero;
 
-        deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
+        //deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
+        gameAnimator.SetBool("Fly", true);
+        Invoke("EnableAllAnimation", 1.5f);
     }
-
-
 
     private void OnEnable()
     {
@@ -232,13 +233,13 @@ public class GameManager : MonoBehaviour
     {
         deckSequence.Append(centerCard.transform.DOLocalMove(centerCardPos, 1));
         deckSequence.Append(centerCard.transform.DOScale(Vector3.one, 1));
-        Invoke("EnableAllAnimation", 1.5f);
     }
 
     public void EnableAllAnimation()
     {
         if (currentQuestion.players == "A")
         {
+            gameAnimator.SetBool("Fly", false);
             centerCard.SetActive(false);
             simpleScrollSnap.gameObject.SetActive(false);
             simpleScrollSnap2.gameObject.SetActive(false);
@@ -251,8 +252,8 @@ public class GameManager : MonoBehaviour
 
     private void SelectedPlayer(int index, int index2)
     {
-        scrollRect.StopMovement();
-        scrollRect2.StopMovement();
+        //scrollRect.StopMovement();
+        //scrollRect2.StopMovement();
 
         Debug.Log($"Players count {currentQuestion.players}. Selected {index}");
 
@@ -311,6 +312,7 @@ public class GameManager : MonoBehaviour
 
         openCard.gameObject.SetActive(false);
         openCard.gameObject.SetActive(true);
+        gameAnimator.SetBool("Fly", false);
     }
 
     public void GetRandomQuestion()

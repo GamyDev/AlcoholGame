@@ -24888,6 +24888,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1629498780}
@@ -24907,6 +24919,54 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 3442812661413716343}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Target
+      value: 
+      objectReference: {fileID: 1193513008}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Target
+      value: 
+      objectReference: {fileID: 1193513008}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
+      value: EnableAvatar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_MethodName
+      value: ActivatePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_TargetAssemblyTypeName
+      value: WelcomeScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_TargetAssemblyTypeName
+      value: WelcomeScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486107702871973186, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5486107703487130664, guid: aba2516cf70ee4b93b2c277239ab7827, type: 3}
       propertyPath: m_text
       value: Tap to continue_key

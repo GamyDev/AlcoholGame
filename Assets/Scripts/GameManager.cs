@@ -10,6 +10,7 @@ using TMPro;
 using Cysharp.Threading.Tasks;
 using System;
 
+[System.Serializable]
 public class DeckList
 {
     public int deck;

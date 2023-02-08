@@ -282,4 +282,3 @@ MonoBehaviour:
     text: '[player], have you ever accidentally sent sexy pictures to the wrong person?'
     players: 1
     timer: 
-  isOpen: 0

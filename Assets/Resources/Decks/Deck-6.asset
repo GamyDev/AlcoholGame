@@ -329,4 +329,3 @@ MonoBehaviour:
     text: '[player], have you ever destroyed a surprise party?'
     players: 1
     timer: 
-  isOpen: 0

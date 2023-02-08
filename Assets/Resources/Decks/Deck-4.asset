@@ -219,4 +219,3 @@ MonoBehaviour:
     text: '[player], put two drops of the spiciest sauce you have on your tongue.'
     players: 1
     timer: 
-  isOpen: 0

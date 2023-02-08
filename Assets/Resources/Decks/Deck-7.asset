@@ -170,4 +170,3 @@ MonoBehaviour:
     text: '[player], imitate your favorite emoji.'
     players: 1
     timer: 
-  isOpen: 0

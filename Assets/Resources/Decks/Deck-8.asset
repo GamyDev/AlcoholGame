@@ -227,4 +227,3 @@ MonoBehaviour:
     text: '[player], what is your weirdest habit?'
     players: 1
     timer: 
-  isOpen: 0

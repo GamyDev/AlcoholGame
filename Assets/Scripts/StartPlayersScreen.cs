@@ -13,6 +13,7 @@ public class StartPlayersScreen : MonoBehaviour
     [SerializeField] private GameObject _buttonGrid;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private PlayersModel playersModel;
+    [SerializeField] private GamePlayerList _gamePlayerList;
 
     public GameObject PlayerPrefab { get => _playerPrefab; }
 
@@ -20,6 +21,18 @@ public class StartPlayersScreen : MonoBehaviour
     {
         PlayersModel.OnPlayersAdd += OnPlayersAdd;
         PlayersModel.OnPlayersRemove += OnPlayersRemove;
+        RemoveUserButtonHandler.UserRemove += OnUserRemove;
+    }
+
+    private void OnUserRemove(int index)
+    {
+        if(playersModel.playerDatas.Count > 2)
+        {
+            playersModel.playerDatas.RemoveAt(index);
+            _gamePlayerList.RemovePlayer(index);
+            _playersList.RemovePlayer(index);
+            _playersList.ChangePosition(false);
+        }
     }
 
     private void OnPlayersRemove(List<Player> players)
@@ -58,7 +71,7 @@ public class StartPlayersScreen : MonoBehaviour
     {
         GameObject lastVisible = null; 
 
-        for (int i = 0; i < _buttonGrid.transform.childCount - 2; i++)
+        for (int i = 0; i < _buttonGrid.transform.childCount - 1; i++)
         {
             if(_buttonGrid.transform.GetChild(i).gameObject.activeSelf)
             {
@@ -73,6 +86,7 @@ public class StartPlayersScreen : MonoBehaviour
     {
         PlayersModel.OnPlayersAdd -= OnPlayersAdd;
         PlayersModel.OnPlayersRemove -= OnPlayersRemove;
+        RemoveUserButtonHandler.UserRemove -= OnUserRemove;
     }
 }
 

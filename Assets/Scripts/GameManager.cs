@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private StartPlayersScreen playersScreen;
     [SerializeField] private Animator gameAnimator;
 
+    [SerializeField] private GameObject pool;
+
     private static Action OnComplete;
 
     public static bool reloadGame;
@@ -93,27 +95,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void BackToDecks()
-    {
-        reloadGame = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+     
 
     public void ResetSpinners()
-    {
-
+    { 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
         scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
-        for (int i = 0; i < scrollRect2.content.transform.childCount; i++)
-        {
-            simpleScrollSnap2.Remove(i);
-        }
 
 
-        for (int i = 0; i < scrollRect.content.transform.childCount; i++)
-        {
-            simpleScrollSnap.Remove(i);
+        for (int j = 0; j < tempPlayers.Count; j++)
+        { 
+            simpleScrollSnap2.RemoveFromBack(); 
         }
+
+        for (int j = 0; j < tempPlayers.Count; j++)
+        {
+            simpleScrollSnap.RemoveFromBack();
+        }
+
+        tempPlayers.Clear();
     }
 
     public void SetSettingsTwoUsers()
@@ -190,6 +190,9 @@ public class GameManager : MonoBehaviour
     {
         simpleScrollSnap.OnPanelCentered -= SelectedPlayer;
         simpleScrollSnap2.OnPanelCentered -= SelectedPlayer;
+        SelectedDeck.OnDeckChange -= DeckChange;
+        RemoveUserButtonHandler.UserRemove -= OnUserRemove;
+        GamePlayerList.AddPlayerEvent -= OnAddPlayerEvent;
     }
 
     public void AnimDeck()
@@ -206,6 +209,9 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        RemoveUserButtonHandler.UserRemove += OnUserRemove;
+        GamePlayerList.AddPlayerEvent += OnAddPlayerEvent;
+        SelectedDeck.OnDeckChange += DeckChange;
         currentPlayer = new List<Player>();
         tempPlayers = new List<Player>();
 
@@ -216,7 +222,7 @@ public class GameManager : MonoBehaviour
 
         questions = new List<Question>();
         questions.Clear();
-        questions = GetQustions();
+        SetQustions();
 
         GetRandomQuestion();
 
@@ -227,6 +233,29 @@ public class GameManager : MonoBehaviour
         SetSettingsTwoUsers();
 
         EnableSpinner();
+    }
+
+    private void OnAddPlayerEvent()
+    {
+        ResetSpinners();
+        SetSettingsOneUser();
+        SetSettingsTwoUsers();
+    }
+
+    private void OnUserRemove(int index)
+    {
+        ResetSpinners();
+        SetSettingsOneUser();
+        SetSettingsTwoUsers();
+    }
+    private void DeckChange()
+    {
+        SetQustions();
+        if(!openCard.gameObject.activeSelf) { 
+            GetRandomQuestion();
+            EnableSpinner();
+            AnimDeck();
+        }
     }
 
     private void ScaleComplete()
@@ -329,9 +358,9 @@ public class GameManager : MonoBehaviour
         Debug.Log($"{currentQuestion.text} - {currentQuestion.players}");
     }
 
-    public List<Question> GetQustions()
+    public void SetQustions()
     {
-        List<Question> questions = new List<Question>();
+        questions = new List<Question>();
 
         typeDeck = "ScriptableObject";
 
@@ -348,7 +377,5 @@ public class GameManager : MonoBehaviour
         {
             questions.Add(item);
         }
-
-        return questions;
     }
 }

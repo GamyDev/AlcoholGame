@@ -15,51 +15,61 @@ public class WelcomeScreen : MonoBehaviour
     [SerializeField] private TMP_Text _subTitleName;
     [SerializeField] private PlayersList _playersList;
     [SerializeField] private StartPlayersScreen _startPlayersScreen;
+    private float timeSlide = 0.7f;
+    private bool startSlide;
+     
 
-    private void OnEnable()
+    public void SetUser()
     {
-        LocalizationManager.OnLanguageChange += ChangeLanguage;
-    }
-
-    private void ChangeLanguage()
-    {
-        if(LocalizationManager.SelectedLanguage == 0)
+        if (LocalizationManager.SelectedLanguage == 0)
         {
             _titleName.text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
             _subTitleName.GetComponent<TMP_Text>().text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         }
-        if(LocalizationManager.SelectedLanguage == 1)
+        if (LocalizationManager.SelectedLanguage == 1)
         {
             _titleName.text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
             _subTitleName.GetComponent<TMP_Text>().text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         }
-    }
 
-    private void OnDisable()
-    {
-        LocalizationManager.OnLanguageChange -= ChangeLanguage;
-    }
-
-    public void SetUser()
-    {
         _name.text = _playersModel.GetLastUser().name;
-        _subName.GetComponent<TMP_Text>().text = _playersModel.GetLastUser().name;
-        _titleName.text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
-        _subTitleName.GetComponent<TMP_Text>().text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
-        Invoke("SetAvatar", 1f);
+        _subName.GetComponent<TMP_Text>().text = _playersModel.GetLastUser().name; 
 
-        _playersList.AddPlayers();
+
+        startSlide = true; 
+         
+    }
+
+    public void ActivateUser()
+    {
         _playersList.ChangePosition();
+        _playersList.playerList.AddPlayer();
         _startPlayersScreen.RefreshUsers();
     }
 
-    private void SetAvatar()
+    private void LateUpdate()
     {
-        _avatar.GetComponent<Animator>().enabled = false;
-        _avatar.sprite = _playersModel.avatars[_playersModel.GetLastUser().avatar]; 
+        if (timeSlide > 0 && startSlide)
+        {
+            timeSlide -= Time.deltaTime;
+        }
+        else
+        {
+            if (timeSlide <= 0)
+            {
+                SetAvatar();
+            }
+        }
+
+    }
+
+    private void SetAvatar()
+    { 
+        _avatar.sprite = _playersModel.avatars[_playersModel.GetLastUser().avatar];
     }
     public void EnableAvatar()
     {
-        _avatar.GetComponent<Animator>().enabled = true;
+        timeSlide = 0.7f;
+        startSlide = false;
     }
 }

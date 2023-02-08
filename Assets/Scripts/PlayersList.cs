@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class PlayersList : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _playersList;
-     private int _countPlayers = 0;
+    [SerializeField] private List<GameObject> _playersList; 
     [SerializeField] private GameObject _addPlayersObject;
     [SerializeField] private Scrollbar _scrollbar;
     [SerializeField] private GameObject _content;
@@ -18,19 +17,24 @@ public class PlayersList : MonoBehaviour
     [SerializeField] private float _screenHeight;
     [SerializeField] private float _distanceScroll;
     [SerializeField] private ScrollRect _scrollRect;
+    [SerializeField] private GameObject player;
+    public GamePlayerList playerList;
 
 
-    // [SerializeField] private GameObject _distanceScroll;
-
-
-    public void AddPlayers()
+    public void RemovePlayer(int index)
     {
-        _countPlayers++;
-        //ChangePosition();
+        for (int i = 0; i < _content.transform.childCount; i++)
+        {
+            if (i == index)
+                Destroy(_content.transform.GetChild(i).gameObject);
+        }
+        _playersList.RemoveAt(index);
     }
 
     private void Start()
     {
+        _playersList = new List<GameObject>();
+
         _content.transform.position = new Vector3(_positionContent[0].transform.position.x, _positionContent[0].transform.position.y, _positionContent[0].transform.position.z);
 
         _screenHeight = Screen.height;
@@ -78,28 +82,46 @@ public class PlayersList : MonoBehaviour
     }
 
 
-    public void ChangePosition()
+    public void ChangePosition(bool spawn = true)
     {
-        if (_countPlayers ==1)
+        _addPlayersObject.SetActive(true);
+        GameObject playerPrefab = null;
+        if (spawn)
         {
-            _playersList[0].SetActive(true);
+             playerPrefab = Instantiate(player);
+            _playersList.Add(playerPrefab);
+            playerPrefab.transform.SetParent(_content.transform);
+            playerPrefab.transform.SetSiblingIndex(_content.transform.childCount - 2);
+        }
+        
+
+        if (_playersList.Count == 1)
+        {
+            if(spawn)
+                playerPrefab.name = "Player1";
+            
         }
 
-        if(_countPlayers == 2)
+        if(_playersList.Count == 2)
         {
-            _playersList[1].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player2";
+
             _content.transform.position = new Vector3(_positionContent[1].transform.position.x, _positionContent[1].transform.position.y, _positionContent[1].transform.position.z);
             _moveObject.transform.position = new Vector3(_positionMoveObject[0].transform.position.x, _positionMoveObject[0].transform.position.y, _positionMoveObject[0].transform.position.z);
         }
 
-        if(_countPlayers == 3)
+        if(_playersList.Count == 3)
         {
-            _playersList[2].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player3";
         }
 
-        if(_countPlayers == 4)
+        if(_playersList.Count == 4)
         {
-            _playersList[3].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player4";
+
             _content.transform.position = new Vector3(_positionContent[2].transform.position.x, _positionContent[2].transform.position.y, _positionContent[2].transform.position.z);
             _moveObject.transform.position = new Vector3(_positionMoveObject[1].transform.position.x, _positionMoveObject[1].transform.position.y, _positionMoveObject[1].transform.position.z);
 
@@ -109,28 +131,32 @@ public class PlayersList : MonoBehaviour
             _scrollbar.value = _distanceScroll;
         }
 
-        if(_countPlayers == 5)
+        if(_playersList.Count == 5)
         {
-            _playersList[4].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player5";
         }
 
-        if(_countPlayers == 6)
+        if(_playersList.Count == 6)
         {
-            _playersList[5].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player6";
+
             _scrollbar.value = 0;
         }
 
-        if(_countPlayers == 7)
+        if(_playersList.Count == 7)
         {
-            _playersList[6].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player7";
         }
 
-        if(_countPlayers == 8)
+        if(_playersList.Count == 8)
         {
-            _playersList[7].SetActive(true);
+            if (spawn)
+                playerPrefab.name = "Player8";
+
             _addPlayersObject.SetActive(false);
         }
-
-       
     }
 }

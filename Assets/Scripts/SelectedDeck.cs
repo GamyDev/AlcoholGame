@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
     public GameObject check;
     public GameObject unCheck;
     public GameObject lockCheck;
+    public static event Action OnDeckChange;
 
     private void OnEnable()
     {
@@ -43,7 +45,7 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
         if(GetComponent<Button>().interactable) { 
             selectedDeck = transform.parent.GetSiblingIndex();
             Debug.Log($"Deck selected: {selectedDeck}");
-
+            OnDeckChange?.Invoke();
             for (int i = 0; i < deckContainer.transform.childCount; i++)
             {
                 if (i == selectedDeck)

@@ -10,6 +10,12 @@ using TMPro;
 using Cysharp.Threading.Tasks;
 using System;
 
+public class DeckList
+{
+    public int deck;
+    public List<Question> questions;
+}
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayersModel playersModel;
@@ -48,18 +54,60 @@ public class GameManager : MonoBehaviour
     public static List<Player> currentPlayer;
     public static Question currentQuestion;
 
-    private List<Question> questions;
+    
     public List<Player> tempPlayers;
 
     private ScrollRect scrollRect;
     private ScrollRect scrollRect2;
-    private Sequence deckSequence;
+    public List<DeckList> deckLists;
 
     public static int previousPlayerIndex;
     public static int currentPlayerIndex;
 
     public static int previousPlayer2Index;
     public static int currentPlayer2Index;
+
+    public static int randomDeck;
+
+    public void GetRandomDeck()
+    {
+        if (!isQuestionsExists())
+        {
+            randomDeck = -1;
+            return;
+        } 
+        randomDeck = SelectedDeck.selectedDeck[UnityEngine.Random.Range(0, SelectedDeck.selectedDeck.Count)];
+        while(GetDeckListElement(randomDeck).questions.Count == 0)
+        {
+            randomDeck = SelectedDeck.selectedDeck[UnityEngine.Random.Range(0, SelectedDeck.selectedDeck.Count)];
+        }
+    }
+
+    public DeckList GetDeckListElement(int deck)
+    {
+        for (int i = 0; i < deckLists.Count; i++)
+        {
+            if(deckLists[i].deck == deck)
+            {
+                return deckLists[i];
+            }
+        }
+
+        return null;
+    }
+
+    public bool isQuestionsExists()
+    {
+        for (int i = 0; i < SelectedDeck.selectedDeck.Count; i++)
+        {
+            if(GetDeckListElement(SelectedDeck.selectedDeck[i]).questions.Count > 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     public void EnableSpinner()
     {
@@ -159,7 +207,6 @@ public class GameManager : MonoBehaviour
 
     public void SetSettingsOneUser()
     {
-
         simpleScrollSnap.InfiniteScrollingSpacing = 0;
 
         for (int i = 0; i < 5; i++)
@@ -197,12 +244,6 @@ public class GameManager : MonoBehaviour
 
     public void AnimDeck()
     {
-        //deckSequence = DOTween.Sequence();
-
-        //centerCard.transform.localPosition = rightCard.transform.localPosition + new Vector3(0, 0, 1);
-        //centerCard.transform.localScale = Vector3.zero;
-
-        //deckSequence.Append(centerCard.transform.DOScale(Vector3.one * 1.5f, 1).OnComplete(ScaleComplete));
         gameAnimator.SetBool("Fly", true);
         Invoke("EnableAllAnimation", 1.5f);
     }
@@ -214,14 +255,13 @@ public class GameManager : MonoBehaviour
         SelectedDeck.OnDeckChange += DeckChange;
         currentPlayer = new List<Player>();
         tempPlayers = new List<Player>();
+        deckLists = new List<DeckList>();
 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
         scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
 
         centerCardPos = centerCard.transform.localPosition;
 
-        questions = new List<Question>();
-        questions.Clear();
         SetQustions();
 
         GetRandomQuestion();
@@ -251,17 +291,13 @@ public class GameManager : MonoBehaviour
     private void DeckChange()
     {
         SetQustions();
-        if(!openCard.gameObject.activeSelf) { 
+        GetRandomDeck();
+
+        if (!openCard.gameObject.activeSelf) { 
             GetRandomQuestion();
             EnableSpinner();
             AnimDeck();
         }
-    }
-
-    private void ScaleComplete()
-    {
-        deckSequence.Append(centerCard.transform.DOLocalMove(centerCardPos, 1));
-        deckSequence.Append(centerCard.transform.DOScale(Vector3.one, 1));
     }
 
     public void EnableAllAnimation()
@@ -280,9 +316,7 @@ public class GameManager : MonoBehaviour
 
 
     private void SelectedPlayer(int index, int index2)
-    {
-        //scrollRect.StopMovement();
-        //scrollRect2.StopMovement();
+    { 
 
         Debug.Log($"Players count {currentQuestion.players}. Selected {index}");
 
@@ -346,36 +380,48 @@ public class GameManager : MonoBehaviour
 
     public void GetRandomQuestion()
     {
-        if (questions.Count == 0)
+        if (!isQuestionsExists())
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            return;
         }
 
-        int randomQuestion = UnityEngine.Random.Range(0, questions.Count);
-        currentQuestion = questions[randomQuestion];
-        Debug.Log($"{questions[randomQuestion].text} - {questions[randomQuestion].players}");
-        questions.RemoveAt(randomQuestion);
+        GetRandomDeck();
+        SetDeckInfo();
+
+        int randomQuestion = UnityEngine.Random.Range(0, GetDeckListElement(randomDeck).questions.Count);
+        currentQuestion = GetDeckListElement(randomDeck).questions[randomQuestion];
+        Debug.Log($"{GetDeckListElement(randomDeck).questions[randomQuestion].text} - {GetDeckListElement(randomDeck).questions[randomQuestion].players}");
+        GetDeckListElement(randomDeck).questions.RemoveAt(randomQuestion);
         Debug.Log($"{currentQuestion.text} - {currentQuestion.players}");
     }
 
-    public void SetQustions()
+    public void SetDeckInfo()
     {
-        questions = new List<Question>();
-
-        typeDeck = "ScriptableObject";
-
-        deckImage.sprite = decks.deckSettings[SelectedDeck.selectedDeck].icon;
-        deckMiniImage.sprite = decks.deckSettings[SelectedDeck.selectedDeck].icon;
-
-        titleDeck.text = decks.deckSettings[SelectedDeck.selectedDeck].deckTitle;
-        titleDeckOutline.text = decks.deckSettings[SelectedDeck.selectedDeck].deckTitle;
-
-        descriptionDeck.text = decks.deckSettings[SelectedDeck.selectedDeck].deckDescription;
-        descriptionDeckOutline.text = decks.deckSettings[SelectedDeck.selectedDeck].deckDescription;
-
-        foreach (var item in decks.deckSettings[SelectedDeck.selectedDeck].questions)
+        if(randomDeck != -1)
         {
-            questions.Add(item);
+            deckImage.sprite = decks.deckSettings[randomDeck].icon;
+            deckMiniImage.sprite = decks.deckSettings[randomDeck].icon;
+
+            titleDeck.text = decks.deckSettings[randomDeck].deckTitle;
+            titleDeckOutline.text = decks.deckSettings[randomDeck].deckTitle;
+
+            descriptionDeck.text = decks.deckSettings[randomDeck].deckDescription;
+            descriptionDeckOutline.text = decks.deckSettings[randomDeck].deckDescription;
+        }
+    }
+
+    public void SetQustions()
+    { 
+        deckLists.Clear();
+
+        for (int i = 0; i < SelectedDeck.selectedDeck.Count; i++)
+        {
+            deckLists.Add(new DeckList()
+            {
+                deck = SelectedDeck.selectedDeck[i],
+                questions = decks.deckSettings[SelectedDeck.selectedDeck[i]].questions
+            });
         }
     }
 }

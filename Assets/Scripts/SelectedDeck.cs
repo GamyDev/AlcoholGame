@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SelectedDeck : MonoBehaviour, IPointerClickHandler
 {
-    public static int selectedDeck;
+    public static List<int> selectedDeck = new List<int>();
 
     public GameObject deckContainer;
     public GameObject check;
@@ -15,12 +15,21 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
     public GameObject lockCheck;
     public static event Action OnDeckChange;
 
+    private void Awake()
+    {
+        
+    }
+
     private void OnEnable()
     {
-        for (int i = 0; i < deckContainer.transform.childCount; i++)
+        if(selectedDeck.Count == 0)
         {
+            selectedDeck.Add(0);
+        }
 
-            if(i == selectedDeck)
+        for (int i = 0; i < deckContainer.transform.childCount; i++)
+        { 
+            if(selectedDeck.Contains(i))
             {
                 if (deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>() && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck)
                 {
@@ -35,34 +44,41 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
                     deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(false);
                     deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(true);
                 }
-            }
-
+            } 
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(GetComponent<Button>().interactable) { 
-            selectedDeck = transform.parent.GetSiblingIndex();
-            Debug.Log($"Deck selected: {selectedDeck}");
-            OnDeckChange?.Invoke();
-            for (int i = 0; i < deckContainer.transform.childCount; i++)
-            {
-                if (i == selectedDeck)
-                {    
-                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(true);
-                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(false);
-                }
-                else
-                {
-                    if (deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>() && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck)
-                    {
-                        deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(false);
-                        deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(true);
-                    }
-                }
+           
+        if(selectedDeck.Contains(transform.parent.GetSiblingIndex()))
+        {
+            if(selectedDeck.Count > 1)
+                selectedDeck.Remove(transform.parent.GetSiblingIndex());
 
+        } else
+        {
+            selectedDeck.Add(transform.parent.GetSiblingIndex());
+        }
+             
+        
+        for (int i = 0; i < deckContainer.transform.childCount; i++)
+        {
+            if (selectedDeck.Contains(i))
+            {    
+                deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(true);
+                deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(false);
+            }
+            else
+            {
+                if (deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>() && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck)
+                {
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(false);
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(true);
+                }
             }
         }
+
+        OnDeckChange?.Invoke();
     }
 }

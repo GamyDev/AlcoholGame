@@ -26,12 +26,12 @@ public class WelcomeScreen : MonoBehaviour
     {
         if (LocalizationManager.SelectedLanguage == 0)
         {
-            _titleName.text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+            _titleName.text = $"{EnWelcome}  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
             _subTitleName.GetComponent<TMP_Text>().text = $"{EnWelcome}  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         }
         if (LocalizationManager.SelectedLanguage == 1)
         {
-            _titleName.text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+            _titleName.text = $"{RuWelcome}  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
             _subTitleName.GetComponent<TMP_Text>().text = $"{RuWelcome}  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         }
 

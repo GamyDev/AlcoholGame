@@ -17,19 +17,22 @@ public class WelcomeScreen : MonoBehaviour
     [SerializeField] private StartPlayersScreen _startPlayersScreen;
     private float timeSlide = 0.7f;
     private bool startSlide;
-     
+
+    public string RuWelcome;
+    public string EnWelcome;
+
 
     public void SetUser()
     {
         if (LocalizationManager.SelectedLanguage == 0)
         {
             _titleName.text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
-            _subTitleName.GetComponent<TMP_Text>().text = $"Welcome,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+            _subTitleName.GetComponent<TMP_Text>().text = $"{EnWelcome}  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         }
         if (LocalizationManager.SelectedLanguage == 1)
         {
             _titleName.text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
-            _subTitleName.GetComponent<TMP_Text>().text = $"Добро пожаловать,  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
+            _subTitleName.GetComponent<TMP_Text>().text = $"{RuWelcome}  <color=#FFE973>{_playersModel.GetLastUser().name}</color>";
         }
 
         _name.text = _playersModel.GetLastUser().name;

@@ -71,8 +71,8 @@ MonoBehaviour:
     players: A
     timer: 
   - name: 
-    text: Name yer best drunk food, [player] starts! 2 full circles - who got wacky
-      variations gotta take 3 sips!
+    text: Name yer best drunk food! 2 full circles - who got wacky variations gotta
+      take 3 sips!
     players: A
     timer: 
   - name: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,6 @@ public class PlayersList : MonoBehaviour
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private GameObject player;
     public GamePlayerList playerList;
-
 
     public void RemovePlayer(int index)
     {

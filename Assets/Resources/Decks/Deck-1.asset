@@ -58,7 +58,7 @@ MonoBehaviour:
     players: A
     timer: 
   - name: 
-    text: Anyone who had successful one night stand last 30 days - sip 3 times.
+    text: Anybody who had a one-nighter in da last month - sip 3 times.
     players: A
     timer: 
   - name: 
@@ -71,8 +71,8 @@ MonoBehaviour:
     players: A
     timer: 
   - name: 
-    text: Name best drunk food, [player] starts! 2 full circles - who have weird
-      variants have to drink 3 sips.
+    text: Name yer best drunk food, [player] starts! 2 full circles - who got wacky
+      variations gotta take 3 sips!
     players: A
     timer: 
   - name: 
@@ -81,8 +81,8 @@ MonoBehaviour:
     players: A
     timer: 
   - name: 
-    text: How much time it took to getting ready for tonight? The quickest and slowest
-      ones sip 4 times.
+    text: How long did it take to get ready for tonight? The quickest and slowest
+      ones should take 4 sips.
     players: A
     timer: 
   - name: 
@@ -105,7 +105,7 @@ MonoBehaviour:
     players: A
     timer: 
   - name: 
-    text: '[player], sip 3 times if you have ever sent nudes.'
+    text: '[player],  if ya ever sent nudes, take three sips!'
     players: 1
     timer: 
   - name: 

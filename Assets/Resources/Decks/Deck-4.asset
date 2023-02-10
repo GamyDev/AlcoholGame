@@ -22,8 +22,9 @@ MonoBehaviour:
     players: 1
     timer: 
   - name: 
-    text: '[player], let the other players go through your phone for one minute.'
-    players: 1
+    text: '[player] and [player2], let the other players go through your phone for
+      one minute.'
+    players: 2
     timer: 
   - name: 
     text: '[player], get an item from the bathroom and sell it to the group for 3
@@ -35,8 +36,8 @@ MonoBehaviour:
     players: 1
     timer: 
   - name: 
-    text: '[player], show your search history on your phone.'
-    players: 1
+    text: '[player] and [player2] show your search history on your phone.'
+    players: 2
     timer: 
   - name: 
     text: '[player], let the rest of the group dm someone from your instagram.'
@@ -72,8 +73,8 @@ MonoBehaviour:
     players: 1
     timer: 
   - name: 
-    text: '[player], let someone shave a part of your body.'
-    players: 1
+    text: '[player] and [player2], let someone shave a part of your body.'
+    players: 2
     timer: 
   - name: 
     text: '[player], reply to the first five instagram stories on your timeline'
@@ -138,18 +139,18 @@ MonoBehaviour:
     players: 1
     timer: 
   - name: 
-    text: '[player], attempt to break dance for 30 seconds.'
-    players: 1
-    timer: 
+    text: '[player] and [player2], attempt to break dance for 30 seconds.'
+    players: 2
+    timer: 30
   - name: 
     text: '[player], serenade the person to your right.'
     players: 1
     timer: 
   - name: 
-    text: '[player], dance like your life depends on it with no music for 2 whole
-      minutes.'
+    text: '[player] and [player], dance like your lives depends on it with no music
+      for 30 seconds.'
     players: 1
-    timer: 
+    timer: 30
   - name: 
     text: '[player], give a personalised insult to everyone in the room.'
     players: 1
@@ -194,8 +195,9 @@ MonoBehaviour:
     players: 1
     timer: 
   - name: 
-    text: '[player], send a weird gif to the 10th person on your contacts list.'
-    players: 1
+    text: '[player] and [player2], send a weird gif to the 10th person on your contacts
+      list.'
+    players: 2
     timer: 
   - name: 
     text: '[player], use a voice changing filter and send a funny voice message to

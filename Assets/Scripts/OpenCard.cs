@@ -35,12 +35,12 @@ public class OpenCard : MonoBehaviour
 
     public void SetCurrentPlayer(int index)
     {
-        if (GameManager.currentQuestion.players == "1")
+        if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
         {
             GameManager.currentPlayer.Add(gameManager.tempPlayers[index]);
         }
 
-        if (GameManager.currentQuestion.players == "2")
+        if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
         {
             GameManager.currentPlayer.Add(gameManager.tempPlayers[index * 2]);
             if (index * 2 + 1 >= gameManager.tempPlayers.Count)
@@ -54,12 +54,18 @@ public class OpenCard : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        LocalizationManager.OnLanguageChange -= LanguageChange;
+    }
+
     private void OnEnable()
     {
+        LocalizationManager.OnLanguageChange += LanguageChange;
         AnimateOpenCard();
         
-        if(!string.IsNullOrEmpty(GameManager.currentQuestion.timer)) {
-            currentSeconds = int.Parse(GameManager.currentQuestion.timer);
+        if(!string.IsNullOrEmpty(GameManager.currentQuestion[LocalizationManager.SelectedLanguage].timer)) {
+            currentSeconds = int.Parse(GameManager.currentQuestion[LocalizationManager.SelectedLanguage].timer);
             buttonTimer.SetActive(true);
             buttonDone.SetActive(false);
             timer.text = currentSeconds.ToString();
@@ -71,10 +77,10 @@ public class OpenCard : MonoBehaviour
         }
 
         
-        title.text = GameManager.currentQuestion.name;
-        string question = GameManager.currentQuestion.text;
+        title.text = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].name;
+        string question = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].text;
 
-        if (GameManager.currentQuestion.players == "1") 
+        if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1") 
         {  
             if (GameManager.currentPlayerIndex != GameManager.previousPlayerIndex)
             { 
@@ -86,7 +92,7 @@ public class OpenCard : MonoBehaviour
             }
         }
 
-        if(GameManager.currentQuestion.players == "2")
+        if(GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
         {
             if (GameManager.currentPlayer2Index != GameManager.previousPlayer2Index)
             {
@@ -102,14 +108,14 @@ public class OpenCard : MonoBehaviour
 
         text.text = question;
 
-        if(GameManager.currentQuestion.players == "A")
+        if(GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "A")
         {
             playerAll.SetActive(true);
             player.SetActive(false);
             playerTwo.SetActive(false);
         } 
         
-        if(GameManager.currentQuestion.players == "1")
+        if(GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
         {
             playerAll.SetActive(false);
             player.SetActive(true);
@@ -131,7 +137,7 @@ public class OpenCard : MonoBehaviour
             }
         }
 
-        if (GameManager.currentQuestion.players == "2")
+        if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
         {
             playerAll.SetActive(false);
             player.SetActive(true);
@@ -162,6 +168,45 @@ public class OpenCard : MonoBehaviour
 
                 playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
             }
+        }
+    }
+
+    private void LanguageChange()
+    {
+        if(gameObject.activeSelf)
+        {
+            title.text = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].name;
+            string question = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].text;
+
+            if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
+            {
+                if (GameManager.currentPlayerIndex != GameManager.previousPlayerIndex)
+                {
+                    question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+                }
+                else
+                {
+                    SetCurrentPlayer(GameManager.currentPlayerIndex);
+                    question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+                }
+            }
+
+            if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
+            {
+                if (GameManager.currentPlayer2Index != GameManager.previousPlayer2Index)
+                {
+                    question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+                    question = question.Replace("[player2]", $"<color=#DA2678>{GameManager.currentPlayer[1].name}</color>");
+                }
+                else
+                {
+                    SetCurrentPlayer(GameManager.currentPlayer2Index);
+                    question = question.Replace("[player]", $"<color=#DA2678>{GameManager.currentPlayer[0].name}</color>");
+                    question = question.Replace("[player2]", $"<color=#DA2678>{GameManager.currentPlayer[1].name}</color>");
+                }
+            }
+
+            text.text = question;
         }
     }
 

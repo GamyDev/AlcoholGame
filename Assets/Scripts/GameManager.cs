@@ -11,6 +11,13 @@ using Cysharp.Threading.Tasks;
 using System;
 
 [System.Serializable]
+public class DeckLangs
+{
+    public List<DeckList> deckLists;
+}
+
+
+[System.Serializable]
 public class DeckList
 {
     public int deck;
@@ -53,14 +60,14 @@ public class GameManager : MonoBehaviour
     private Vector3 centerCardPos;
 
     public static List<Player> currentPlayer;
-    public static Question currentQuestion;
+    public static List<Question> currentQuestion;
 
     
     public List<Player> tempPlayers;
 
     private ScrollRect scrollRect;
     private ScrollRect scrollRect2;
-    public List<DeckList> deckLists;
+    public List<DeckLangs> deckLists;
 
     public static int previousPlayerIndex;
     public static int currentPlayerIndex;
@@ -78,22 +85,22 @@ public class GameManager : MonoBehaviour
             return;
         } 
         randomDeck = SelectedDeck.selectedDeck[UnityEngine.Random.Range(0, SelectedDeck.selectedDeck.Count)];
-        while(GetDeckListElement(randomDeck).questions.Count == 0)
+
+        while(GetDeckListElement(LocalizationManager.SelectedLanguage, randomDeck).questions.Count == 0)
         {
             randomDeck = SelectedDeck.selectedDeck[UnityEngine.Random.Range(0, SelectedDeck.selectedDeck.Count)];
         }
     }
 
-    public DeckList GetDeckListElement(int deck)
+    public DeckList GetDeckListElement(int lang, int deck)
     {
-        for (int i = 0; i < deckLists.Count; i++)
+        for (int j = 0; j < deckLists[lang].deckLists.Count; j++)
         {
-            if(deckLists[i].deck == deck)
+            if (deckLists[lang].deckLists[j].deck == deck)
             {
-                return deckLists[i];
+                return deckLists[lang].deckLists[j];
             }
         }
-
         return null;
     }
 
@@ -101,7 +108,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < SelectedDeck.selectedDeck.Count; i++)
         {
-            if(GetDeckListElement(SelectedDeck.selectedDeck[i]).questions.Count > 0)
+            if(GetDeckListElement(LocalizationManager.SelectedLanguage, SelectedDeck.selectedDeck[i]).questions.Count > 0)
             {
                 return true;
             }
@@ -119,7 +126,7 @@ public class GameManager : MonoBehaviour
         simpleScrollSnap2.gameObject.SetActive(false);
         simpleScrollSnap2.gameObject.SetActive(true);
 
-        if (currentQuestion.players == "1")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
         {
             centerCard.SetActive(true);
             simpleScrollSnap.gameObject.SetActive(true);
@@ -127,7 +134,7 @@ public class GameManager : MonoBehaviour
             buttonSpin.gameObject.SetActive(true);
         }
 
-        if (currentQuestion.players == "2")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
         {
             centerCard.SetActive(true);
             simpleScrollSnap2.gameObject.SetActive(true);
@@ -135,7 +142,7 @@ public class GameManager : MonoBehaviour
             buttonSpin.gameObject.SetActive(true);
         }
 
-        if (currentQuestion.players == "A")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "A")
         {
             centerCard.SetActive(true);
             simpleScrollSnap.gameObject.SetActive(false);
@@ -236,6 +243,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
+        LocalizationManager.OnLanguageChange -= LanguageChange;
         simpleScrollSnap.OnPanelCentered -= SelectedPlayer;
         simpleScrollSnap2.OnPanelCentered -= SelectedPlayer;
         SelectedDeck.OnDeckChange -= DeckChange;
@@ -251,12 +259,14 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        LocalizationManager.OnLanguageChange += LanguageChange;
         RemoveUserButtonHandler.UserRemove += OnUserRemove;
         GamePlayerList.AddPlayerEvent += OnAddPlayerEvent;
         SelectedDeck.OnDeckChange += DeckChange;
+        currentQuestion = new List<Question>();
         currentPlayer = new List<Player>();
         tempPlayers = new List<Player>();
-        deckLists = new List<DeckList>();
+        deckLists = new List<DeckLangs>();
 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
         scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
@@ -274,6 +284,11 @@ public class GameManager : MonoBehaviour
         SetSettingsTwoUsers();
 
         EnableSpinner();
+    }
+
+    private void LanguageChange()
+    {
+        SetDeckInfo();
     }
 
     private void OnAddPlayerEvent()
@@ -303,7 +318,7 @@ public class GameManager : MonoBehaviour
 
     public void EnableAllAnimation()
     {
-        if (currentQuestion.players == "A")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "A")
         {
             gameAnimator.SetBool("Fly", false);
             centerCard.SetActive(false);
@@ -319,16 +334,16 @@ public class GameManager : MonoBehaviour
     private void SelectedPlayer(int index, int index2)
     { 
 
-        Debug.Log($"Players count {currentQuestion.players}. Selected {index}");
+        Debug.Log($"Players count {currentQuestion[LocalizationManager.SelectedLanguage].players}. Selected {index}");
 
-        if (currentQuestion.players == "1")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
         {
             currentPlayer.Add(tempPlayers[index]);
 
             currentPlayerIndex = index;
         }
 
-        if (currentQuestion.players == "2")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
         {
             currentPlayer2Index = index;
 
@@ -352,12 +367,12 @@ public class GameManager : MonoBehaviour
     IEnumerator StartSpin()
     {
         currentPlayer.Clear();
-        if (currentQuestion.players == "1")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
         {
             currentPlayerIndex = previousPlayerIndex;
         }
 
-        if (currentQuestion.players == "2")
+        if (currentQuestion[LocalizationManager.SelectedLanguage].players == "2")
         {
             currentPlayer2Index = previousPlayer2Index;
         }
@@ -387,28 +402,31 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        currentQuestion.Clear();
+
         GetRandomDeck();
         SetDeckInfo();
 
-        int randomQuestion = UnityEngine.Random.Range(0, GetDeckListElement(randomDeck).questions.Count);
-        currentQuestion = GetDeckListElement(randomDeck).questions[randomQuestion];
-        Debug.Log($"{GetDeckListElement(randomDeck).questions[randomQuestion].text} - {GetDeckListElement(randomDeck).questions[randomQuestion].players}");
-        GetDeckListElement(randomDeck).questions.RemoveAt(randomQuestion);
-        Debug.Log($"{currentQuestion.text} - {currentQuestion.players}");
+        int randomQuestion = UnityEngine.Random.Range(0, GetDeckListElement(0, randomDeck).questions.Count);
+        for (int j = 0; j < deckLists.Count; j++)
+        {
+            currentQuestion.Add(GetDeckListElement(j, randomDeck).questions[randomQuestion]);
+            GetDeckListElement(j, randomDeck).questions.RemoveAt(randomQuestion);
+        }
     }
 
     public void SetDeckInfo()
     {
         if(randomDeck != -1)
         {
-            deckImage.sprite = decks.deckSettings[randomDeck].icon;
-            deckMiniImage.sprite = decks.deckSettings[randomDeck].icon;
+            deckImage.sprite = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].icon;
+            deckMiniImage.sprite = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].icon;
 
-            titleDeck.text = decks.deckSettings[randomDeck].deckTitle;
-            titleDeckOutline.text = decks.deckSettings[randomDeck].deckTitle;
+            titleDeck.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckTitle;
+            titleDeckOutline.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckTitle;
 
-            descriptionDeck.text = decks.deckSettings[randomDeck].deckDescription;
-            descriptionDeckOutline.text = decks.deckSettings[randomDeck].deckDescription;
+            descriptionDeck.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckDescription;
+            descriptionDeckOutline.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckDescription;
         }
     }
 
@@ -416,13 +434,29 @@ public class GameManager : MonoBehaviour
     { 
         deckLists.Clear();
 
-        for (int i = 0; i < SelectedDeck.selectedDeck.Count; i++)
+        for (int i = 0; i < decks.deckSettings.Count; i++)
         {
-            deckLists.Add(new DeckList()
+            deckLists.Add(new DeckLangs()
             {
-                deck = SelectedDeck.selectedDeck[i],
-                questions = decks.deckSettings[SelectedDeck.selectedDeck[i]].questions
+                deckLists = GetQuestionsByLang(i)
             });
+        } 
+    }
+
+    public List<DeckList> GetQuestionsByLang(int lang)
+    {
+        List<DeckList> list = new List<DeckList>();
+        for (int i = 0; i < decks.deckSettings[lang].deckSettings.Count; i++)
+        {
+            if(SelectedDeck.selectedDeck.Contains(i)) { 
+                list.Add(new DeckList()
+                {
+                    deck = i,
+                    questions = decks.deckSettings[lang].deckSettings[i].questions
+                });
+            }
         }
+
+        return list;
     }
 }

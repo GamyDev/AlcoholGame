@@ -48,7 +48,7 @@
 	<Key Name="Classic_key">
 		<Translates>
 			<en-us>Classic</en-us>
-			<ru></ru>
+			<ru>Классическая</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -369,6 +369,41 @@
 		</Translates>
 	</Key>
 
+<Key Name="Add a new player_key">
+		<Translates>
+			<en-us>Add a new player</en-us>
+			<ru>Добавить игрока</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+	<Key Name="Add a new player_key">
+		<Translates>
+			<en-us>Add a new player</en-us>
+			<ru>Добавить игрока</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+		<Key Name="All Players_key">
+		<Translates>
+			<en-us>All Players</en-us>
+			<ru>Все Игроки</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+	<Key Name="Done_key">
+		<Translates>
+			<en-us>Done</en-us>
+			<ru>Готово</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
 		
 
 	

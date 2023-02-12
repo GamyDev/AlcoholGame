@@ -443,18 +443,32 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    public List<Question> GetQuestions(int lang, int index)
+    {
+        List<Question> questions = new List<Question>();
+        for (int i = 0; i < decks.deckSettings[lang].deckSettings[index].questions.Count; i++)
+        {
+            questions.Add(decks.deckSettings[lang].deckSettings[index].questions[i]);
+        }
+        
+        return questions;
+    }
+
     public List<DeckList> GetQuestionsByLang(int lang)
     {
         List<DeckList> list = new List<DeckList>();
         for (int i = 0; i < decks.deckSettings[lang].deckSettings.Count; i++)
         {
-            if(SelectedDeck.selectedDeck.Contains(i)) { 
+             
+            if (SelectedDeck.selectedDeck.Contains(i))
+            {
                 list.Add(new DeckList()
                 {
                     deck = i,
-                    questions = decks.deckSettings[lang].deckSettings[i].questions
+                    questions = GetQuestions(lang, i)
                 });
             }
+            
         }
 
         return list;

@@ -41,7 +41,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                 foreach (SimpleScrollSnap slot in slots)
                 {
                     if(slot.gameObject.activeSelf) { 
-                        slot.Velocity += Random.Range(125, 250) * Vector2.left;
+                        slot.Velocity += Random.Range(25000 * Time.deltaTime, 50000 * Time.deltaTime) * Vector2.left;
                     }
                 }
             }

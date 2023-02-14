@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckTitle: Met a pet
   deckDescription: Woof or meow? Crazy questions about pets, spin and drink!
-  icon: {fileID: 21300000, guid: f000d6a816b504b40802a5782e647117, type: 3}
+  icon: {fileID: 21300000, guid: ffe63b8af8bd74423949a53135ba5ddb, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 973cff6da322e47aa80771608cd3a899, type: 3}
   questions:
   - name: 
     text: Anyone who ever did the opening scene from The Lion King with their cat

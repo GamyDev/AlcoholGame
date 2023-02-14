@@ -15,7 +15,8 @@ MonoBehaviour:
   deckTitle: Cursed questions
   deckDescription: Its getting hotter. Everyone will need a sip to forget the answers
     you heard. No answer - 5 sips.
-  icon: {fileID: 21300000, guid: 7823e0e03e80046edbb8ed2659f61ef7, type: 3}
+  icon: {fileID: 21300000, guid: eee9c3ece585d44f790dd490e9e88725, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 65cc2c0e50f944d388f015721cc5194e, type: 3}
   questions:
   - name: 
     text: '[player], when was your first time losing your virginity?'

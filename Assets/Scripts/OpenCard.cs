@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 
 public class OpenCard : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private PlayersModel playersModel;
-    [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text text;
     [SerializeField] private GameObject imageCard;
     [SerializeField] private GameObject playerChoice; 
@@ -20,13 +21,21 @@ public class OpenCard : MonoBehaviour
     [SerializeField] private TMP_Text timer;
     [SerializeField] private GameObject buttonTimer;
     [SerializeField] private GameObject buttonDone;
+    [SerializeField] private Image backgroundCard;
+    [SerializeField] private TMP_Text rules;
+    [SerializeField] private GameObject rulesObj;
+
+    private bool timerStarted;
+
+    private static CancellationTokenSource _cancelToken;
 
     private int currentSeconds;
+
+    public Image BackgroundCard => backgroundCard;
 
     public void AnimateOpenCard()
     {
         imageCard.transform.eulerAngles = new Vector3(0, 180, 0);
-        title.gameObject.SetActive(false);
         text.gameObject.SetActive(false);
         playerChoice.SetActive(false);
 
@@ -61,6 +70,11 @@ public class OpenCard : MonoBehaviour
 
     private void OnEnable()
     {
+        _cancelToken = new CancellationTokenSource();
+
+        backgroundCard.sprite = gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].backgroundCard;
+        rules.text = gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckDescription;
+
         LocalizationManager.OnLanguageChange += LanguageChange;
         AnimateOpenCard();
         
@@ -77,7 +91,6 @@ public class OpenCard : MonoBehaviour
         }
 
         
-        title.text = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].name;
         string question = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].text;
 
         if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1") 
@@ -175,7 +188,6 @@ public class OpenCard : MonoBehaviour
     {
         if(gameObject.activeSelf)
         {
-            title.text = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].name;
             string question = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].text;
 
             if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
@@ -213,36 +225,47 @@ public class OpenCard : MonoBehaviour
     private void FlipAnimCallback()
     {
         if (imageCard.transform.localEulerAngles.y >= 90 && imageCard.transform.localEulerAngles.y <= 270) {
-            title.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
+            rulesObj.SetActive(false);
             playerChoice.SetActive(false);
         } else
         {
-            title.gameObject.SetActive(true);
             text.gameObject.SetActive(true);
             playerChoice.SetActive(true);
+            rulesObj.SetActive(true);
         }
     }
 
-    public void StartTimer()
+    public async void StartTimer()
     {
-        StartCoroutine(Timer());
+        if(timerStarted) {
+            CancelTimer();
+            buttonTimer.SetActive(false);
+            buttonDone.SetActive(true);
+            return;
+        }
+
+        await Timer();
     }
 
-    IEnumerator Timer()
+    async UniTask Timer()
     {
-        buttonTimer.GetComponent<Button>().interactable = false;
-
-        while (currentSeconds > 0) { 
-            yield return new WaitForSeconds(1f);
+        timerStarted = true;
+        while (currentSeconds > 0) {
+            await UniTask.Delay(1000, false, 0, _cancelToken.Token);
             currentSeconds--;
             timer.text = currentSeconds.ToString();
             timer.transform.GetChild(0).GetComponent<TMP_Text>().text = currentSeconds.ToString();
         }
 
-        buttonTimer.GetComponent<Button>().interactable = true;
+        timerStarted = false;
         buttonTimer.SetActive(false);
         buttonDone.SetActive(true);
-        yield return null;
+    }
+
+    public void CancelTimer()
+    {
+        _cancelToken?.Cancel();
+        timerStarted = false;
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   deckTitle: Night of Knights!
   deckDescription: No fears, no regrets! Do dare or answer truth to make everybody
     else sip once, or sip 4 times to skip.
-  icon: {fileID: 21300000, guid: 31e3783ad30fc498fb07dc431946aca1, type: 3}
+  icon: {fileID: 21300000, guid: d7e781edaf0c24faea78af17db2d863a, type: 3}
+  backgroundCard: {fileID: 21300000, guid: d38d8f76c05cb4d4dbb2c6e31ba0564a, type: 3}
   questions:
   - name: 
     text: '[player], if you had to choose brains or beauty, which would you pick?'

@@ -15,7 +15,8 @@ MonoBehaviour:
   deckTitle: Never have I ever
   deckDescription: Playing all together! Make a sip for 'yes', skip for 'no', easy
     peasy lemon squeezy!
-  icon: {fileID: 21300000, guid: 03e4754d36f8f4cb194e4d7b42c33342, type: 3}
+  icon: {fileID: 21300000, guid: 39bb00bf776034f04ba5ee07a80dcb7a, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 639719a61c2794747b988781a2dc5300, type: 3}
   questions:
   - name: 
     text: Never have I ever wanted to be famous

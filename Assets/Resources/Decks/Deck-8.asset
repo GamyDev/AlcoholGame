@@ -15,7 +15,8 @@ MonoBehaviour:
   deckTitle: Queens Convention
   deckDescription: Girls Night Out! Do dare or answer truth to make everybody else
     sip once, or sip 4 times to skip.
-  icon: {fileID: 21300000, guid: f000d6a816b504b40802a5782e647117, type: 3}
+  icon: {fileID: 21300000, guid: d09adbf2a855545ec9cb30d58f1fa859, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 4dc7ec8c03d004663a77020987c8e8f7, type: 3}
   questions:
   - name: 
     text: '[player], if you were a man for one hour, what would you do?'

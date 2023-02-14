@@ -7,33 +7,49 @@ public class Subscription : MonoBehaviour
 {
     [SerializeField] private GameObject _lock;
     [SerializeField] private GameObject _unLock;
+    [SerializeField] private GameObject _subscribeWindow;
 
-    private bool _subscriptionActive;
+    public static bool subscriptionActive = false;
 
+    public static Subscription instance;
+
+    public GameObject SubscribeWindow => _subscribeWindow;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void OnEnable()
     {
         CheckSubscription();
     }
 
+    public void Subscribe()
+    {
+        FindObjectOfType<SelectedDeck>().UnlockDecks();
+        subscriptionActive = true;
+    }
+
     public void SubscriptionActive()
     {
-        _subscriptionActive = true;
-        CheckSubscription();
+        //    subscriptionActive = true;
+        //    CheckSubscription();
+
     }
 
     void CheckSubscription()
     {
-        if (_subscriptionActive)
-        {
-            _unLock.SetActive(true);
-            _lock.SetActive(false);
-        }
-        else
-        {
-            _unLock.SetActive(false);
-            _lock.SetActive(true);
-        }
+        //if (subscriptionActive)
+        //{
+        //    _unLock.SetActive(true);
+        //    _lock.SetActive(false);
+        //}
+        //else
+        //{
+        //    _unLock.SetActive(false);
+        //    _lock.SetActive(true);
+        //}
     }
 
 

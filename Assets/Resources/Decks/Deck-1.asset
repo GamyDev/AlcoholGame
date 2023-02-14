@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckTitle: Classic
   deckDescription: Perfect pick for warming up. Are you ready to rumble?
-  icon: {fileID: 21300000, guid: 62d453143d50a49288603d60c2670b2a, type: 3}
+  icon: {fileID: 21300000, guid: 410840cdff8e64f29a831cfd3ff2dc43, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 9e60fa3048062424789f045920f2adcb, type: 3}
   questions:
   - name: 
     text: Anyone who googled their ex's new BF/GF more than once drink 2 sips

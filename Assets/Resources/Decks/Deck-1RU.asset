@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Deck-1RU
   m_EditorClassIdentifier: 
   deckTitle: "\u041A\u043B\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043A\u0430\u044F"
-  deckDescription: Perfect pick for warming up. Are you ready to rumble?
-  icon: {fileID: 21300000, guid: 62d453143d50a49288603d60c2670b2a, type: 3}
+  deckDescription: "\u0418\u0434\u0435\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u044B\u0431\u043E\u0440
+    \u0434\u043B\u044F \u0440\u0430\u0437\u043C\u0438\u043D\u043A\u0438. \u0412\u044B
+    \u0433\u043E\u0442\u043E\u0432\u044B \u043A \u043C\u0430\u0442\u0447\u0443?"
+  icon: {fileID: 21300000, guid: 410840cdff8e64f29a831cfd3ff2dc43, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 9e60fa3048062424789f045920f2adcb, type: 3}
   questions:
   - name: 
     text: "\u041B\u044E\u0431\u043E\u0439, \u043A\u0442\u043E \u0431\u043E\u043B\u0435\u0435

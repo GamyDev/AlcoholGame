@@ -15,7 +15,8 @@ MonoBehaviour:
   deckTitle: Drinking Wizards
   deckDescription: Dares for persistent ones! Don't wake up in police station! 5
     sips to skip or do to make everybody sip once.
-  icon: {fileID: 21300000, guid: 7823e0e03e80046edbb8ed2659f61ef7, type: 3}
+  icon: {fileID: 21300000, guid: 7fc9ed0aec4d042f8a295913cb121cdb, type: 3}
+  backgroundCard: {fileID: 21300000, guid: d38d8f76c05cb4d4dbb2c6e31ba0564a, type: 3}
   questions:
   - name: 
     text: '[player], take an embarrassing selfie and post it as your profile picture.'

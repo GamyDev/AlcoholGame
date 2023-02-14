@@ -38,10 +38,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerTwoRoulette;
 
     [SerializeField] private TMP_Text titleDeck;
-    [SerializeField] private TMP_Text titleDeckOutline;
-
-    [SerializeField] private TMP_Text descriptionDeck;
-    [SerializeField] private TMP_Text descriptionDeckOutline;
+    [SerializeField] private TMP_Text titleDeckOutline; 
 
     [SerializeField] private Image deckImage;
     [SerializeField] private Image deckMiniImage;
@@ -49,15 +46,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SimpleScrollSnap simpleScrollSnap;
     [SerializeField] private SimpleScrollSnap simpleScrollSnap2;
     [SerializeField] private StartPlayersScreen playersScreen;
-    [SerializeField] private Animator gameAnimator;
-
-    [SerializeField] private GameObject pool;
-
-    private static Action OnComplete;
-
-    public static bool reloadGame;
-
-    private Vector3 centerCardPos;
+    [SerializeField] private Animator gameAnimator;   
 
     public static List<Player> currentPlayer;
     public static List<Question> currentQuestion;
@@ -76,6 +65,8 @@ public class GameManager : MonoBehaviour
     public static int currentPlayer2Index;
 
     public static int randomDeck;
+
+    public Decks Decks => decks;
 
     public void GetRandomDeck()
     {
@@ -269,9 +260,7 @@ public class GameManager : MonoBehaviour
         deckLists = new List<DeckLangs>();
 
         scrollRect = simpleScrollSnap.GetComponent<ScrollRect>();
-        scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>();
-
-        centerCardPos = centerCard.transform.localPosition;
+        scrollRect2 = simpleScrollSnap2.GetComponent<ScrollRect>(); 
 
         SetQustions();
 
@@ -326,7 +315,7 @@ public class GameManager : MonoBehaviour
             simpleScrollSnap2.gameObject.SetActive(false);
             buttonSpin.gameObject.SetActive(false);
             openCard.gameObject.SetActive(true);
-            openCard.GetComponent<OpenCard>().AnimateOpenCard();
+            openCard.GetComponent<OpenCard>().AnimateOpenCard(); 
         }
     }
 
@@ -425,8 +414,6 @@ public class GameManager : MonoBehaviour
             titleDeck.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckTitle;
             titleDeckOutline.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckTitle;
 
-            descriptionDeck.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckDescription;
-            descriptionDeckOutline.text = decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[randomDeck].deckDescription;
         }
     }
 

@@ -9,6 +9,7 @@ public class DeckSettings : ScriptableObject
     [TextArea(3, 5)]
     public string deckDescription;
     public Sprite icon;
+    public Sprite backgroundCard;
     public List<Question> questions;
 }
 

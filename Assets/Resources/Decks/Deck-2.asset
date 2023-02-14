@@ -15,7 +15,8 @@ MonoBehaviour:
   deckTitle: Sexy Dirty Truth or Drink
   deckDescription: 'Simple rules: tell the truth to make everyone a sip, or sip 4
     times to keep silence!'
-  icon: {fileID: 21300000, guid: e73eb4390a8d24edabce327a57c2a93d, type: 3}
+  icon: {fileID: 21300000, guid: 7994a2f165b2b42c68a04108f7246c0e, type: 3}
+  backgroundCard: {fileID: 21300000, guid: 639719a61c2794747b988781a2dc5300, type: 3}
   questions:
   - name: 
     text: "[player], what\u2019s the soonest after meeting someone you\u2019ve slept

@@ -404,6 +404,15 @@
 			<de></de>
 		</Translates>
 	</Key>
+
+	<Key Name="Play_key">
+		<Translates>
+			<en-us>Play</en-us>
+			<ru>Играть</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
 		
 
 	

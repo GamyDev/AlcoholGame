@@ -15,6 +15,8 @@ public class WelcomeScreen : MonoBehaviour
     [SerializeField] private TMP_Text _subTitleName;
     [SerializeField] private PlayersList _playersList;
     [SerializeField] private StartPlayersScreen _startPlayersScreen;
+    [SerializeField] private Animator animator;
+
     private float timeSlide = 0.7f;
     private bool startSlide;
 
@@ -74,5 +76,7 @@ public class WelcomeScreen : MonoBehaviour
     {
         timeSlide = 0.7f;
         startSlide = false;
+        animator.enabled = false;
+        animator.enabled = true;
     }
 }

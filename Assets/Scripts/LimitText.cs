@@ -6,25 +6,21 @@ using UnityEngine;
 public class LimitText : MonoBehaviour
 {
     public int maxLength;
+     
 
-    private void OnEnable()
-    {
-        LocalizationManager.OnLanguageChange += LocalizationManager_OnLanguageChange;
-    }
-
-    private void OnDisable()
+    private void OnDestroy()
     {
         LocalizationManager.OnLanguageChange -= LocalizationManager_OnLanguageChange;
     }
 
     private void Start()
     {
+        LocalizationManager.OnLanguageChange += LocalizationManager_OnLanguageChange;
         Invoke("Truncate", 0.1f);
     }
 
     private void LocalizationManager_OnLanguageChange()
-    {
-        Truncate();
+    { 
         Invoke("Truncate", 0.1f);
     }
 

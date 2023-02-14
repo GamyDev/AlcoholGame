@@ -23,6 +23,7 @@ public class WelcomeScreen : MonoBehaviour
     public string RuWelcome;
     public string EnWelcome;
 
+    
 
     public void SetUser()
     {
@@ -75,8 +76,8 @@ public class WelcomeScreen : MonoBehaviour
     public void EnableAvatar()
     {
         timeSlide = 0.7f;
-        startSlide = false;
-        animator.enabled = false;
-        animator.enabled = true;
+        startSlide = false; 
+        animator.Rebind();
+        animator.Update(0); 
     }
 }

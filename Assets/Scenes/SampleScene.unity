@@ -23656,6 +23656,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 2498142105425796003, guid: 7b2690c6a87872c44a196f875bab1280, type: 3}
   playersModel: {fileID: 1193513006}
   AddPlayerButton: {fileID: 8130646389690142520}
+  _backButton: {fileID: 1585579287}
 --- !u!114 &1193513015
 MonoBehaviour:
   m_ObjectHideFlags: 0

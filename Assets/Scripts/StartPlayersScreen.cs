@@ -14,6 +14,7 @@ public class StartPlayersScreen : MonoBehaviour
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private PlayersModel playersModel;
     [SerializeField] private GamePlayerList _gamePlayerList;
+    
 
     public GameObject PlayerPrefab { get => _playerPrefab; }
 
@@ -26,23 +27,26 @@ public class StartPlayersScreen : MonoBehaviour
 
     private void OnUserRemove(int index)
     {
-        if(playersModel.playerDatas.Count > 2)
-        {
-            playersModel.playerDatas.RemoveAt(index);
-            _gamePlayerList.RemovePlayer(index);
-            _playersList.RemovePlayer(index);
-            _playersList.ChangePosition(false);
-        }
+         
+        playersModel.playerDatas.RemoveAt(index);
+        _gamePlayerList.RemovePlayer(index);
+        _playersList.RemovePlayer(index);
+        _playersList.ChangePosition(false);
+        _nextButton.gameObject.SetActive(playersModel.playerDatas.Count > 1);
+        _disabledNextButton.gameObject.SetActive(playersModel.playerDatas.Count < 2);
+       
     }
 
     private void OnPlayersRemove(List<Player> players)
     {
+        Debug.Log("Remove Player");
         _nextButton.gameObject.SetActive(players.Count > 1);
         _disabledNextButton.gameObject.SetActive(players.Count < 2);
     }
 
     private void OnPlayersAdd(List<Player> players)
-    { 
+    {
+        Debug.Log("Add Player");
         _nextButton.gameObject.SetActive(players.Count > 1);
         _disabledNextButton.gameObject.SetActive(players.Count < 2);
 

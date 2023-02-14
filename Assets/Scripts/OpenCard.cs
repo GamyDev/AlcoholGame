@@ -186,8 +186,10 @@ public class OpenCard : MonoBehaviour
 
     private void LanguageChange()
     {
-        if(gameObject.activeSelf)
-        {
+         if(gameObject.activeSelf)
+         { 
+            rules.text = gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckDescription;
+
             string question = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].text;
 
             if (GameManager.currentQuestion[LocalizationManager.SelectedLanguage].players == "1")

@@ -15,8 +15,10 @@ public class GamePlayerList : MonoBehaviour
     public GameObject AddPlayerButton;
 
     public static event Action AddPlayerEvent;
+    [SerializeField] private GameObject _backButton;
 
-     
+
+
     public void AddPlayer()
     {
         GameObject player = Instantiate(playerPrefab);
@@ -29,6 +31,8 @@ public class GamePlayerList : MonoBehaviour
             AddPlayerButton.SetActive(false);
 
         AddPlayerEvent?.Invoke();
+
+        _backButton.SetActive(playersModel.playerDatas.Count > 1);
     }
 
     public void RefreshUsers()
@@ -47,6 +51,7 @@ public class GamePlayerList : MonoBehaviour
         }
          
         AddPlayerButton.SetActive(true);
+        _backButton.SetActive(playersModel.playerDatas.Count > 1);
     }
 
     public GameObject GetLastVisibleObject()

@@ -47831,7 +47831,7 @@ MonoBehaviour:
   snapSpeed: 10
   thresholdSpeedToSnap: -1
   useHardSnapping: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   onTransitionEffects:
     m_PersistentCalls:
       m_Calls: []
@@ -50005,7 +50005,7 @@ MonoBehaviour:
   snapSpeed: 10
   thresholdSpeedToSnap: -1
   useHardSnapping: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   onTransitionEffects:
     m_PersistentCalls:
       m_Calls: []

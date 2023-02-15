@@ -46444,6 +46444,7 @@ MonoBehaviour:
   simpleScrollSnap2: {fileID: 5874054033404019905}
   playersScreen: {fileID: 1193513005}
   gameAnimator: {fileID: 3056954040103949393}
+  _spinnerSource: {fileID: 1254967755}
   tempPlayers: []
   deckLists: []
 --- !u!224 &3984705670561917182

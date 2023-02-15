@@ -361,10 +361,14 @@ public class GameManager : MonoBehaviour
     {
         scrollRect.StopMovement();
         scrollRect2.StopMovement();
-
+        
         _spinnerSource.Stop();
 
         FindObjectOfType<SlotMachine>(true).StopSpine();
+
+        ResetSpinners();
+        SetSettingsOneUser();
+        SetSettingsTwoUsers();
 
         buttonSpin.interactable = true;
         buttonSpin.transform.DOScale(Vector3.one, 0.2f);

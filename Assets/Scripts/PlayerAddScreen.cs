@@ -27,6 +27,12 @@ public class PlayerAddScreen : MonoBehaviour
         checkOff.SetActive(string.IsNullOrEmpty(value) || ExistName(value));
     }
 
+    public void LimitName(string value)
+    {
+        if (string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text)) return;
+        _inputObject.GetComponent<TMP_InputField>().text = _inputObject.GetComponent<TMP_InputField>().text.Length <= 8 ? _inputObject.GetComponent<TMP_InputField>().text : _inputObject.GetComponent<TMP_InputField>().text.Substring(0, 8);
+    }
+
     public bool ExistName(string name)
     {
         foreach (var item in _playersModel.playerDatas)
@@ -55,7 +61,7 @@ public class PlayerAddScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            if(!string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text)) { 
+            if(!string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text) && !ExistName(_inputObject.GetComponent<TMP_InputField>().text)) { 
                  _inputObject.SetActive(false);
                 _welcomObject.SetActive(true);
                 AddUser();

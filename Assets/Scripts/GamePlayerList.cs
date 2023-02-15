@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class GamePlayerList : MonoBehaviour
     public PlayersModel playersModel;
 
     public GameObject AddPlayerButton;
+    public GameObject notification;
 
     public static event Action AddPlayerEvent;
     [SerializeField] private GameObject _backButton;
@@ -33,6 +35,16 @@ public class GamePlayerList : MonoBehaviour
         AddPlayerEvent?.Invoke();
 
         _backButton.SetActive(playersModel.playerDatas.Count > 1);
+
+        if (playersModel.playerDatas.Count < 2)
+        {
+            notification.transform.localScale = Vector3.zero;
+            notification.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutElastic);
+        }
+        else
+        {
+            notification.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InElastic);
+        }
     }
 
     public void RefreshUsers()
@@ -52,6 +64,15 @@ public class GamePlayerList : MonoBehaviour
          
         AddPlayerButton.SetActive(true);
         _backButton.SetActive(playersModel.playerDatas.Count > 1);
+
+        if(playersModel.playerDatas.Count < 2)
+        {
+            notification.transform.localScale = Vector3.zero;
+            notification.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutElastic);
+        } else
+        {
+            notification.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InElastic);
+        }
     }
 
     public GameObject GetLastVisibleObject()

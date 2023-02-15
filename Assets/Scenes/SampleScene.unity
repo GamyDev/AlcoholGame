@@ -1905,7 +1905,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8130646388729638755}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8371,6 +8371,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1193513007}
+        m_TargetAssemblyTypeName: PlayerAddScreen, Assembly-CSharp
+        m_MethodName: LimitName
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9184,51 +9196,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: 109.1001}
   m_SizeDelta: {x: 130, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &476645346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 476645347}
-  - component: {fileID: 476645348}
-  m_Layer: 5
-  m_Name: Error2PlayersPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &476645347
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476645346}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8130646388729638755}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &476645348
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476645346}
-  m_CullTransparentMesh: 1
 --- !u!1 &481618746
 GameObject:
   m_ObjectHideFlags: 0
@@ -23794,6 +23761,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 2498142105425796003, guid: 7b2690c6a87872c44a196f875bab1280, type: 3}
   playersModel: {fileID: 1193513006}
   AddPlayerButton: {fileID: 8130646389690142520}
+  notification: {fileID: 1647271306}
   _backButton: {fileID: 1585579287}
 --- !u!114 &1193513015
 MonoBehaviour:
@@ -32743,7 +32711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1647271307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32753,12 +32721,12 @@ RectTransform:
   m_GameObject: {fileID: 1647271306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1353133365}
   m_Father: {fileID: 8130646388729638755}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -50831,7 +50799,6 @@ RectTransform:
   - {fileID: 8130646388839717263}
   - {fileID: 8130646390489172899}
   - {fileID: 945343219324117776}
-  - {fileID: 476645347}
   - {fileID: 118492431}
   - {fileID: 1647271307}
   m_Father: {fileID: 1736520533}
@@ -51104,7 +51071,7 @@ RectTransform:
   m_Father: {fileID: 8130646390254545683}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.11446512}
+  m_AnchorMin: {x: 0, y: 0.08542335}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -51763,8 +51730,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8130646388974765790}
   m_HandleRect: {fileID: 8130646388974765791}
   m_Direction: 2
-  m_Value: 1.0000026
-  m_Size: 0.8855349
+  m_Value: 1.0000048
+  m_Size: 0.91457665
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -9,6 +9,7 @@ using DanielLochner.Assets.SimpleScrollSnap;
 using TMPro;
 using Cysharp.Threading.Tasks;
 using System;
+using System.Threading;
 
 [System.Serializable]
 public class DeckLangs
@@ -46,12 +47,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SimpleScrollSnap simpleScrollSnap;
     [SerializeField] private SimpleScrollSnap simpleScrollSnap2;
     [SerializeField] private StartPlayersScreen playersScreen;
-    [SerializeField] private Animator gameAnimator;   
+    [SerializeField] private Animator gameAnimator;
+    [SerializeField] private AudioSource _spinnerSource;
 
     public static List<Player> currentPlayer;
     public static List<Question> currentQuestion;
 
-    
+    private static CancellationTokenSource _cancelSpinToken;
+
+
     public List<Player> tempPlayers;
 
     private ScrollRect scrollRect;
@@ -348,13 +352,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DisableButton()
+    public async void DisableButton()
     {
-        StartCoroutine(StartSpin());
+        await StartSpin();
     }
 
-    IEnumerator StartSpin()
+    public void CancelSpinner()
     {
+        scrollRect.StopMovement();
+        scrollRect2.StopMovement();
+
+        _spinnerSource.Stop();
+
+        FindObjectOfType<SlotMachine>(true).StopSpine();
+
+        buttonSpin.interactable = true;
+        buttonSpin.transform.DOScale(Vector3.one, 0.2f);
+
+       _cancelSpinToken?.Cancel();
+    }
+
+    private async UniTask StartSpin()
+    {
+        _cancelSpinToken = new CancellationTokenSource();
+
         currentPlayer.Clear();
         if (currentQuestion[LocalizationManager.SelectedLanguage].players == "1")
         {
@@ -369,7 +390,7 @@ public class GameManager : MonoBehaviour
 
         buttonSpin.interactable = false;
         buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
-        yield return new WaitForSeconds(5f);
+        await UniTask.Delay(5000, false, 0, _cancelSpinToken.Token);
         buttonSpin.interactable = true;
         buttonSpin.transform.DOScale(Vector3.one, 0.2f);
 

@@ -14,9 +14,19 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         #endregion
 
         #region Methods
+
+        //public void Spin()
+        //{
+        //    foreach (SimpleScrollSnap slot in slots)
+        //    {
+        //        slot.Velocity += Random.Range(2500, 5000) * Vector2.up;
+        //    }
+        //}
+
         public void Spin()
         {
-            if(!pressed) { 
+            if (!pressed)
+            {
                 startSpine = true;
                 Invoke("StopSpine", 2);
                 pressed = true;
@@ -27,7 +37,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
              }*/
         }
 
-        void StopSpine()
+        public void StopSpine()
         {
             startSpine = false;
             pressed = false;
@@ -40,12 +50,13 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             {
                 foreach (SimpleScrollSnap slot in slots)
                 {
-                    if(slot.gameObject.activeSelf) { 
+                    if (slot.gameObject.activeSelf)
+                    {
                         slot.Velocity += Random.Range(25000 * Time.deltaTime, 50000 * Time.deltaTime) * Vector2.left;
                     }
                 }
             }
-           
+
         }
         #endregion
     }

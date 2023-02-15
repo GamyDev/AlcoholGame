@@ -413,6 +413,15 @@
 			<de></de>
 		</Translates>
 	</Key>
+
+		<Key Name="You need at least 2 players to continue_key">
+		<Translates>
+			<en-us>You need at least 2 players to continue</en-us>
+			<ru>Вам нужно как минимум 2 игрока, чтобы продолжить</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
 		
 
 	

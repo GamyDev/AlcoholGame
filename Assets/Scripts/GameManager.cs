@@ -10,6 +10,7 @@ using TMPro;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 [System.Serializable]
 public class DeckLangs
@@ -354,7 +355,18 @@ public class GameManager : MonoBehaviour
 
     public async void DisableButton()
     {
-        await StartSpin();
+        try
+        {
+            await StartSpin();
+        }
+        catch (OperationCanceledException ex)
+        {
+            if(_cancelSpinToken.IsCancellationRequested)
+            {
+                Debug.Log("Spinner canceled!");
+            }
+        }
+        
     }
 
     public void CancelSpinner()
@@ -372,8 +384,8 @@ public class GameManager : MonoBehaviour
 
         buttonSpin.interactable = true;
         buttonSpin.transform.DOScale(Vector3.one, 0.2f);
-
-       _cancelSpinToken?.Cancel();
+        
+        _cancelSpinToken?.Cancel(); 
     }
 
     private async UniTask StartSpin()
@@ -406,6 +418,8 @@ public class GameManager : MonoBehaviour
         openCard.gameObject.SetActive(false);
         openCard.gameObject.SetActive(true);
         gameAnimator.SetBool("Fly", false);
+
+         
     }
 
     public void GetRandomQuestion()

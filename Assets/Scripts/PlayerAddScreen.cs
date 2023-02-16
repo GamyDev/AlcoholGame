@@ -20,6 +20,25 @@ public class PlayerAddScreen : MonoBehaviour
     [SerializeField] private GameObject _backInput;
     [SerializeField] private GameObject _back2Input;
 
+    private void Start()
+    {
+        _inputObject.GetComponent<TMP_InputField>().onTouchScreenKeyboardStatusChanged.AddListener((TouchScreenKeyboard.Status status) =>
+        {
+            if (status == TouchScreenKeyboard.Status.Done)
+            {
+                if (!string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text) && !ExistName(_inputObject.GetComponent<TMP_InputField>().text))
+                {
+                    _inputObject.SetActive(false);
+                    _welcomObject.SetActive(true);
+                    AddUser();
+                    _welcomeScreen.SetUser();
+                    _audioSource.Play();
+                    _backInput.SetActive(false);
+                    _back2Input.SetActive(false);
+                }
+            }
+        });
+    }
 
     public void CheckInputField(string value)
     {
@@ -30,7 +49,7 @@ public class PlayerAddScreen : MonoBehaviour
     public void LimitName(string value)
     {
         if (string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text)) return;
-        _inputObject.GetComponent<TMP_InputField>().text = _inputObject.GetComponent<TMP_InputField>().text.Length <= 8 ? _inputObject.GetComponent<TMP_InputField>().text : _inputObject.GetComponent<TMP_InputField>().text.Substring(0, 8);
+        _inputObject.GetComponent<TMP_InputField>().text = _inputObject.GetComponent<TMP_InputField>().text.Length <= 10 ? _inputObject.GetComponent<TMP_InputField>().text : _inputObject.GetComponent<TMP_InputField>().text.Substring(0, 10);
     }
 
     public bool ExistName(string name)
@@ -59,17 +78,19 @@ public class PlayerAddScreen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            if(!string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text) && !ExistName(_inputObject.GetComponent<TMP_InputField>().text)) { 
-                 _inputObject.SetActive(false);
-                _welcomObject.SetActive(true);
-                AddUser();
-                _welcomeScreen.SetUser(); 
-                _audioSource.Play();
-                _backInput.SetActive(false);
-                _back2Input.SetActive(false);
+        #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                if(!string.IsNullOrEmpty(_inputObject.GetComponent<TMP_InputField>().text) && !ExistName(_inputObject.GetComponent<TMP_InputField>().text)) { 
+                     _inputObject.SetActive(false);
+                    _welcomObject.SetActive(true);
+                    AddUser();
+                    _welcomeScreen.SetUser(); 
+                    _audioSource.Play();
+                    _backInput.SetActive(false);
+                    _back2Input.SetActive(false);
+                }
             }
-        }
+        #endif
     }
 }

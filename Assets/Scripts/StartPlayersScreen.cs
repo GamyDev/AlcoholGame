@@ -46,7 +46,6 @@ public class StartPlayersScreen : MonoBehaviour
 
     private void OnPlayersAdd(List<Player> players)
     {
-        Debug.Log("Add Player");
         _nextButton.gameObject.SetActive(players.Count > 1);
         _disabledNextButton.gameObject.SetActive(players.Count < 2);
 

@@ -9,8 +9,7 @@ public class Subscription : MonoBehaviour
     [SerializeField] private GameObject _unLock;
     [SerializeField] private GameObject _subscribeWindow;
 
-    public static bool subscriptionActive = false;
-
+   
     public static Subscription instance;
 
     public GameObject SubscribeWindow => _subscribeWindow;
@@ -27,8 +26,7 @@ public class Subscription : MonoBehaviour
 
     public void Subscribe()
     {
-        FindObjectOfType<SelectedDeck>().UnlockDecks();
-        subscriptionActive = true;
+        FindObjectOfType<SelectedDeck>().LockDecks(); 
     }
 
     public void SubscriptionActive()

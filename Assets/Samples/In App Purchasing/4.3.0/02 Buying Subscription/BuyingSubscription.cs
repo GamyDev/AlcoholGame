@@ -16,10 +16,22 @@ namespace Samples.Purchasing.Core.BuyingSubscription
 
         public TextMeshProUGUI isSubscribedText;
 
+        public static bool subscriptionActive = false;
+
         [SerializeField] private GameObject _lock;
         [SerializeField] private GameObject _unLock;
 
-        private bool _subscriptionActive;
+        public static event Action<bool> OnSubscribtionChange;
+
+
+        public void SetSubscribtion(bool value)
+        {
+            subscriptionActive = value;
+            OnSubscribtionChange?.Invoke(value);
+        }
+
+
+  
 
         void Start()
         {
@@ -28,7 +40,7 @@ namespace Samples.Purchasing.Core.BuyingSubscription
 
         void CheckSubscription()
         {
-            if (_subscriptionActive)
+            if (subscriptionActive)
             {
                 _unLock.SetActive(true);
                 _lock.SetActive(false);
@@ -74,7 +86,7 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             var product = args.purchasedProduct;
 
             Debug.Log($"Purchase Complete - Product: {product.definition.id}");
-            _subscriptionActive = true;
+            subscriptionActive = true;
             CheckSubscription();
 
             UpdateUI();
@@ -93,7 +105,7 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             // If the product doesn't have a receipt, then it wasn't purchased and the user is therefore not subscribed.
             if (subscription.receipt == null)
             {
-                _subscriptionActive = false;
+                subscriptionActive = false;
                 CheckSubscription();
                 return false;
             }

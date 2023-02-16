@@ -1,3 +1,4 @@
+using Samples.Purchasing.Core.BuyingSubscription;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,33 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
     public GameObject check;
     public GameObject unCheck;
     public GameObject lockCheck;
-    public static event Action OnDeckChange; 
+    public static event Action OnDeckChange;
+    
+    public void LockDecks()
+    {
+        for (int i = 0; i < deckContainer.transform.childCount; i++)
+        {
+            if (selectedDeck.Contains(i))
+            {
+                if (deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>() && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().lockCheck)
+                {
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(true);
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(false);
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().lockCheck.SetActive(false);
+                }
+
+            }
+            else
+            {
+                if (deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>() && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck && deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().lockCheck)
+                {
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().check.SetActive(false);
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().unCheck.SetActive(true);
+                    deckContainer.transform.GetChild(i).GetChild(1).GetComponent<SelectedDeck>().lockCheck.SetActive(true);
+                }
+            }
+        }
+    }
 
     public void UnlockDecks()
     { 
@@ -43,12 +70,19 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
 
     private void OnEnable()
     {
-        if(selectedDeck.Count == 0)
+        BuyingSubscription.OnSubscribtionChange += BuyingSubscription_OnSubscribtionChange;
+
+        if (!BuyingSubscription.subscriptionActive)
+        {
+            selectedDeck.Clear();
+        }
+
+        if (selectedDeck.Count == 0)
         {
             selectedDeck.Add(0);
         }
 
-        if (Subscription.subscriptionActive)
+        if (BuyingSubscription.subscriptionActive)
         {
 
             for (int i = 0; i < deckContainer.transform.childCount; i++)
@@ -113,9 +147,28 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    private void BuyingSubscription_OnSubscribtionChange(bool value)
+    {
+        if(value)
+        {
+            UnlockDecks();
+        } 
+        else
+        {
+            selectedDeck.Clear();
+            selectedDeck.Add(0);
+            LockDecks(); 
+        }
+    }
+
+    private void OnDisable()
+    {
+        BuyingSubscription.OnSubscribtionChange -= BuyingSubscription_OnSubscribtionChange;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(Subscription.subscriptionActive)
+        if(BuyingSubscription.subscriptionActive)
         {
             if (selectedDeck.Contains(transform.parent.GetSiblingIndex()))
             {

@@ -721,7 +721,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         {
             if (NumberOfPanels == 0)
             {
-                Debug.LogError("<b>[SimpleScrollSnap]</b> There are no panels to remove.", gameObject);
+                //Debug.LogError("<b>[SimpleScrollSnap]</b> There are no panels to remove.", gameObject);
                 return;
             }
             else if (index < 0 || index > (NumberOfPanels - 1))

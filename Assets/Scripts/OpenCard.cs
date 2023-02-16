@@ -140,8 +140,7 @@ public class OpenCard : MonoBehaviour
 
                 player.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[0].avatar];
             } else
-            {
-                Debug.LogError("Bug!!!!!");
+            { 
                 SetCurrentPlayer(GameManager.currentPlayerIndex);
                 player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
                 player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
@@ -168,8 +167,7 @@ public class OpenCard : MonoBehaviour
 
                 playerTwo.GetComponent<Image>().sprite = playersModel.avatars[GameManager.currentPlayer[1].avatar];
             } else
-            {
-                Debug.LogError("Bug!!!!!");
+            { 
                 SetCurrentPlayer(GameManager.currentPlayer2Index);
                 player.transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
                 player.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = GameManager.currentPlayer[0].name;
@@ -247,7 +245,15 @@ public class OpenCard : MonoBehaviour
             return;
         }
 
-        await Timer();
+        try
+        {
+            await Timer();
+        } 
+        catch(OperationCanceledException ex)
+        {
+            if (_cancelToken.IsCancellationRequested)
+                Debug.Log("Timer canceled!");
+        }
     }
 
     async UniTask Timer()
@@ -266,8 +272,8 @@ public class OpenCard : MonoBehaviour
     }
 
     public void CancelTimer()
-    {
-        _cancelToken?.Cancel();
+    { 
+        _cancelToken?.Cancel(); 
         timerStarted = false;
     }
 }

@@ -14,12 +14,10 @@ namespace Samples.Purchasing.Core.BuyingSubscription
         // Your subscription ID. It should match the id of your subscription in your store.
         public string subscriptionProductId = "com.drinkboozegame.cardgames.subscription";
 
-        public TextMeshProUGUI isSubscribedText;
+     //   public TextMeshProUGUI isSubscribedText;
 
         public static bool subscriptionActive = false;
 
-        [SerializeField] private GameObject _lock;
-        [SerializeField] private GameObject _unLock;
 
         public static event Action<bool> OnSubscribtionChange;
 
@@ -38,19 +36,6 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             InitializePurchasing();
         }
 
-        void CheckSubscription()
-        {
-            if (subscriptionActive)
-            {
-                _unLock.SetActive(true);
-                _lock.SetActive(false);
-            }
-            else
-            {
-                _unLock.SetActive(false);
-                _lock.SetActive(true);
-            }
-        }
 
         void InitializePurchasing()
         {
@@ -86,8 +71,7 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             var product = args.purchasedProduct;
 
             Debug.Log($"Purchase Complete - Product: {product.definition.id}");
-            subscriptionActive = true;
-            CheckSubscription();
+            SetSubscribtion(true);
 
             UpdateUI();
 
@@ -105,8 +89,7 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             // If the product doesn't have a receipt, then it wasn't purchased and the user is therefore not subscribed.
             if (subscription.receipt == null)
             {
-                subscriptionActive = false;
-                CheckSubscription();
+                SetSubscribtion(false);
                 return false;
             }
 
@@ -127,7 +110,7 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             try
             {
                 var isSubscribed = IsSubscribedTo(subscriptionProduct);
-                isSubscribedText.text = isSubscribed ? "You are subscribed" : "You are not subscribed";
+               // isSubscribedText.text = isSubscribed ? "You are subscribed" : "You are not subscribed";
             }
             catch (StoreSubscriptionInfoNotSupportedException)
             {

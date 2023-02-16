@@ -14,13 +14,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private GameObject soundOn, soundOn2;
     [SerializeField] private GameObject soundOff, soundOff2;
 
-    private int soundValue;
-    private int musicValue;
+    private float soundValue;
+    private float musicValue;
 
     void Start()
     {
-        musicValue = PlayerPrefs.GetInt("musicValue", musicValue);
-        soundValue = PlayerPrefs.GetInt("soundValue", soundValue);
+        musicValue = PlayerPrefs.GetFloat("musicValue", musicValue);
+        soundValue = PlayerPrefs.GetFloat("soundValue", soundValue);
 
         if (musicValue == 0)
         {
@@ -61,12 +61,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
+    public void MusicGame()
+    {
+        if (musicSound.volume == 1)
+        {
+            musicSound.volume = 0.2f;
+        }
+    }
+
     public void MusicOn()
     {
         if (musicValue == 0)
         {
             musicValue += 1;
-            PlayerPrefs.SetInt("musicValue", musicValue);
+            PlayerPrefs.SetFloat("musicValue", musicValue);
             musicSound.Stop();
             musicOn.SetActive(false);
             musicOff.SetActive(true);
@@ -82,7 +91,7 @@ public class AudioManager : MonoBehaviour
         if (musicValue == 1)
          {
              musicValue -= 1;
-             PlayerPrefs.SetInt("music", musicValue);
+             PlayerPrefs.SetFloat("music", musicValue);
              musicSound.Play();
              musicOn.SetActive(true);
              musicOff.SetActive(false);
@@ -96,7 +105,7 @@ public class AudioManager : MonoBehaviour
         if (soundValue == 0)
         {
             soundValue += 1;
-            PlayerPrefs.SetInt("soundValue", soundValue);
+            PlayerPrefs.SetFloat("soundValue", soundValue);
             buttonSound.volume = 0;
             spinSound.volume = 0;
             soundOn.SetActive(false);
@@ -112,7 +121,7 @@ public class AudioManager : MonoBehaviour
         if (soundValue == 1)
         {
             soundValue -= 1;
-            PlayerPrefs.SetInt("soundValue", soundValue);
+            PlayerPrefs.SetFloat("soundValue", soundValue);
             buttonSound.volume = 1;
             spinSound.volume = 1;
             soundOn.SetActive(true);

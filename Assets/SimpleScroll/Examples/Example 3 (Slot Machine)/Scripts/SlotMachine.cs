@@ -23,10 +23,37 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         //    }
         //}
 
+        private int[] speedArr = new int[] { 12000, 13000, 14000, 15000 };
+        private int speedIndex;
+
+        int[] MixArray(int[] num)
+        {
+            for (int i = 0; i < num.Length; i++)
+            {
+                int currentValue = num[i];
+                int randomIndex = Random.Range(i, num.Length);
+                num[i] = num[randomIndex];
+                num[randomIndex] = currentValue;
+            }
+
+            return num;
+        }
+
         public void Spin()
         {
             if (!pressed)
             {
+                speedArr = MixArray(speedArr);
+
+                int currSpeed = Random.Range(0, speedArr.Length);
+                while (currSpeed == speedIndex)
+                {
+                    currSpeed = Random.Range(0, speedArr.Length);
+                }
+
+                speedIndex = currSpeed;
+
+                Debug.Log($"Speed {speedArr[speedIndex]}");
                 startSpine = true;
                 Invoke("StopSpine", 2f);
                 pressed = true;
@@ -52,7 +79,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                 {
                     if (slot.gameObject.activeSelf)
                     {
-                        slot.Velocity += Random.Range(12000 * Time.deltaTime, 25000 * Time.deltaTime) * Vector2.left;
+                        slot.Velocity += speedArr[speedIndex] * Time.deltaTime * Vector2.left;
                     }
                 }
             }

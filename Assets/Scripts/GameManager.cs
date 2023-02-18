@@ -406,7 +406,7 @@ public class GameManager : MonoBehaviour
 
         buttonSpin.interactable = false;
         buttonSpin.transform.DOScale(Vector3.zero, 0.2f);
-        await UniTask.Delay(5000, false, 0, _cancelSpinToken.Token);
+        await UniTask.Delay(6000, false, 0, _cancelSpinToken.Token);
         buttonSpin.interactable = true;
         buttonSpin.transform.DOScale(Vector3.one, 0.2f);
 

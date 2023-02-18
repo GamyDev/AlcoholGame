@@ -13,8 +13,8 @@ namespace Samples.Purchasing.Core.BuyingSubscription
 
         // Your subscription ID. It should match the id of your subscription in your store.
         public string subscriptionProductId = "com.drinkboozegame.cardgames.subscription";
-
-     //   public TextMeshProUGUI isSubscribedText;
+        IAppleExtensions m_AppleExtensions;
+        //   public TextMeshProUGUI isSubscribedText;
 
         public static bool subscriptionActive = false;
 
@@ -37,6 +37,8 @@ namespace Samples.Purchasing.Core.BuyingSubscription
         }
 
 
+
+
         void InitializePurchasing()
         {
             var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
@@ -52,10 +54,36 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             m_StoreController.InitiatePurchase(subscriptionProductId);
         }
 
+
+        public void Restore()
+        {
+            m_AppleExtensions.RestoreTransactions(OnRestore);
+        }
+
+        void OnRestore(bool success)
+        {
+            var restoreMessage = "";
+            if (success)
+            {
+                // This does not mean anything was restored,
+                // merely that the restoration process succeeded.
+                restoreMessage = "Restore Successful";
+            }
+            else
+            {
+                // Restoration failed.
+                restoreMessage = "Restore Failed";
+            }
+
+            Debug.Log(restoreMessage);
+            //restoreStatusText.text = restoreMessage;
+        }
+
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
             Debug.Log("In-App Purchasing successfully initialized");
             m_StoreController = controller;
+            m_AppleExtensions = extensions.GetExtension<IAppleExtensions>();
 
             UpdateUI();
         }

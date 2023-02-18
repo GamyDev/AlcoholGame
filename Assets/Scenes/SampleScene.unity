@@ -12136,6 +12136,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1641083712}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1575168670}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -22279,7 +22291,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1150788053}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -23520,6 +23532,8 @@ GameObject:
   - component: {fileID: 1193513013}
   - component: {fileID: 1193513014}
   - component: {fileID: 1193513015}
+  - component: {fileID: 1193513016}
+  - component: {fileID: 1193513017}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -23774,6 +23788,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aspectRatio: 0
   panelGame: {fileID: 2294534653033693240}
+--- !u!114 &1193513016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193513002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd52575cdecb459c904355fc82a7e582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1193513017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193513002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0151f3894db064eeda617db5acc32b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196787557
 GameObject:
   m_ObjectHideFlags: 0
@@ -33065,6 +33103,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1193513010}
+        m_TargetAssemblyTypeName: Samples.Purchasing.Core.BuyingSubscription.BuyingSubscription,
+          Assembly-CSharp
+        m_MethodName: Restore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1668478562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36572,6 +36623,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1629498780}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1193513017}
+        m_TargetAssemblyTypeName: ContactUs, Assembly-CSharp
+        m_MethodName: SendEmail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

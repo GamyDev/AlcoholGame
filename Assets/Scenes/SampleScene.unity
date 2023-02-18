@@ -48331,11 +48331,11 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   pagination: {fileID: 0}
   useToggleNavigation: 1
-  snapTarget: 2
+  snapTarget: 0
   snapSpeed: 10
   thresholdSpeedToSnap: -1
   useHardSnapping: 0
-  useUnscaledTime: 1
+  useUnscaledTime: 0
   onTransitionEffects:
     m_PersistentCalls:
       m_Calls: []
@@ -50505,11 +50505,11 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   pagination: {fileID: 0}
   useToggleNavigation: 1
-  snapTarget: 2
+  snapTarget: 0
   snapSpeed: 10
   thresholdSpeedToSnap: -1
   useHardSnapping: 0
-  useUnscaledTime: 1
+  useUnscaledTime: 0
   onTransitionEffects:
     m_PersistentCalls:
       m_Calls: []
@@ -50562,7 +50562,7 @@ MonoBehaviour:
   m_MovementType: 0
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.01
+  m_DecelerationRate: 0.001
   m_ScrollSensitivity: 0
   m_Viewport: {fileID: 7262679744759034619}
   m_HorizontalScrollbar: {fileID: 0}
@@ -52640,7 +52640,7 @@ MonoBehaviour:
   m_MovementType: 0
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.01
+  m_DecelerationRate: 0.001
   m_ScrollSensitivity: 0
   m_Viewport: {fileID: 7052221781756949321}
   m_HorizontalScrollbar: {fileID: 0}

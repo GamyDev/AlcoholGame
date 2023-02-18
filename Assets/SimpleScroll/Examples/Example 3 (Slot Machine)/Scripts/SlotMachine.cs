@@ -28,7 +28,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             if (!pressed)
             {
                 startSpine = true;
-                Invoke("StopSpine", 2);
+                Invoke("StopSpine", 2f);
                 pressed = true;
             }
             /* foreach (SimpleScrollSnap slot in slots)
@@ -52,7 +52,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                 {
                     if (slot.gameObject.activeSelf)
                     {
-                        slot.Velocity += Random.Range(25000 * Time.deltaTime, 50000 * Time.deltaTime) * Vector2.left;
+                        slot.Velocity += Random.Range(12000 * Time.deltaTime, 25000 * Time.deltaTime) * Vector2.left;
                     }
                 }
             }

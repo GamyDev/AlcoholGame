@@ -1,4 +1,3 @@
-using Samples.Purchasing.Core.BuyingSubscription;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using UnityEngine.UI;
 
 public class SelectedDeck : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] private IAPCore iAPCore;
     public static List<int> selectedDeck = new List<int>();
 
     public GameObject deckContainer;
@@ -15,6 +15,7 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
     public GameObject unCheck;
     public GameObject lockCheck;
     public static event Action OnDeckChange;
+
     
     public void LockDecks()
     {
@@ -70,9 +71,9 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
 
     private void OnEnable()
     {
-        BuyingSubscription.OnSubscribtionChange += BuyingSubscription_OnSubscribtionChange;
+        IAPCore.OnSubscribtionChange += BuyingSubscription_OnSubscribtionChange;
 
-        if (!BuyingSubscription.subscriptionActive)
+        if (!IAPCore.subscriptionActive)
         {
             selectedDeck.Clear();
         }
@@ -82,7 +83,7 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
             selectedDeck.Add(0);
         }
 
-        if (BuyingSubscription.subscriptionActive)
+        if (IAPCore.subscriptionActive)
         {
 
             for (int i = 0; i < deckContainer.transform.childCount; i++)
@@ -163,12 +164,12 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
 
     private void OnDisable()
     {
-        BuyingSubscription.OnSubscribtionChange -= BuyingSubscription_OnSubscribtionChange;
+        IAPCore.OnSubscribtionChange -= BuyingSubscription_OnSubscribtionChange;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(BuyingSubscription.subscriptionActive)
+        if(IAPCore.subscriptionActive)
         {
             if (selectedDeck.Contains(transform.parent.GetSiblingIndex()))
             {
@@ -205,7 +206,8 @@ public class SelectedDeck : MonoBehaviour, IPointerClickHandler
         {
             if(transform.parent.GetSiblingIndex() > 0)
             {
-                Subscription.instance.SubscribeWindow.SetActive(true);
+                iAPCore.ActiveWindow(true);
+                iAPCore.TextInvoke();
             }
         }
 

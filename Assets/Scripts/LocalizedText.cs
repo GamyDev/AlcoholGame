@@ -8,6 +8,7 @@ public class LocalizedText : MonoBehaviour
     private TextMeshProUGUI text;
     private string key;
 
+
     private void Start()
     {
         Localize();

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
-using TMPro;
 
 namespace Samples.Purchasing.Core.BuyingSubscription
 {
@@ -12,32 +11,14 @@ namespace Samples.Purchasing.Core.BuyingSubscription
         IStoreController m_StoreController;
 
         // Your subscription ID. It should match the id of your subscription in your store.
-        public string subscriptionProductId = "com.drinkboozegame.cardgames.subscription";
-        IAppleExtensions m_AppleExtensions;
-        //   public TextMeshProUGUI isSubscribedText;
+        public string subscriptionProductId = "com.mycompany.mygame.my_vip_pass_subscription";
 
-        public static bool subscriptionActive = false;
-
-
-        public static event Action<bool> OnSubscribtionChange;
-
-
-        public void SetSubscribtion(bool value)
-        {
-            subscriptionActive = value;
-            OnSubscribtionChange?.Invoke(value);
-        }
-
-
-  
+        public Text isSubscribedText;
 
         void Start()
         {
             InitializePurchasing();
         }
-
-
-
 
         void InitializePurchasing()
         {
@@ -54,36 +35,10 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             m_StoreController.InitiatePurchase(subscriptionProductId);
         }
 
-
-        public void Restore()
-        {
-            m_AppleExtensions.RestoreTransactions(OnRestore);
-        }
-
-        void OnRestore(bool success)
-        {
-            var restoreMessage = "";
-            if (success)
-            {
-                // This does not mean anything was restored,
-                // merely that the restoration process succeeded.
-                restoreMessage = "Restore Successful";
-            }
-            else
-            {
-                // Restoration failed.
-                restoreMessage = "Restore Failed";
-            }
-
-            Debug.Log(restoreMessage);
-            //restoreStatusText.text = restoreMessage;
-        }
-
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
             Debug.Log("In-App Purchasing successfully initialized");
             m_StoreController = controller;
-            m_AppleExtensions = extensions.GetExtension<IAppleExtensions>();
 
             UpdateUI();
         }
@@ -99,7 +54,6 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             var product = args.purchasedProduct;
 
             Debug.Log($"Purchase Complete - Product: {product.definition.id}");
-            SetSubscribtion(true);
 
             UpdateUI();
 
@@ -117,7 +71,6 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             // If the product doesn't have a receipt, then it wasn't purchased and the user is therefore not subscribed.
             if (subscription.receipt == null)
             {
-                SetSubscribtion(false);
                 return false;
             }
 
@@ -138,18 +91,9 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             try
             {
                 var isSubscribed = IsSubscribedTo(subscriptionProduct);
-               // isSubscribedText.text = isSubscribed ? "You are subscribed" : "You are not subscribed";
             }
             catch (StoreSubscriptionInfoNotSupportedException)
             {
-                var receipt = (Dictionary<string, object>)MiniJson.JsonDecode(subscriptionProduct.receipt);
-                var store = receipt["Store"];
-                /*isSubscribedText.text =
-                    "Couldn't retrieve subscription information because your current store is not supported.\n" +
-                    $"Your store: \"{store}\"\n\n" +
-                    "You must use the App Store, Google Play Store or Amazon Store to be able to retrieve subscription information.\n\n" +
-                    "For more information, see README.md";*/
-
                
             }
         }

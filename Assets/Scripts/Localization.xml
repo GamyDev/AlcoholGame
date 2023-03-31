@@ -422,12 +422,98 @@
 			<de></de>
 		</Translates>
 	</Key>
-		
 
-	
-	
+	<Key Name="Disclaimer_key">
+		<Translates>
+			<en-us>Disclaimer</en-us>
+			<ru>Дисклеймер</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
 
-	
+	<Key Name="Drinking alcohol excessively can lead to serious health problems, including addiction, liver disease, and cancer. It is illegal to consume alcohol if you are under the legal drinking age in your country. Always drink responsibly and never drink and drive. And you can always replace alcoholic drink with any non-alcoholic beverage while playing._key">
+		<Translates>
+			<en-us>Drinking alcohol excessively can lead to serious health problems, including addiction, liver disease, and cancer. It is illegal to consume alcohol if you are under the legal drinking age in your country. Always drink responsibly and never drink and drive. And you can always replace alcoholic drink with any non-alcoholic beverage while playing.</en-us>
+			<ru>Чрезмерное употребление алкоголя может привести к серьезным проблемам со здоровьем, включая зависимость, заболевания печени и рак. Употребление алкоголя является незаконным, если вы не достигли установленного законом возраста употребления алкоголя в вашей стране. Всегда пейте ответственно и никогда не пейте за рулем. А алкогольный напиток всегда можно заменить любым безалкогольным напитком во время игры.</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+		<Key Name="Agree_key">
+		<Translates>
+			<en-us>Agree</en-us>
+			<ru>Я согласен</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+			<Key Name="All premium packs available_key">
+		<Translates>
+			<en-us>All premium packs available</en-us>
+			<ru>Доступны все премиальные колоды</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+			<Key Name="Free content updates_key">
+		<Translates>
+			<en-us>Free content updates</en-us>
+			<ru>Бесплатные обновления контента</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+			<Key Name="Cancel anytime_key">
+		<Translates>
+			<en-us>Cancel anytime</en-us>
+			<ru>Можно отменить в любой момент</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+			<Key Name="Free for 3 days, then [pric] per week_key">
+		<Translates>
+			<en-us>Free for 3 days, then [price]$ per week</en-us>
+			<ru>Бесплатно на 3 дня, потом [price]$ в неделю</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+			<Key Name="Restore_key">
+		<Translates>
+			<en-us>Restore</en-us>
+			<ru>Восстановить покупки</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+	<Key Name="Terms and Conditions_key">
+		<Translates>
+			<en-us>Terms and Conditions</en-us>
+			<ru>Условия и положения</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+	<Key Name="Privacy policy_key">
+		<Translates>
+			<en-us>Privacy policy</en-us>
+			<ru>Политика конфиденциальности</ru>
+			<es></es>
+			<de></de>
+		</Translates>
+	</Key>
+
+
 
 
 	

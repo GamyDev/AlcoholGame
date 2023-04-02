@@ -5,11 +5,12 @@ using TMPro;
 
 public class IAPCore : MonoBehaviour, IStoreListener //для получения сообщений из Unity Purchasing
 {
-  //  [SerializeField] private GameObject panelAds;
-   // [SerializeField] private GameObject panelVIP;
+    //  [SerializeField] private GameObject panelAds;
+    // [SerializeField] private GameObject panelVIP;
 
-   // [SerializeField] private GameObject panelAds_Done;
-   // [SerializeField] private GameObject panelVIP_Done;
+    // [SerializeField] private GameObject panelAds_Done;
+    // [SerializeField] private GameObject panelVIP_Done;
+    public TMP_Text tempText;
 
     private static IStoreController m_StoreController;          //доступ к системе Unity Purchasing
     private static IExtensionProvider m_StoreExtensionProvider; // подсистемы закупок для конкретных магазинов
@@ -30,8 +31,10 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
             InitializePurchasing();
         }
         LocalizationManager.OnLanguageChange += OnLanguageChange;
+
         SubscriptionCheck();
-     }
+
+    }
 
     void SubscriptionCheck()
     {
@@ -39,13 +42,13 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
 
         try
         {
-            var isSubscribed = IsSubscribedTo(subscriptionProduct);
+            var isSubscribed = IsSubscribedTo(subscriptionProduct); 
             FindObjectOfType<SelectedDeck>(true).UnlockDecks();
 
         }
         catch (StoreSubscriptionInfoNotSupportedException)
         {
-            FindObjectOfType<SelectedDeck>(false).UnlockDecks();
+            
         }
     }
 
@@ -120,7 +123,7 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
         // The SubscriptionInfo contains all of the information about the subscription.
         // Find out more: https://docs.unity3d.com/Packages/com.unity.purchasing@3.1/manual/UnityIAPSubscriptionProducts.html
         var info = subscriptionManager.getSubscriptionInfo();
-
+        tempText.text = info.isSubscribed().ToString();
         return info.isSubscribed() == Result.True;
     }
 
@@ -195,6 +198,8 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
         Debug.Log("OnInitialized: PASS");
         m_StoreController = controller;
         m_StoreExtensionProvider = extensions;
+
+        SubscriptionCheck();
     }
 
     private bool IsInitialized()

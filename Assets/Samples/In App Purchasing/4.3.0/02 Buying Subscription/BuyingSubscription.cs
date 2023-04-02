@@ -91,6 +91,10 @@ namespace Samples.Purchasing.Core.BuyingSubscription
             try
             {
                 var isSubscribed = IsSubscribedTo(subscriptionProduct);
+                if(isSubscribed)
+                {
+                    FindObjectOfType<SelectedDeck>(true).UnlockDecks();
+                }
             }
             catch (StoreSubscriptionInfoNotSupportedException)
             {

@@ -40,12 +40,12 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
         try
         {
             var isSubscribed = IsSubscribedTo(subscriptionProduct);
-            SetSubscribtion(isSubscribed);
-         
+            FindObjectOfType<SelectedDeck>(true).UnlockDecks();
+
         }
         catch (StoreSubscriptionInfoNotSupportedException)
         {
-            SetSubscribtion(false);
+            FindObjectOfType<SelectedDeck>(false).UnlockDecks();
         }
     }
 

@@ -20,7 +20,9 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
     // public static string coins151 = "coins151"; //многоразовые - consumable
 
     [SerializeField] private TextMeshProUGUI textPrice;
+    [SerializeField] private TextMeshProUGUI textPrice2;
     [SerializeField] private GameObject windowSub;
+    [SerializeField] private GameObject onbordingSub;
     public static bool subscriptionActive = false;
     public static event Action<bool> OnSubscribtionChange;
 
@@ -32,7 +34,14 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
         }
         LocalizationManager.OnLanguageChange += OnLanguageChange;
 
-        SubscriptionCheck(); 
+        SubscriptionCheck();
+
+        if (!PlayerPrefs.HasKey("ShowSubscribtion"))
+        {
+            PlayerPrefs.SetInt("ShowSubscribtion", 1);
+            onbordingSub.SetActive(true);
+            TextInvoke();
+        }
     }
 
     
@@ -102,7 +111,10 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
     {
         Product product = m_StoreController.products.WithID(vip);
         decimal price = product.metadata.localizedPrice == 0 ? 0.99M : product.metadata.localizedPrice;
-        textPrice.text = textPrice.text.Replace("[price]", price.ToString());
+        textPrice.text = textPrice.text.Replace("[price]", price.ToString() + " " + product.metadata.isoCurrencyCode);
+
+        decimal price2 = product.metadata.localizedPrice == 0 ? 0.99M : product.metadata.localizedPrice;
+        textPrice2.text = textPrice2.text.Replace("[price]", price2.ToString() + " " + product.metadata.isoCurrencyCode);
         Debug.Log("TextPrice");
     }
 
@@ -157,9 +169,9 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
 
-           SetSubscribtion(true);
-
-
+            SetSubscribtion(true);
+            windowSub.SetActive(false);
+            onbordingSub.SetActive(false);
         }
         else
         {

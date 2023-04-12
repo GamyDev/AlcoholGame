@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Deck-6
   m_EditorClassIdentifier: 
   deckTitle: Cursed questions
-  deckDescription: Its getting hotter. Everyone will need a sip to forget the answers
-    you heard. No answer - 5 sips.
+  deckDescription: You don't want to hear the answer, do you?
+  deckRules: Everyone, squat once to forget the answer heard. No answer - 5 squats.
   icon: {fileID: 21300000, guid: eee9c3ece585d44f790dd490e9e88725, type: 3}
   backgroundCard: {fileID: 21300000, guid: 65cc2c0e50f944d388f015721cc5194e, type: 3}
   questions:

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720195d612531fe4c818f9aa95ed4840, type: 3}
   m_Name: Deck-2
   m_EditorClassIdentifier: 
-  deckTitle: Sexy Dirty Truth or Drink
-  deckDescription: 'Simple rules: tell the truth to make everyone a sip, or sip 4
-    times to keep silence!'
+  deckTitle: Sexy Dirty Truth or Squat
+  deckDescription: Time for hot confessions! Still waters run deep.
+  deckRules: Tell the truth to make everyone a squat, or squat yourself 4 times to
+    keep silence.
   icon: {fileID: 21300000, guid: 7994a2f165b2b42c68a04108f7246c0e, type: 3}
   backgroundCard: {fileID: 21300000, guid: 639719a61c2794747b988781a2dc5300, type: 3}
   questions:

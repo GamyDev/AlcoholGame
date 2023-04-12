@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Deck-8
   m_EditorClassIdentifier: 
   deckTitle: Queens Convention
-  deckDescription: Girls Night Out! Do dare or answer truth to make everybody else
-    sip once, or sip 4 times to skip.
+  deckDescription: Big Night Out! Girls just wanna have fun.
+  deckRules: Answer truth to make girls squat once, or hold a plank for 15 seconds
+    to skip.
   icon: {fileID: 21300000, guid: d09adbf2a855545ec9cb30d58f1fa859, type: 3}
   backgroundCard: {fileID: 21300000, guid: 4dc7ec8c03d004663a77020987c8e8f7, type: 3}
   questions:

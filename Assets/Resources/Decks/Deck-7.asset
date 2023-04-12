@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Deck-7
   m_EditorClassIdentifier: 
   deckTitle: Night of Knights!
-  deckDescription: No fears, no regrets! Do dare or answer truth to make everybody
-    else sip once, or sip 4 times to skip.
+  deckDescription: No fears, no regrets! The Boys are back in town.
+  deckRules: Answer truth to make everybody else squat once, or do 5 burpees to skip.
   icon: {fileID: 21300000, guid: d7e781edaf0c24faea78af17db2d863a, type: 3}
   backgroundCard: {fileID: 21300000, guid: d38d8f76c05cb4d4dbb2c6e31ba0564a, type: 3}
   questions:

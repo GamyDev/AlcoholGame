@@ -8,6 +8,8 @@ public class DeckSettings : ScriptableObject
     public string deckTitle;
     [TextArea(3, 5)]
     public string deckDescription;
+    [TextArea(3, 5)]
+    public string deckRules;
     public Sprite icon;
     public Sprite backgroundCard;
     public List<Question> questions;

@@ -73,7 +73,7 @@ public class OpenCard : MonoBehaviour
         _cancelToken = new CancellationTokenSource();
 
         backgroundCard.sprite = gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].backgroundCard;
-        rules.text = gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckDescription;
+        rules.text = !string.IsNullOrEmpty(gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckRules) ? gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckRules : gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckDescription;
 
         LocalizationManager.OnLanguageChange += LanguageChange;
         AnimateOpenCard();
@@ -186,7 +186,7 @@ public class OpenCard : MonoBehaviour
     {
          if(gameObject.activeSelf)
          { 
-            rules.text = gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckDescription;
+            rules.text = !string.IsNullOrEmpty(gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckRules) ? gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckRules : gameManager.Decks.deckSettings[LocalizationManager.SelectedLanguage].deckSettings[GameManager.randomDeck].deckDescription;
 
             string question = GameManager.currentQuestion[LocalizationManager.SelectedLanguage].text;
 

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720195d612531fe4c818f9aa95ed4840, type: 3}
   m_Name: Deck-4
   m_EditorClassIdentifier: 
-  deckTitle: Drink or Dare
-  deckDescription: Time for action! Do the dare to make everyone else sip 1 time,
-    or sip 6 times to skip it.
+  deckTitle: Squat or Dare
+  deckDescription: Time for action! What dare will roll to you?
+  deckRules: Do the dare to make everyone else squat 1 time, or squat 6 times to
+    skip it.
   icon: {fileID: 21300000, guid: 00755c5efaf31451980bdba295ccabf4, type: 3}
   backgroundCard: {fileID: 21300000, guid: 973cff6da322e47aa80771608cd3a899, type: 3}
   questions:

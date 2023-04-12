@@ -192,7 +192,7 @@ MonoBehaviour:
     players: 1
     timer: 
   - name: 
-    text: '[player], drink a shot of vinegar.'
+    text: '[player], drink a sip of vinegar.'
     players: 1
     timer: 
   - name: 

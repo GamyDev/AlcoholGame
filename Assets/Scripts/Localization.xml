@@ -65,8 +65,8 @@
 
 	<Key Name="Sexy Dirty Truth or Drink_key">
 		<Translates>
-			<en-us>Sexy Dirty Truth or Drink</en-us>
-			<ru>Выдай сексуальные грязные секретики или пей</ru>
+			<en-us>Sexy Dirty Truth or Squat</en-us>
+			<ru>Секси-секретики или приседания</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -74,8 +74,8 @@
 
 	<Key Name="Simple rules: tell the truth to make everyone a sip, or sip 4 times to keep silence!_key">
 		<Translates>
-			<en-us>Simple rules: tell the truth to make everyone a sip, or sip 4 times to keep silence!</en-us>
-			<ru>Правила просты: расскажи правду, чтобы заставить всех выпить по глотку либо сам выпей 4 глотка, чтобы хранить молчание!</ru>
+			<en-us>Time for hot confessions! Still waters run deep.</en-us>
+			<ru>Время для горячих признаний! В тихом омуте...</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -92,8 +92,8 @@
 
 		<Key Name="Selected player choose who is most likely to... And then they both sips twice without hard feelings._key">
 		<Translates>
-			<en-us>Selected player choose who is most likely to... And then they both sips twice without hard feelings.</en-us>
-			<ru>Выпавшему игроку предстоит выбрать того, кто скорее всего... А потом они вместе пьют дважды. И без обид!</ru>
+			<en-us>Who is usual suspect? You know who. Say my name!</en-us>
+			<ru>Кто обычный подозреваемый? Ты знаешь кто. Назови моё имя!</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -101,8 +101,8 @@
 
 	<Key Name="Drink or Dare_key">
 		<Translates>
-			<en-us>Drink or Dare</en-us>
-			<ru>Пей или действие!</ru>
+			<en-us>Squat or dare</en-us>
+			<ru>Присядь или делай</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -110,8 +110,8 @@
 
 	<Key Name="Time for action! Do the dare to make everyone else sip 1 time, or sip 6 times to skip it._key">
 		<Translates>
-			<en-us>Time for action! Do the dare to make everyone else sip 1 time, or sip 6 times to skip it.</en-us>
-			<ru>Время размяться! Выполни действие, чтобы заставить всех сделать по глотку или сам сделай 6 глотков чтобы пропустить ход.</ru>
+			<en-us>Time for action! What dare will roll to you?</en-us>
+			<ru>Время действовать! Какое испытание выпадет тебе?</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -128,8 +128,8 @@
 
 	<Key Name="Playing all together! Make a sip for 'yes', skip for 'no', easy peasy lemon squeezy!_key">
 		<Translates>
-			<en-us>Playing all together! Make a sip for 'yes', skip for 'no', easy peasy lemon squeezy!</en-us>
-			<ru>Играем все вместе! Сделайте глоток если ваш ответ 'да' либо пропустите если ответ 'нет'. Проще простого! </ru>
+			<en-us>Playing all together. Pick who matching best!</en-us>
+			<ru>Играем все вместе! Выбери, кто лучше всего подходит!</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -146,8 +146,8 @@
 
 	<Key Name="Its getting hotter. Everyone will need a sip to forget the answers you heard. No answer - 5 sips._key">
 		<Translates>
-			<en-us>Its getting hotter. Everyone will need a sip to forget the answers you heard. No answer - 5 sips.</en-us>
-			<ru>Становится жарче. Все должны выпить по глотку чтобы забыть услышанные ответы. Тот кто пропускает свой ответ - пьёт 5 глотков.</ru>
+			<en-us>You don't want to hear the answer, do you?</en-us>
+			<ru>Ты не хочешь услышать ответ, так? Ведь не хочешь?</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -164,8 +164,8 @@
 
 	<Key Name="No fears, no regrets! Do dare or answer truth to make everybody else sip once, or sip 4 times to skip._key">
 		<Translates>
-			<en-us>No fears, no regrets! Do dare or answer truth to make everybody else sip once, or sip 4 times to skip.</en-us>
-			<ru>Без страхов, без сожалений! Сделайте желание или ответьте правду, чтобы заставить всех остальных выпить по глотку, либо пропустите ход, выпив 4 глотка.</ru>
+			<en-us>No fears, no regrets! The Boys are back in town.</en-us>
+			<ru>Без страха, без сожалений! Парни вернулись в город.</ru>
 			<es></es>
 			<de></de>
 		</Translates>
@@ -182,8 +182,8 @@
 
 		<Key Name="Girls Night Out! Do dare or answer truth to make everybody else sip once, or sip 4 times to skip._key">
 		<Translates>
-			<en-us>Girls Night Out! Do dare or answer truth to make everybody else sip once, or sip 4 times to skip.</en-us>
-			<ru>Девчонки отжигают! Сделайте желание или ответьте правду, чтобы заставить всех остальных выпить по глотку, либо пропустите ход, выпив 4 глотка.</ru>
+			<en-us>Big Night Out! Girls just wanna have fun.</en-us>
+			<ru>Большая тусня! Девчата хотят повеселиться.</ru>
 			<es></es>
 			<de></de>
 		</Translates>

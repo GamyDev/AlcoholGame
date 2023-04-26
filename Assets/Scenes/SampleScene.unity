@@ -518,6 +518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28426677}
+  - component: {fileID: 28426678}
   m_Layer: 5
   m_Name: Star1 (4)
   m_TagString: Untagged
@@ -547,6 +548,23 @@ RectTransform:
   m_AnchoredPosition: {x: 743, y: -95}
   m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &28426678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28426676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63bebe15defeae48a8680cef60945b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeStar: {fileID: 1143305750}
+  disableStar: {fileID: 1771313030}
+  OnRate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &31024706
 GameObject:
   m_ObjectHideFlags: 0
@@ -9651,6 +9669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380946830}
+  - component: {fileID: 380946831}
   m_Layer: 5
   m_Name: Star1 (2)
   m_TagString: Untagged
@@ -9680,6 +9699,23 @@ RectTransform:
   m_AnchoredPosition: {x: 435, y: -95}
   m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &380946831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380946829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63bebe15defeae48a8680cef60945b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeStar: {fileID: 737098618}
+  disableStar: {fileID: 344590158}
+  OnRate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &381222957
 GameObject:
   m_ObjectHideFlags: 0
@@ -10052,6 +10088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 390839601}
+  - component: {fileID: 390839602}
   m_Layer: 5
   m_Name: Star1
   m_TagString: Untagged
@@ -10081,6 +10118,23 @@ RectTransform:
   m_AnchoredPosition: {x: 127, y: -95}
   m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &390839602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390839600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63bebe15defeae48a8680cef60945b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeStar: {fileID: 1944094592}
+  disableStar: {fileID: 1886957309}
+  OnRate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &395214913
 GameObject:
   m_ObjectHideFlags: 0
@@ -16501,6 +16555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 618459701}
+  - component: {fileID: 618459702}
   m_Layer: 5
   m_Name: Star1 (3)
   m_TagString: Untagged
@@ -16530,6 +16585,23 @@ RectTransform:
   m_AnchoredPosition: {x: 589, y: -95}
   m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &618459702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618459700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63bebe15defeae48a8680cef60945b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeStar: {fileID: 38253482}
+  disableStar: {fileID: 1832775730}
+  OnRate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &619078494
 GameObject:
   m_ObjectHideFlags: 0
@@ -28661,6 +28733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135134426}
+  - component: {fileID: 1135134427}
   m_Layer: 5
   m_Name: Star1 (1)
   m_TagString: Untagged
@@ -28690,6 +28763,23 @@ RectTransform:
   m_AnchoredPosition: {x: 281, y: -95}
   m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1135134427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135134425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63bebe15defeae48a8680cef60945b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeStar: {fileID: 1438307389}
+  disableStar: {fileID: 131858715}
+  OnRate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1143305750
 GameObject:
   m_ObjectHideFlags: 0

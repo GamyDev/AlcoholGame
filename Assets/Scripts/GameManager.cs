@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
             randomDeck = SelectedDeck.selectedDeck[UnityEngine.Random.Range(0, SelectedDeck.selectedDeck.Count)];
         }
     }
-
+     
     public DeckList GetDeckListElement(int lang, int deck)
     {
         for (int j = 0; j < deckLists[lang].deckLists.Count; j++)

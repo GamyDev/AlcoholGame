@@ -28,7 +28,7 @@ public class RaitingWindow : MonoBehaviour
         if (currentRaiting > 3)
         {
             OnStarsMoreThree?.Invoke();
-            Application.OpenURL(url);
+           // Application.OpenURL(url);
         }
         else
         {

@@ -22,7 +22,7 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
     [SerializeField] private TextMeshProUGUI textPrice;
     [SerializeField] private TextMeshProUGUI textPrice2;
     [SerializeField] private GameObject windowSub;
-    [SerializeField] private GameObject onbordingSub;
+   // [SerializeField] private GameObject onbordingSub;
     public static bool subscriptionActive = false;
     public static event Action<bool> OnSubscribtionChange;
 
@@ -36,12 +36,7 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
 
         SubscriptionCheck();
 
-        if (!PlayerPrefs.HasKey("ShowSubscribtion"))
-        {
-            PlayerPrefs.SetInt("ShowSubscribtion", 1);
-            onbordingSub.SetActive(true);
-            TextInvoke();
-        }
+        
     }
 
     
@@ -171,7 +166,6 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
 
             SetSubscribtion(true);
             windowSub.SetActive(false);
-            onbordingSub.SetActive(false);
         }
         else
         {

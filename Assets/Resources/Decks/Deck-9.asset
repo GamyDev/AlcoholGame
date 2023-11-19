@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckTitle: Met a pet
   deckDescription: Woof or meow? Crazy questions about pets, spin and drink!
+  deckRules: 
   icon: {fileID: 21300000, guid: ffe63b8af8bd74423949a53135ba5ddb, type: 3}
   backgroundCard: {fileID: 21300000, guid: 973cff6da322e47aa80771608cd3a899, type: 3}
   questions:

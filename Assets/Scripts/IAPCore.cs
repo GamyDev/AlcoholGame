@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.Purchasing; //библиотека с покупками, будет доступна когда активируем сервисы
 using TMPro;
 using System.Linq;
+using UnityEngine.Purchasing.Extension;
 
-public class IAPCore : MonoBehaviour, IStoreListener //для получения сообщений из Unity Purchasing
+public class IAPCore : MonoBehaviour, IDetailedStoreListener //для получения сообщений из Unity Purchasing
 {
     //  [SerializeField] private GameObject panelAds;
     // [SerializeField] private GameObject panelVIP;
@@ -216,16 +217,23 @@ public class IAPCore : MonoBehaviour, IStoreListener //для получения
         return m_StoreController != null && m_StoreExtensionProvider != null;
     }
 
+    public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
+    {
+        throw new NotImplementedException();
+    }
+
     public void OnInitializeFailed(InitializationFailureReason error)
     {
-        Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
+        throw new NotImplementedException();
+    }
+
+    public void OnInitializeFailed(InitializationFailureReason error, string message)
+    {
+        throw new NotImplementedException();
     }
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
     {
-        Debug.Log(string.Format("OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason));
+        throw new NotImplementedException();
     }
-
-
-
 }
